@@ -56,6 +56,27 @@
     window.addEventListener("resize", updateGrow);
   }
 
+  /* ---------- About: "800+ customers" counts up quickly, slightly blurred until it lands ---------- */
+  var counter = document.querySelector("[data-count]");
+  if (counter && canObserve) {
+    var target = parseInt(counter.getAttribute("data-count"), 10);
+    counter.textContent = "0";
+    var countIO = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      countIO.disconnect();
+      var start = null, duration = 1100;
+      counter.classList.add("is-counting");
+      var step = function (now) {
+        if (start === null) start = now;
+        var t = Math.min(1, (now - start) / duration);
+        counter.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+        if (t < 1) window.requestAnimationFrame(step); else counter.classList.remove("is-counting");
+      };
+      window.setTimeout(function () { window.requestAnimationFrame(step); }, 500);
+    }, { threshold: 0.6 });
+    countIO.observe(counter);
+  }
+
   /* ---------- Solutions Architecture: play the layer-by-layer animation once in view ---------- */
   var archSvg = document.querySelector(".arch-svg");
   if (archSvg && canObserve) {
@@ -159,6 +180,15 @@
       var item = btn.closest(".faq__item");
       var panel = document.getElementById(btn.getAttribute("aria-controls"));
       var open = btn.getAttribute("aria-expanded") === "true";
+      // one answer at a time: close the others in this FAQ before opening a new one
+      if (!open) {
+        $$(".faq__q[aria-expanded='true']", btn.closest(".faq") || document).forEach(function (other) {
+          if (other === btn) return;
+          other.setAttribute("aria-expanded", "false");
+          other.closest(".faq__item").classList.remove("is-open");
+          document.getElementById(other.getAttribute("aria-controls")).hidden = true;
+        });
+      }
       btn.setAttribute("aria-expanded", String(!open));
       item.classList.toggle("is-open", !open);
       panel.hidden = open;
