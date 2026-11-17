@@ -24,6 +24,28 @@
     onScroll();
   }
 
+  /* ---------- Scroll reveal: sections after the hero fade and rise in ---------- */
+  var canObserve = "IntersectionObserver" in window && !reduceMotion;
+  var revealEls = $$(".hero ~ section");
+  if (revealEls.length && canObserve) {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealIO.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { el.classList.add("reveal"); revealIO.observe(el); });
+  }
+
+  /* ---------- Solutions Architecture: play the layer-by-layer animation once in view ---------- */
+  var archSvg = document.querySelector(".arch-svg");
+  if (archSvg && canObserve) {
+    archSvg.classList.add("arch-svg--ready");
+    var archIO = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { archSvg.classList.add("is-playing"); archIO.disconnect(); }
+    }, { threshold: 0.4 });
+    archIO.observe(archSvg);
+  }
+
   /* ---------- Mobile menu ---------- */
   var toggle = document.querySelector(".nav__toggle");
   var menu = document.getElementById("nav-menu");
