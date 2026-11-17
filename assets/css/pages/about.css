@@ -20,6 +20,12 @@
 .journey { position: relative; background-image: linear-gradient(to bottom, #f8f8f8 0%, #dae5f3 31%, #d9e5f3 64%, #f8f8f8 100%); }
 .journey__inner { position: relative; max-width: var(--max); height: 1150px; margin: 0 auto; }
 .journey__path { position: absolute; left: 520px; top: 0; width: 240px; height: 1150px; }
+
+/* Scroll colouring: the story starts grey and takes on its colours as you scroll (main.js sets --lit 0 → 1).
+   The path is a grey copy with a full-colour copy on top, uncovered from the top down. */
+.lit { filter: grayscale(calc(1 - var(--lit, 1))); opacity: calc(.45 + .55 * var(--lit, 1)); }
+.journey__path.lit { opacity: 1; }
+.journey__path--colour { filter: none; clip-path: inset(0 0 calc((1 - var(--lit, 1)) * 100%) 0); }
 .journey__step {
   position: absolute; width: 64px; height: 64px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;

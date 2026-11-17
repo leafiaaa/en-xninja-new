@@ -4,8 +4,10 @@
    Theme per page via a modifier on <body>: .skill-page--bpm / --km
    ========================================================= */
 
-.skill-page--bpm { --accent: #3056a0; --feature: #4971b7; --tile: linear-gradient(to bottom, #355caa, #4c74b9); }
-.skill-page--km  { --accent: #569d37; --feature: #569d37; --tile: linear-gradient(to bottom, #549a36, #67b943); }
+.skill-page--bpm { --accent: #3056a0; --feature: #4971b7; --tile: linear-gradient(to bottom, #355caa, #4c74b9);
+  --pill: linear-gradient(2.74deg, #427bde 3.47%, #1556c8 89.21%); --bar: linear-gradient(178.99deg, #286bd5 50.01%, #1a5cc4 62.6%, #0d4db3 75.19%); }
+.skill-page--km  { --accent: #569d37; --feature: #569d37; --tile: linear-gradient(to bottom, #549a36, #67b943);
+  --pill: linear-gradient(2.74deg, #73bd4c 3.47%, #4f9a2e 89.21%); --bar: linear-gradient(178.99deg, #67b33f 50.01%, #58a334 62.6%, #4a922a 75.19%); }
 
 /* ---------- Page header ---------- */
 .skill-hero { width: 100%; max-width: var(--max); margin: 0 auto; padding: 56px var(--gutter) 0; display: flex; align-items: center; justify-content: center; gap: 29px; }
@@ -43,7 +45,7 @@
 .ai-skills__label { align-self: flex-start; position: relative; margin-top: 22px; height: 128px; width: 489px; max-width: 100%; }
 .ai-skills__pill {
   position: absolute; left: 46px; top: 27px; width: 443px; height: 74px; border-radius: 77px;
-  background: linear-gradient(2.74deg, #427bde 3.47%, #1556c8 89.21%);
+  background: var(--pill);
   display: flex; align-items: center; padding-left: 102px; font-weight: 600; font-size: 36px;
 }
 .ai-skills__badge { position: absolute; left: 6px; top: 0; width: 134px; height: 128px; }
@@ -54,7 +56,7 @@
 .ai-skill__text { width: 497px; flex: none; }
 .ai-skill__title {
   height: 72px; border-radius: 12px; display: flex; align-items: center; padding: 0 30px;
-  background-image: linear-gradient(178.99deg, #286bd5 50.01%, #1a5cc4 62.6%, #0d4db3 75.19%);
+  background-image: var(--bar);
   font-weight: 600; font-size: 24px;
 }
 .ai-skill__list { padding: 13px 0; display: flex; flex-direction: column; gap: 10px; }

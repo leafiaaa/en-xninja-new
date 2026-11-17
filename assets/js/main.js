@@ -26,7 +26,7 @@
 
   /* ---------- Scroll reveal: sections after the hero fade and rise in ---------- */
   var canObserve = "IntersectionObserver" in window && !reduceMotion;
-  var revealEls = $$(".hero ~ section:not(.challenges), .feature, .ai-skills__inner > *, .ai-skill");
+  var revealEls = $$(".hero ~ section:not(.challenges), .feature, .ai-skills__inner > *, .ai-skill, .goals__label, .goal");
   if (revealEls.length && canObserve) {
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -34,6 +34,39 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealEls.forEach(function (el) { el.classList.add("reveal"); revealIO.observe(el); });
+  }
+
+  /* ---------- About page: the story turns from grey to full colour as it scrolls into view ---------- */
+  var path = document.querySelector(".journey__path");
+  var litEls = $$(".journey__step, .story, .journey__stat");
+  if (litEls.length && !reduceMotion) {
+    var litPath = null;
+    if (path) {
+      litPath = path.cloneNode(true);
+      litPath.classList.add("journey__path--colour");
+      path.after(litPath);
+      path.classList.add("lit");
+    }
+    var clampLit = function (v) { return Math.max(0, Math.min(1, v)).toFixed(3); };
+    var litTicking = false;
+    var updateLit = function () {
+      litTicking = false;
+      var vh = window.innerHeight;
+      litEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--lit", clampLit((vh * 0.9 - r.top) / (vh * 0.35)));   // colour in between 90% and 55% of the screen
+      });
+      if (litPath) {
+        var pr = path.getBoundingClientRect();
+        var lit = clampLit((vh * 0.7 - pr.top) / pr.height);    // the line fills down to ~70% of the screen
+        path.style.setProperty("--lit", "0");
+        litPath.style.setProperty("--lit", lit);
+      }
+    };
+    litEls.forEach(function (el) { el.classList.add("lit"); });
+    updateLit();
+    window.addEventListener("scroll", function () { if (!litTicking) { litTicking = true; window.requestAnimationFrame(updateLit); } }, { passive: true });
+    window.addEventListener("resize", updateLit);
   }
 
   /* ---------- Expanding panels (homepage challenges, skill-page AI skills): the dark panel widens to full bleed
