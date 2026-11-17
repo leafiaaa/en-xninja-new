@@ -26,7 +26,7 @@
 
   /* ---------- Scroll reveal: sections after the hero fade and rise in ---------- */
   var canObserve = "IntersectionObserver" in window && !reduceMotion;
-  var revealEls = $$(".hero ~ section:not(.challenges)");
+  var revealEls = $$(".hero ~ section:not(.challenges), .feature, .ai-skills__inner > *, .ai-skill");
   if (revealEls.length && canObserve) {
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -36,21 +36,24 @@
     revealEls.forEach(function (el) { el.classList.add("reveal"); revealIO.observe(el); });
   }
 
-  /* ---------- Challenges: the starfield panel widens to full bleed while the section crosses the viewport
-     (--grow 0 → 1 on the way in, 1 → 0 on the way out); the cards rise in the first time it is entered. */
-  var challenges = document.querySelector(".challenges");
-  if (challenges && !reduceMotion) {
+  /* ---------- Expanding panels (homepage challenges, skill-page AI skills): the dark panel widens to full bleed
+     while the section crosses the viewport (--grow 0 → 1 on the way in, 1 → 0 on the way out). ---------- */
+  var panels = $$(".challenges, .ai-skills");
+  if (panels.length && !reduceMotion) {
     var smooth = function (t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); };
     var growTicking = false;
     var updateGrow = function () {
       growTicking = false;
-      var r = challenges.getBoundingClientRect(), vh = window.innerHeight, hh = header ? header.offsetHeight : 0;
-      var enter = (vh - r.top) / (vh * 0.7);          // full width once the top is ~30% down the screen
-      var leave = (r.bottom - hh) / (vh * 0.7);       // narrows again as the bottom heads under the header
-      challenges.style.setProperty("--grow", smooth(Math.min(enter, leave)).toFixed(3));
-      if (r.top < vh * 0.6) challenges.classList.add("is-entered");
+      var vh = window.innerHeight, hh = header ? header.offsetHeight : 0;
+      panels.forEach(function (panel) {
+        var r = panel.getBoundingClientRect();
+        var enter = (vh - r.top) / (vh * 0.7);          // full width once the top is ~30% down the screen
+        var leave = (r.bottom - hh) / (vh * 0.7);       // narrows again as the bottom heads under the header
+        panel.style.setProperty("--grow", smooth(Math.min(enter, leave)).toFixed(3));
+        if (r.top < vh * 0.6) panel.classList.add("is-entered");   // homepage challenge cards rise in
+      });
     };
-    challenges.classList.add("is-growing");
+    panels.forEach(function (panel) { panel.classList.add("grow-panel", "is-growing"); });
     updateGrow();
     window.addEventListener("scroll", function () { if (!growTicking) { growTicking = true; window.requestAnimationFrame(updateGrow); } }, { passive: true });
     window.addEventListener("resize", updateGrow);

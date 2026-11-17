@@ -220,6 +220,7 @@
 /* ---------- Challenges ---------- */
 .challenges {
   min-height: 847px; padding: 63px var(--gutter); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  background: #0d2650 url("../../img/common/starfield.jpg") center / cover no-repeat;
 }
 .challenges__head { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
 .eyebrow--muted { color: #9dadc2; }
@@ -325,24 +326,12 @@
   .about { --about-shift: max(0px, (100svh - var(--header-h) - 623px) / 2); height: max(623px, 100svh - var(--header-h)); }
 }
 
-/* ---------- Challenges: Salesforce-style expanding panel ----------
-   The starfield sits on ::before as a rounded panel inset from the page edges. main.js sets --grow (0 → 1 → 0)
-   while the section crosses the viewport, so the panel widens to full bleed on the way in and eases back on the way out. */
-.challenges { --grow: 1; position: relative; isolation: isolate; background: none; }
-.challenges::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: #0d2650 url("../../img/common/starfield.jpg") center / cover no-repeat;
-  --side: calc((1 - var(--grow)) * 5vw); --edge: calc((1 - var(--grow)) * 28px);
-  clip-path: inset(var(--edge) var(--side) round calc((1 - var(--grow)) * 44px));
-}
+/* ---------- Challenges: expanding panel (.grow-panel in components.css); cards rise in once entered ---------- */
 .challenges__head, .challenge { transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1); }
 .challenges.is-growing:not(.is-entered) :is(.challenges__head, .challenge) { opacity: 0; transform: translateY(48px); }
 .challenges .challenge:nth-child(2) { transition-delay: .1s; }
 .challenges .challenge:nth-child(3) { transition-delay: .2s; }
 
-/* ---------- Scroll reveal (GitHub-style fade + rise); main.js adds the classes ---------- */
-.reveal { opacity: 0; transform: translateY(48px); transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1); }
-.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1279px) {
@@ -386,7 +375,6 @@
   .eyebrow--shimmer { color: var(--blue-eyebrow); background: none; }
   .prompt.is-typing .prompt__caret { animation: none; }
   .skill, .post, .skill__more, .reveal { transition: none; }
-  .reveal { opacity: 1; transform: none; }
   .about-pin__pulse, .about-pin__glow { animation: none; }
   .about-pin__pulse { opacity: 0; }
   .arch-svg > g { opacity: 1; animation: none; }

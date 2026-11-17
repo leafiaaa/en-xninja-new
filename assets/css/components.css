@@ -51,6 +51,19 @@
   .faq__a p { font-size: 16px; }
   .section-head__desc { font-size: 17px; }
 }
+/* ---------- Scroll reveal (GitHub-style fade + rise); main.js adds the classes ---------- */
+.reveal { opacity: 0; transform: translateY(48px); transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Expanding panel (Salesforce-style) ----------
+   A dark section starts as a rounded card inset from the page edges and widens to full bleed while it scrolls in,
+   then eases back on the way out. main.js adds .grow-panel and sets --grow (0 → 1 → 0). */
+.grow-panel {
+  --grow: 1; --side: calc((1 - var(--grow)) * 5vw); --edge: calc((1 - var(--grow)) * 28px);
+  clip-path: inset(var(--edge) var(--side) round calc((1 - var(--grow)) * 44px));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .faq__q { transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
