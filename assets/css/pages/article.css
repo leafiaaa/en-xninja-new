@@ -16,7 +16,7 @@
 .article__body { display: flex; align-items: flex-start; gap: 54px; padding-top: 22px; }
 .article__main { width: 832px; flex: none; display: flex; flex-direction: column; gap: 56px; min-width: 0; }
 .toc {
-  position: sticky; top: 24px; width: 338px; flex: none; padding: 24px;
+  position: sticky; top: calc(var(--header-h) + 24px); width: 338px; flex: none; padding: 24px;
   background: var(--surface-grey); border: 1px solid #dedee0; border-radius: 14px;
 }
 .toc__title { font-weight: 600; font-size: 14px; letter-spacing: .6px; color: #5e5e63; margin-bottom: 13px; }
@@ -25,7 +25,7 @@
 .toc a:hover, .toc a.is-active { color: var(--blue-600); border-left-color: var(--blue-600); }
 
 /* ---------- Prose ---------- */
-.prose { display: flex; flex-direction: column; gap: 24px; font-size: 22px; line-height: 1.5; color: var(--text-article); scroll-margin-top: 24px; }
+.prose { display: flex; flex-direction: column; gap: 24px; font-size: 22px; line-height: 1.5; color: var(--text-article); scroll-margin-top: calc(var(--header-h) + 16px); }
 .prose strong { font-weight: 700; color: var(--navy-ink); }
 .prose a { font-weight: 700; color: var(--blue-600); }
 .prose a:hover { text-decoration: underline; }

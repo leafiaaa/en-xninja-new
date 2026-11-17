@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>xNinja AI Workhub – An Enterprise Agent, Right When You Need It</title>
   <meta name="description" content="xNinja AI Workhub is an enterprise AI agent by Hundred Plus that completes tasks, finds information and improves daily processes through Master Skills such as Business Process Management and Knowledge Management.">
-  <link rel="icon" href="assets/img/common/favicon.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -33,10 +36,22 @@
             <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
               Skills <img src="assets/img/common/chevron-down.svg" alt="" width="20" height="20">
             </button>
-            <div class="dropdown__menu" id="skills-menu" hidden>
-              <a href="skills/xninja-business-process-management/"><span class="dropdown__icon dropdown__icon--bpm"><img src="assets/img/home/bpm-icon.svg" alt=""></span>Business Process Management</a>
-              <a href="skills/xninja-knowledge-management/"><span class="dropdown__icon dropdown__icon--km"><img src="assets/img/home/km-icon.svg" alt=""></span>Knowledge Management</a>
-              <a class="is-disabled" aria-disabled="true"><span class="dropdown__icon dropdown__icon--iso"><img src="assets/img/home/iso-icon.svg" alt=""></span>ISO Management<span class="dropdown__soon">Coming soon</span></a>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Business Process Management</span><span class="mega__desc">Design eForms and automate approval workflows</span></span>
+                </a></li>
+                <li><a class="mega__item" href="skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Knowledge Management</span><span class="mega__desc">Search, summarize and share company knowledge</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO Management <span class="mega__soon">Coming soon</span></span><span class="mega__desc">Keep your organization audit-ready</span></span>
+                </span></li>
+              </ul>
             </div>
           </li>
           <li><a class="btn btn--nav" href="#contact">Book a Demo</a></li>
@@ -57,7 +72,7 @@
     <!-- ============ Hero ============ -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__text">
-        <p class="eyebrow">RIGHT WHEN YOU NEED IT</p>
+        <p class="eyebrow eyebrow--shimmer">RIGHT WHEN YOU NEED IT</p>
         <h1 id="hero-title" class="hero__title">An Enterprise Agent made to complete tasks, find information, or improving daily processes</h1>
         <p class="hero__sub">Powered by a collection of Master Skills, including Business Process Management, Knowledge Management, and more.</p>
       </div>
@@ -66,7 +81,8 @@
         <div class="stage" data-stage="1280">
           <div class="stage__inner hero__stage">
             <img class="hero__video" src="assets/img/home/hero-video.png" alt="xNinja AI Workhub video: the xNinja mascot in front of analytics dashboards" width="555" height="316">
-            <img class="hero__badge" src="assets/img/home/sparkle-badge.svg" alt="" width="88" height="88">
+            <span class="hero__play" aria-hidden="true"></span>
+            <span class="hero__badge" aria-hidden="true"><span class="hero__sparkle"></span></span>
 
             <!-- Floating card: Analyze internal data -->
             <div class="fcard fcard--analyze" aria-hidden="true">

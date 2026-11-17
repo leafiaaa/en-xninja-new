@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How Manufacturers Can Digitize Forms and Approval Workflows – xNinja</title>
   <meta name="description" content="A practical guide for manufacturers: which forms to digitize first, how to design approval workflows, how to roll them out and what to measure.">
-  <link rel="icon" href="../../../assets/img/common/favicon.png">
+  <link rel="icon" href="../../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/common/apple-touch-icon.png">
   <link rel="preload" href="../../../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../assets/css/base.css">
   <link rel="stylesheet" href="../../../assets/css/layout.css">
@@ -33,10 +36,22 @@
             <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
               Skills <img src="../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
             </button>
-            <div class="dropdown__menu" id="skills-menu" hidden>
-              <a href="../../../skills/xninja-business-process-management/"><span class="dropdown__icon dropdown__icon--bpm"><img src="../../../assets/img/home/bpm-icon.svg" alt=""></span>Business Process Management</a>
-              <a href="../../../skills/xninja-knowledge-management/"><span class="dropdown__icon dropdown__icon--km"><img src="../../../assets/img/home/km-icon.svg" alt=""></span>Knowledge Management</a>
-              <a class="is-disabled" aria-disabled="true"><span class="dropdown__icon dropdown__icon--iso"><img src="../../../assets/img/home/iso-icon.svg" alt=""></span>ISO Management<span class="dropdown__soon">Coming soon</span></a>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../../../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../../../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Business Process Management</span><span class="mega__desc">Design eForms and automate approval workflows</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../../../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../../../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Knowledge Management</span><span class="mega__desc">Search, summarize and share company knowledge</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../../../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO Management <span class="mega__soon">Coming soon</span></span><span class="mega__desc">Keep your organization audit-ready</span></span>
+                </span></li>
+              </ul>
             </div>
           </li>
           <li><a class="btn btn--nav" href="../../../#contact">Book a Demo</a></li>
