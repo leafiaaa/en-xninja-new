@@ -26,7 +26,7 @@
 
   /* ---------- Scroll reveal: sections after the hero fade and rise in ---------- */
   var canObserve = "IntersectionObserver" in window && !reduceMotion;
-  var revealEls = $$(".hero ~ section, .stack-group > .arch");
+  var revealEls = $$(".hero ~ section:not(.challenges)");
   if (revealEls.length && canObserve) {
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -36,31 +36,24 @@
     revealEls.forEach(function (el) { el.classList.add("reveal"); revealIO.observe(el); });
   }
 
-  /* ---------- Stacked sections: challenges slide over the architecture, articles slide over the challenges.
-     The covered section sticks, shrinks and dims (--cover 0 → 1); the challenge cards rise in as the area is entered. */
-  var stack = $$(".stack-group > section");
-  if (stack.length === 3 && !reduceMotion) {
-    var clamp01 = function (v) { return Math.max(0, Math.min(1, v)); };
-    var headerH = function () { return header ? header.offsetHeight : 0; };
-    var layoutStack = function () {
-      stack.slice(0, 2).forEach(function (el) {
-        el.style.setProperty("--stick-top", Math.min(headerH(), window.innerHeight - el.offsetHeight) + "px");
-      });
+  /* ---------- Challenges: the starfield panel widens to full bleed while the section crosses the viewport
+     (--grow 0 → 1 on the way in, 1 → 0 on the way out); the cards rise in the first time it is entered. */
+  var challenges = document.querySelector(".challenges");
+  if (challenges && !reduceMotion) {
+    var smooth = function (t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); };
+    var growTicking = false;
+    var updateGrow = function () {
+      growTicking = false;
+      var r = challenges.getBoundingClientRect(), vh = window.innerHeight, hh = header ? header.offsetHeight : 0;
+      var enter = (vh - r.top) / (vh * 0.7);          // full width once the top is ~30% down the screen
+      var leave = (r.bottom - hh) / (vh * 0.7);       // narrows again as the bottom heads under the header
+      challenges.style.setProperty("--grow", smooth(Math.min(enter, leave)).toFixed(3));
+      if (r.top < vh * 0.6) challenges.classList.add("is-entered");
     };
-    var ticking = false;
-    var updateStack = function () {
-      ticking = false;
-      var vh = window.innerHeight, hh = headerH();
-      for (var i = 0; i < 2; i++) {
-        var top = stack[i + 1].getBoundingClientRect().top;
-        stack[i].style.setProperty("--cover", clamp01((vh - top) / (vh - hh)).toFixed(3));
-      }
-      if (stack[1].getBoundingClientRect().top < vh * 0.55) stack[1].classList.add("is-entered");
-    };
-    stack.forEach(function (el) { el.classList.add("stack"); });
-    layoutStack(); updateStack();
-    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; window.requestAnimationFrame(updateStack); } }, { passive: true });
-    window.addEventListener("resize", function () { layoutStack(); updateStack(); });
+    challenges.classList.add("is-growing");
+    updateGrow();
+    window.addEventListener("scroll", function () { if (!growTicking) { growTicking = true; window.requestAnimationFrame(updateGrow); } }, { passive: true });
+    window.addEventListener("resize", updateGrow);
   }
 
   /* ---------- Solutions Architecture: play the layer-by-layer animation once in view ---------- */
