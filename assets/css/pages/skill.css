@@ -1,0 +1,85 @@
+/* =========================================================
+   pages/skill.css — Master Skill pages (BPM, KM)
+   Sections: page header · core features · AI skills band · FAQ
+   Theme per page via a modifier on <body>: .skill-page--bpm / --km
+   ========================================================= */
+
+.skill-page--bpm { --accent: #3056a0; --feature: #4971b7; --tile: linear-gradient(to bottom, #355caa, #4c74b9); }
+.skill-page--km  { --accent: #569d37; --feature: #569d37; --tile: linear-gradient(to bottom, #549a36, #67b943); }
+
+/* ---------- Page header ---------- */
+.skill-hero { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: center; gap: 29px; }
+.skill-hero__tile { flex: none; width: 156px; height: 143px; border-radius: 19px; background: var(--tile); display: flex; align-items: center; justify-content: center; }
+.skill-hero__tile img { width: 82px; height: auto; }
+.skill-page--km .skill-hero__tile img { width: 70px; }
+.skill-hero__text { width: 1010px; max-width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.skill-hero__title { font-weight: 600; font-size: 32px; color: var(--accent); }
+.skill-hero__desc { font-size: 20px; }
+.skill-hero__desc strong { font-weight: 700; }
+
+/* ---------- Core features ---------- */
+.features { display: flex; flex-direction: column; gap: 31px; }
+.feature { min-height: var(--row-h, auto); width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: center; gap: 54px; }
+.feature__art { flex: none; width: auto; max-width: 100%; height: auto; }
+.feature__text { width: 497px; flex: none; }
+.feature__head { display: flex; align-items: center; gap: 20px; }
+.feature__icon { flex: none; width: 93px; height: 80px; margin: -2px -8px -6px -1px; }
+.feature__title { font-weight: 600; font-size: 24px; color: var(--feature); }
+.feature__list { padding: 36px 4px 36px 28px; display: flex; flex-direction: column; gap: 19px; list-style: disc; font-size: 16px; width: 474px; max-width: 100%; }
+.feature__list strong { font-weight: 700; }
+
+/* ---------- AI skills band ---------- */
+.ai-skills { padding: 63px var(--gutter); background: #0d2650 url("../../img/common/starfield.jpg") center top / cover no-repeat; color: #fff; }
+.ai-skills__inner { max-width: 1216px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.ai-skills__title { font-weight: 600; font-size: 32px; text-align: center; max-width: 884px; }
+.ai-skills .video { margin-top: 22px; width: min(924px, 100%); border-radius: 22px; }
+.video__play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 14px;
+}
+.video[href]:hover img { filter: brightness(1.05); }
+.video__note { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); padding: 6px 12px; border-radius: 100px; background: rgba(0, 0, 0, .55); font-size: 13px; white-space: nowrap; }
+
+.ai-skills__label { align-self: flex-start; position: relative; margin-top: 22px; height: 128px; width: 489px; max-width: 100%; }
+.ai-skills__pill {
+  position: absolute; left: 46px; top: 27px; width: 443px; height: 74px; border-radius: 77px;
+  background: linear-gradient(2.74deg, #427bde 3.47%, #1556c8 89.21%);
+  display: flex; align-items: center; padding-left: 102px; font-weight: 600; font-size: 36px;
+}
+.ai-skills__badge { position: absolute; left: 6px; top: 0; width: 134px; height: 128px; }
+.skill-page--km .ai-skills__badge { left: 13px; top: 10px; width: 120px; height: 108px; }
+
+.ai-skill { width: 100%; padding: 0 var(--gutter); margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 54px; min-height: 430px; }
+.ai-skill__art { flex: none; height: auto; max-width: 100%; }
+.ai-skill__text { width: 497px; flex: none; }
+.ai-skill__title {
+  height: 72px; border-radius: 12px; display: flex; align-items: center; padding: 0 30px;
+  background-image: linear-gradient(178.99deg, #286bd5 50.01%, #1a5cc4 62.6%, #0d4db3 75.19%);
+  font-weight: 600; font-size: 24px;
+}
+.ai-skill__list { padding: 13px 0; display: flex; flex-direction: column; gap: 10px; }
+.ai-skill__list li { position: relative; padding-left: 39px; font-size: 18px; }
+.ai-skill__list li::before { content: ""; position: absolute; left: 0; top: 50%; width: 24px; height: 24px; margin-top: -12px; background: url("../../img/common/check-icon.svg") no-repeat center / 24px; }
+.ai-skill__list strong { display: block; font-weight: 700; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .feature, .ai-skill { flex-direction: column; gap: 24px; min-height: 0; }
+  .feature--reverse, .ai-skill--reverse { flex-direction: column-reverse; }
+  .feature__art, .ai-skill__art { width: min(640px, 100%); }
+  .feature__text, .ai-skill__text { width: min(560px, 100%); }
+  .features { gap: 64px; }
+  .ai-skill { margin-top: 56px; min-height: 0; }
+}
+@media (max-width: 760px) {
+  .skill-hero { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .skill-hero__tile { width: 104px; height: 96px; }
+  .skill-hero__tile img { width: 56px; }
+  .skill-page--km .skill-hero__tile img { width: 48px; }
+  .skill-hero__title, .ai-skills__title { font-size: 26px; }
+  .skill-hero__desc { font-size: 17px; }
+  .feature__list { padding-block: 24px; }
+  .ai-skill__title { height: auto; padding: 18px 22px; font-size: 21px; }
+  .ai-skills__label { transform: scale(.7); transform-origin: left center; margin-block: 0 -20px; }
+  .ai-skill__list li { font-size: 16px; }
+}

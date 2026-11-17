@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>xNinja AI Workhub – An Enterprise Agent, Right When You Need It</title>
   <meta name="description" content="xNinja AI Workhub is an enterprise AI agent by Hundred Plus that completes tasks, finds information and improves daily processes through Master Skills such as Business Process Management and Knowledge Management.">
+  <link rel="icon" href="assets/img/common/favicon.png">
   <link rel="preload" href="assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ Navigation ============ -->
   <header class="site-header">
     <nav class="nav" aria-label="Main">
       <a class="nav__logo" href="./" aria-label="xNinja AI Workhub – home">
-        <img src="assets/img/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
+        <img src="assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
       </a>
 
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
@@ -25,17 +28,26 @@
 
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__links">
-          <li><a href="about-us/">About Us</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a class="btn btn--outline-blue nav__demo" href="#contact">Book a Demo</a></li>
+          <li><a class="nav__link" href="about-us/">About Us</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              Skills <img src="assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu" id="skills-menu" hidden>
+              <a href="skills/xninja-business-process-management/"><span class="dropdown__icon dropdown__icon--bpm"><img src="assets/img/home/bpm-icon.svg" alt=""></span>Business Process Management</a>
+              <a href="skills/xninja-knowledge-management/"><span class="dropdown__icon dropdown__icon--km"><img src="assets/img/home/km-icon.svg" alt=""></span>Knowledge Management</a>
+              <a class="is-disabled" aria-disabled="true"><span class="dropdown__icon dropdown__icon--iso"><img src="assets/img/home/iso-icon.svg" alt=""></span>ISO Management<span class="dropdown__soon">Coming soon</span></a>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="#contact">Book a Demo</a></li>
         </ul>
-        <div class="lang">
-          <button class="lang__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list">
-            EN <img src="assets/img/chevron-down.svg" alt="" width="20" height="20">
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            EN <img src="assets/img/common/chevron-down.svg" alt="" width="20" height="20">
           </button>
-          <ul class="lang__list" id="lang-list" hidden>
-            <li><a href="./" aria-current="true">English</a></li>
-          </ul>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="./" aria-current="true">English</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -53,14 +65,14 @@
       <div class="hero__visuals">
         <div class="stage" data-stage="1280">
           <div class="stage__inner hero__stage">
-            <img class="hero__video" src="assets/img/hero-video.png" alt="xNinja AI Workhub video: the xNinja mascot in front of analytics dashboards" width="555" height="316">
-            <img class="hero__badge" src="assets/img/sparkle-badge.svg" alt="" width="88" height="88">
+            <img class="hero__video" src="assets/img/home/hero-video.png" alt="xNinja AI Workhub video: the xNinja mascot in front of analytics dashboards" width="555" height="316">
+            <img class="hero__badge" src="assets/img/home/sparkle-badge.svg" alt="" width="88" height="88">
 
             <!-- Floating card: Analyze internal data -->
             <div class="fcard fcard--analyze" aria-hidden="true">
               <div class="fcard__bg"></div>
               <div class="fcard__graphic">
-                <div class="prompt prompt--lg prompt--analyze"><img src="assets/img/sparkle.svg" alt="" width="9" height="9"><span>Analyze Q3 expenses by department</span></div>
+                <div class="prompt prompt--lg prompt--analyze"><img src="assets/img/home/sparkle.svg" alt="" width="9" height="9"><span>Analyze Q3 expenses by department</span></div>
                 <span class="speed" style="left:13px;top:59.15px;width:30px"></span>
                 <span class="speed" style="left:19px;top:66.15px;width:22px"></span>
                 <span class="speed" style="left:15px;top:73.15px;width:28px"></span>
@@ -71,9 +83,9 @@
                   <span class="bar" style="left:48px;top:21px;height:30px"></span>
                   <span class="bar bar--dark" style="left:61px;top:13px;height:38px"></span>
                   <span class="result__axis"></span>
-                  <img class="result__trend" src="assets/img/hero-trend-line.svg" alt="" width="60" height="30">
+                  <img class="result__trend" src="assets/img/home/hero-trend-line.svg" alt="" width="60" height="30">
                   <span class="completed result__completed"><span class="completed__bar"></span>Completed</span>
-                  <img class="result__bolt" src="assets/img/hero-lightning-icon.svg" alt="" width="16" height="16">
+                  <img class="result__bolt" src="assets/img/home/hero-lightning-icon.svg" alt="" width="16" height="16">
                   <span class="result__time">0.8s</span>
                   <span class="result__caption">Insights generated</span>
                 </div>
@@ -81,24 +93,24 @@
               <p class="fcard__label fcard__label--analyze">Quickly Analyze Internal Data</p>
             </div>
 
-            <img class="hero__map" src="assets/img/hero-world-map.png" alt="" width="309" height="216">
-            <img class="hero__pin-detail" src="assets/img/hero-pin-detail.svg" alt="" width="14" height="14">
-            <img class="hero__pin" src="assets/img/hero-pin.svg" alt="" width="14" height="24">
+            <img class="hero__map" src="assets/img/home/hero-world-map.png" alt="" width="309" height="216">
+            <img class="hero__pin-detail" src="assets/img/home/hero-pin-detail.svg" alt="" width="14" height="14">
+            <img class="hero__pin" src="assets/img/home/hero-pin.svg" alt="" width="14" height="24">
 
             <!-- Floating card: Design forms -->
             <div class="fcard fcard--forms" aria-hidden="true">
               <div class="fcard__bg"></div>
-              <div class="prompt prompt--lg prompt--forms"><img src="assets/img/sparkle.svg" alt="" width="9" height="9"><span>Generate an Expense Request Form</span></div>
+              <div class="prompt prompt--lg prompt--forms"><img src="assets/img/home/sparkle.svg" alt="" width="9" height="9"><span>Generate an Expense Request Form</span></div>
               <div class="forms__sheet"></div>
-              <img class="abs" src="assets/img/hero-form-title.svg" alt="" width="106" height="8" style="left:99.96px;top:70px;width:105.32px;height:8.01px">
-              <img class="abs" src="assets/img/hero-requester-label.svg" alt="" width="34" height="6" style="left:78.17px;top:94.86px;width:33.68px;height:5.59px">
-              <img class="abs" src="assets/img/hero-form-field-1.svg" alt="" width="78" height="14" style="left:123px;top:91px">
-              <img class="abs" src="assets/img/hero-form-field-2.svg" alt="" width="149" height="13" style="left:76px;top:110px">
-              <img class="abs" src="assets/img/hero-form-field-3.svg" alt="" width="60" height="12" style="left:76px;top:128px">
-              <img class="abs" src="assets/img/hero-form-field-4.svg" alt="" width="144" height="30" style="left:75px;top:145px">
-              <img class="abs" src="assets/img/hero-form-field-5.svg" alt="" width="59" height="12" style="left:142px;top:128px">
-              <img class="abs" src="assets/img/hero-form-detail.png" alt="" width="12" height="9" style="left:129px;top:93px">
-              <img class="abs" src="assets/img/hero-lightning.png" alt="" width="80" height="77" style="left:202px;top:93px">
+              <img class="abs" src="assets/img/home/hero-form-title.svg" alt="" width="106" height="8" style="left:99.96px;top:70px;width:105.32px;height:8.01px">
+              <img class="abs" src="assets/img/home/hero-requester-label.svg" alt="" width="34" height="6" style="left:78.17px;top:94.86px;width:33.68px;height:5.59px">
+              <img class="abs" src="assets/img/home/hero-form-field-1.svg" alt="" width="78" height="14" style="left:123px;top:91px">
+              <img class="abs" src="assets/img/home/hero-form-field-2.svg" alt="" width="149" height="13" style="left:76px;top:110px">
+              <img class="abs" src="assets/img/home/hero-form-field-3.svg" alt="" width="60" height="12" style="left:76px;top:128px">
+              <img class="abs" src="assets/img/home/hero-form-field-4.svg" alt="" width="144" height="30" style="left:75px;top:145px">
+              <img class="abs" src="assets/img/home/hero-form-field-5.svg" alt="" width="59" height="12" style="left:142px;top:128px">
+              <img class="abs" src="assets/img/home/hero-form-detail.png" alt="" width="12" height="9" style="left:129px;top:93px">
+              <img class="abs" src="assets/img/home/hero-lightning.png" alt="" width="80" height="77" style="left:202px;top:93px">
               <p class="fcard__label fcard__label--forms">Design Forms<br>in Seconds</p>
             </div>
           </div>
@@ -121,10 +133,11 @@
           <!-- BPM -->
           <li class="skill">
             <a class="skill__link" href="skills/xninja-business-process-management/" aria-label="xNinja.Business Process Management"></a>
-            <span class="skill__icon skill__icon--bpm"><img src="assets/img/bpm-icon.svg" alt="" width="47" height="42"></span>
+            <span class="skill__more" aria-hidden="true">Learn more →</span>
+            <span class="skill__icon skill__icon--bpm"><img src="assets/img/home/bpm-icon.svg" alt="" width="47" height="42"></span>
             <div class="skill__art" style="left:56px;width:331px" aria-hidden="true">
-              <img class="abs" src="assets/img/bpm-floor.svg" alt="" width="380" height="36" style="left:-31px;top:130px">
-              <div class="prompt prompt--md abs" style="left:6px;top:0;width:158px" data-typing="Create a leave request form" data-steps="14"><img src="assets/img/sparkle-lg.svg" alt="" width="10" height="10"><span class="prompt__text">Create a leave request form</span><span class="prompt__caret"></span></div>
+              <img class="abs" src="assets/img/home/bpm-floor.svg" alt="" width="380" height="36" style="left:-31px;top:130px">
+              <div class="prompt prompt--md abs" style="left:6px;top:0;width:158px" data-typing="Create a leave request form" data-steps="14"><img src="assets/img/home/sparkle-lg.svg" alt="" width="10" height="10"><span class="prompt__text">Create a leave request form</span><span class="prompt__caret"></span></div>
               <div class="mini" style="left:6px;top:30px;width:196px;height:116px">
                 <span class="mini__strip"></span>
                 <p class="mini__title" style="top:11px;left:0;right:0;text-align:center">Leave Request Form</p>
@@ -135,13 +148,13 @@
                 <span class="field" style="left:99px;top:67px;width:84px;background:#fca5a5"></span>
                 <span class="field" style="left:11px;top:85px;width:172px;height:20px;border-radius:10px"></span>
               </div>
-              <div class="speed-badge"><img src="assets/img/bpm-lightning.svg" alt="" width="12" height="12">Generated in 3s</div>
+              <div class="speed-badge"><img src="assets/img/home/bpm-lightning.svg" alt="" width="12" height="12">Generated in 3s</div>
               <div class="mini" style="left:212px;top:44px;width:104px;height:102px">
                 <span class="mini__strip"></span>
                 <p class="mini__title" style="left:8px;top:11px;font-size:8.5px">Approval Flow</p>
-                <div class="step step--green" style="top:31px">Direct Manager<img src="assets/img/status-done.svg" alt="" width="10" height="10"></div>
+                <div class="step step--green" style="top:31px">Direct Manager<img src="assets/img/home/status-done.svg" alt="" width="10" height="10"></div>
                 <span class="connector" style="top:47px"></span>
-                <div class="step step--orange" style="top:53px">Finance<img src="assets/img/status-pending.svg" alt="" width="10" height="10"></div>
+                <div class="step step--orange" style="top:53px">Finance<img src="assets/img/home/status-pending.svg" alt="" width="10" height="10"></div>
                 <span class="connector" style="top:69px"></span>
                 <div class="step step--pink" style="top:75px">Finished</div>
               </div>
@@ -153,12 +166,13 @@
           <!-- KM -->
           <li class="skill">
             <a class="skill__link" href="skills/xninja-knowledge-management/" aria-label="xNinja.Knowledge Management"></a>
-            <span class="skill__icon skill__icon--km"><img src="assets/img/km-icon.svg" alt="" width="39" height="35"></span>
+            <span class="skill__more" aria-hidden="true">Learn more →</span>
+            <span class="skill__icon skill__icon--km"><img src="assets/img/home/km-icon.svg" alt="" width="39" height="35"></span>
             <div class="skill__art" style="left:48px;width:335px" aria-hidden="true">
-              <img class="abs" src="assets/img/km-floor.svg" alt="" width="380" height="36" style="left:-14px;top:130px">
+              <img class="abs" src="assets/img/home/km-floor.svg" alt="" width="380" height="36" style="left:-14px;top:130px">
               <div class="mini" style="left:6px;top:0;width:226px;height:148px">
                 <span class="mini__strip" style="background:#6db552"></span>
-                <div class="prompt prompt--sm abs" style="left:39px;top:11px;width:176px" data-typing="Provide the Annual Policy in English" data-steps="12"><img src="assets/img/sparkle.svg" alt="" width="9" height="9"><span class="prompt__text">Provide the Annual Policy in English</span><span class="prompt__caret"></span></div>
+                <div class="prompt prompt--sm abs" style="left:39px;top:11px;width:176px" data-typing="Provide the Annual Policy in English" data-steps="12"><img src="assets/img/home/sparkle.svg" alt="" width="9" height="9"><span class="prompt__text">Provide the Annual Policy in English</span><span class="prompt__caret"></span></div>
                 <span class="completed" style="left:9px;top:37px"><span class="completed__bar"></span>Completed</span>
                 <div class="reply" style="left:9px;top:53px">
                   <p class="reply__text">I found 1 relevant policy document on annual leave.</p>
@@ -177,20 +191,21 @@
           </li>
 
           <!-- ISO -->
-          <li class="skill">
-            <span class="skill__icon skill__icon--iso"><img src="assets/img/iso-icon.svg" alt="" width="36" height="37"></span>
+          <li class="skill skill--soon">
+            <span class="tag-soon">Coming soon</span>
+            <span class="skill__icon skill__icon--iso"><img src="assets/img/home/iso-icon.svg" alt="" width="36" height="37"></span>
             <div class="skill__art" style="left:23px;width:341px" aria-hidden="true">
-              <img class="abs" src="assets/img/iso-floor.svg" alt="" width="345" height="36" style="left:34.86px;top:140px">
+              <img class="abs" src="assets/img/home/iso-floor.svg" alt="" width="345" height="36" style="left:34.86px;top:140px">
               <div class="mini" style="left:45px;top:0;width:226px;height:148px">
                 <span class="mini__strip" style="background:#4fc1c4"></span>
-                <div class="prompt prompt--sm abs" style="left:58px;top:11px;width:157px" data-typing="Check ISO 9001 audit readiness" data-steps="10"><img src="assets/img/sparkle.svg" alt="" width="9" height="9"><span class="prompt__text">Check ISO 9001 audit readiness</span><span class="prompt__caret"></span></div>
+                <div class="prompt prompt--sm abs" style="left:58px;top:11px;width:157px" data-typing="Check ISO 9001 audit readiness" data-steps="10"><img src="assets/img/home/sparkle.svg" alt="" width="9" height="9"><span class="prompt__text">Check ISO 9001 audit readiness</span><span class="prompt__caret"></span></div>
                 <span class="completed" style="left:9px;top:37px"><span class="completed__bar"></span>Completed</span>
                 <div class="reply" style="left:9px;top:53px">
-                  <img class="abs" src="assets/img/iso-check.svg" alt="" width="11" height="11" style="left:7px;top:6px">
+                  <img class="abs" src="assets/img/home/iso-check.svg" alt="" width="11" height="11" style="left:7px;top:6px">
                   <p class="check-row" style="top:7px">Document Control</p><p class="check-status" style="top:7px;left:171px;color:#3fb37f">Passed</p>
-                  <img class="abs" src="assets/img/iso-check.svg" alt="" width="11" height="11" style="left:7px;top:22px">
+                  <img class="abs" src="assets/img/home/iso-check.svg" alt="" width="11" height="11" style="left:7px;top:22px">
                   <p class="check-row" style="top:23px">Internal Audit Records</p><p class="check-status" style="top:23px;left:171px;color:#3fb37f">Passed</p>
-                  <img class="abs" src="assets/img/iso-warn.svg" alt="" width="11" height="11" style="left:7px;top:38px">
+                  <img class="abs" src="assets/img/home/iso-warn.svg" alt="" width="11" height="11" style="left:7px;top:38px">
                   <p class="check-row" style="top:39px">Corrective Actions</p><p class="check-status" style="top:39px;left:159px;color:#e08e0b">1 to review</p>
                 </div>
                 <div class="chat-input">Type your message...</div>
@@ -215,7 +230,7 @@
         <h2 id="arch-title" class="h2">xNinja Solutions Architecture</h2>
         <p class="arch__desc">Going beyond enterprise software with xNinja AI Workhub. From Enterprise Management System to AI skills layer and autonomous processes through xNinja AI Agent</p>
       </header>
-      <img class="arch__img" src="assets/img/architecture.png" width="636" height="502" loading="lazy"
+      <img class="arch__img" src="assets/img/home/architecture.png" width="636" height="502" loading="lazy"
            alt="Architecture diagram: the Enterprise Management System (BPM, KM, CRM, HR, ISO and more enterprise solutions) feeds an AI Skills Layer (BPM, KM, CRM, HR, ISO and more skills), which powers the xNinja AI Agent: understanding and reasoning, planning, execution and response, memory and knowledge, tools and skills, learning and optimization.">
     </section>
 
@@ -263,31 +278,23 @@
         <p class="section-head__desc section-head__desc--wide">Explore our articles to discover how xNinja can help your organization achieve digital transformation.</p>
       </header>
       <div class="articles__row">
-        <article class="post">
-          <img class="post__thumb" src="assets/img/article-approval.png" alt="Approval Workflow Automation – Why Growing Businesses Need It" width="324" height="139" loading="lazy">
+        <article class="post card-top">
+          <img class="post__thumb" src="assets/img/home/article-approval.png" alt="Approval Workflow Automation – Why Growing Businesses Need It" width="324" height="139" loading="lazy">
           <div class="post__meta"><span class="pill">New</span><span class="post__dot"></span><time datetime="2026-06-24">June 24, 2026</time></div>
           <h3 class="post__title">How AI Taiwan Future Commerce Expo highlighted approval workflow automation.</h3>
-          <a class="post__link" href="articles/approval-workflow-automation/">Read article →<span class="stretched"></span></a>
+          <a class="post__link" href="articles/approval-workflow-automation/">Read article →</a>
         </article>
-        <article class="post">
-          <img class="post__thumb" src="assets/img/article-eform.png" alt="Maximize your eForm with xNinja – Turn everyday eForms into business answers" width="324" height="139" loading="lazy">
+        <article class="post card-top">
+          <img class="post__thumb" src="assets/img/home/article-eform.png" alt="Maximize your eForm with xNinja – Turn everyday eForms into business answers" width="324" height="139" loading="lazy">
           <div class="post__meta"><span class="pill">New</span><span class="post__dot"></span><time datetime="2026-06-24">June 24, 2026</time></div>
           <h3 class="post__title">Turn Everyday Forms Into Business Answers: How to Maximize Your eForms with xNinja</h3>
-          <a class="post__link" href="articles/maximize-eForm-with-xNinja/">Read article →<span class="stretched"></span></a>
+          <a class="post__link" href="articles/maximize-eForm-with-xNinja/">Read article →</a>
         </article>
-        <article class="post">
-          <div class="post__thumb thumb-km" role="img" aria-label="Find Answers Instantly with xNinja Knowledge Management">
-            <img class="abs" src="assets/img/article-glow.svg" alt="" width="130" height="90" style="left:174px;top:0">
-            <img class="abs" src="assets/img/article-navy-shape.svg" alt="" width="150" height="62" style="left:174px;top:77px">
-            <img class="abs" src="assets/img/article-logo.png" alt="" width="64" height="19" style="left:248px;top:10px">
-            <p class="thumb-km__title">Find Answers Instantly</p>
-            <p class="thumb-km__sub">with xNinja Knowledge Management</p>
-            <span class="thumb-km__search"><img src="assets/img/search-icon.svg" alt="" width="12" height="12"><span></span></span>
-            <img class="abs" src="assets/img/article-ninja-search.png" alt="" width="87" height="117" style="left:212px;top:22.66px">
-          </div>
-          <div class="post__meta"><span class="pill">Upcoming</span></div>
-          <h3 class="post__title">Find Answers Instantly: How xNinja Knowledge Management Turns Company Documents into On-Demand Answers</h3>
-          <span class="post__link post__link--soon" aria-disabled="true">Read article →</span>
+        <article class="post card-top">
+          <img class="post__thumb" src="assets/img/home/article-manufacturers.png" alt="Digitize Forms and Approvals – A Guide for Manufacturers" width="324" height="139" loading="lazy">
+          <div class="post__meta"><span class="pill">New</span><span class="post__dot"></span><time datetime="2026-06-24">June 24, 2026</time></div>
+          <h3 class="post__title">How Manufacturers Can Digitize Forms and Approval Workflows</h3>
+          <a class="post__link" href="articles/maximize-eForm-with-xNinja/how-manufacturers-can-digitize-forms-and-approval-workflows/">Read article →</a>
         </article>
       </div>
     </section>
@@ -298,14 +305,14 @@
         <p class="about__label">ABOUT XNINJA</p>
         <h2 id="about-title" class="about__title">Built by people who’ve digitized enterprises for 20+ years.</h2>
         <p class="about__body">Since 2004, Hundred Plus has helped 800+ organizations accelerate digital transformation with enterprise management software. Our products and cloud services have been ISO/IEC 27001 certified since 2015 — so xNinja is secure, reliable and cost-effective from day one.</p>
-        <a class="btn btn--outline-blue btn--arrow" href="about-us/">Read more <img src="assets/img/arrow-right-blue.svg" alt="" width="18" height="11"></a>
+        <a class="btn btn--arrow btn--blue" href="about-us/">Read more <img src="assets/img/common/arrow-right-blue.svg" alt="" width="18" height="11"></a>
       </div>
       <div class="about__visual">
         <div class="stage" data-stage="584">
           <div class="stage__inner about__stage">
-            <img class="abs" src="assets/img/about-world-map.png" alt="World map highlighting Hundred Plus markets across Asia" width="584" height="415" loading="lazy" style="left:0;top:0">
-            <img class="abs" src="assets/img/about-pin.svg" alt="" width="16" height="25" style="left:485.95px;top:207.7px">
-            <img class="abs" src="assets/img/about-pin-dot.svg" alt="" width="10" height="12" style="left:491.97px;top:200.4px">
+            <img class="abs" src="assets/img/home/about-world-map.png" alt="World map highlighting Hundred Plus markets across Asia" width="584" height="415" loading="lazy" style="left:0;top:0">
+            <img class="abs" src="assets/img/home/about-pin.svg" alt="" width="16" height="25" style="left:485.95px;top:207.7px">
+            <img class="abs" src="assets/img/home/about-pin-dot.svg" alt="" width="10" height="12" style="left:491.97px;top:200.4px">
             <div class="about__stat">
               <p class="about__stat-num">800+ customers</p>
               <p class="about__stat-sub">across 7 markets in Asia</p>
@@ -313,7 +320,7 @@
           </div>
         </div>
       </div>
-      <img class="about__wave" src="assets/img/about-wave.png" alt="" width="589" height="327" loading="lazy">
+      <img class="about__wave" src="assets/img/home/about-wave.png" alt="" width="589" height="327" loading="lazy">
     </section>
 
     <!-- ============ CTA + FAQ ============ -->
@@ -322,19 +329,19 @@
         <div class="cta__content">
           <h2 id="cta-title" class="cta__title">See xNinja in Action.</h2>
           <p class="cta__text">Reach out to the Hundred Plus team for a free demo and experience how xNinja can transform the way your team works.</p>
-          <a class="btn btn--outline-white btn--arrow" href="mailto:service@hundredplus.com?subject=xNinja%20demo%20request">Book a Demo <img src="assets/img/arrow-right-white.svg" alt="" width="18" height="11"></a>
+          <a class="btn btn--arrow btn--white" href="mailto:service@hundredplus.com?subject=xNinja%20demo%20request">Book a Demo <img src="assets/img/common/arrow-right-white.svg" alt="" width="18" height="11"></a>
         </div>
         <div class="cta__cards">
           <div class="contact-card">
             <p class="contact-card__label">CUSTOMER SERVICE</p>
             <p class="contact-card__name">Hundred Plus Team</p>
-            <a class="contact-card__row" href="mailto:service@hundredplus.com"><img src="assets/img/icon-mail.svg" alt="" width="16" height="16">service@hundredplus.com</a>
-            <a class="contact-card__row" href="tel:+886223578866"><img src="assets/img/icon-phone.svg" alt="" width="16" height="16">+886 2-2357-8866</a>
+            <a class="contact-card__row" href="mailto:service@hundredplus.com"><img src="assets/img/common/icon-mail.svg" alt="" width="16" height="16">service@hundredplus.com</a>
+            <a class="contact-card__row" href="tel:+886223578866"><img src="assets/img/common/icon-phone.svg" alt="" width="16" height="16">+886 2-2357-8866</a>
           </div>
           <div class="contact-card">
             <p class="contact-card__label">LOCATION</p>
             <p class="contact-card__name">Hundred Plus Co., Ltd · Taiwan</p>
-            <a class="contact-card__row contact-card__map" href="https://www.google.com/maps/search/?api=1&amp;query=5F.%2C+No.150%2C+Sec.+1%2C+Zhongxiao+E.+Rd.%2C+Zhongzheng+Dist.%2C+Taipei+City+100%2C+Taiwan" target="_blank" rel="noopener">Click to open in Google Maps <img src="assets/img/arrow-right-link.svg" alt="" width="16" height="10"></a>
+            <a class="contact-card__row contact-card__map" href="https://www.google.com/maps/search/?api=1&amp;query=5F.%2C+No.150%2C+Sec.+1%2C+Zhongxiao+E.+Rd.%2C+Zhongzheng+Dist.%2C+Taipei+City+100%2C+Taiwan" target="_blank" rel="noopener">Click to open in Google Maps <img src="assets/img/common/arrow-right-link.svg" alt="" width="16" height="10"></a>
           </div>
         </div>
       </div>
@@ -363,10 +370,9 @@
     </section>
   </main>
 
-  <!-- ============ Footer ============ -->
   <footer class="footer">
     <div class="footer__main">
-      <a class="footer__logo" href="./"><img src="assets/img/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <a class="footer__logo" href="./"><img src="assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
       <nav class="footer__col" aria-label="Skills">
         <p class="footer__head">Skills</p>
         <a href="skills/xninja-business-process-management/">Business Process Management</a>

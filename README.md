@@ -1,38 +1,61 @@
 # xNinja AI Workhub – English website
 
-Static homepage for xNinja AI Workhub by Hundred Plus, built from the Figma file
-**xNinja_website → `/en/home`** (1280px frame).
+Static website for xNinja AI Workhub by Hundred Plus, built from the Figma file **xNinja_website**.
+Plain HTML, CSS and JavaScript with no build step and no dependencies, ready for GitHub Pages.
 
-No build step and no dependencies: plain HTML, CSS and JavaScript.
+## Pages
 
-## Structure
+| URL | File | Figma frame |
+|---|---|---|
+| `/` | `index.html` | `/en/home` |
+| `/about-us/` | `about-us/index.html` | `/en/about-us` |
+| `/skills/xninja-business-process-management/` | `skills/xninja-business-process-management/index.html` | `/en/skills/xninja-business-process-management` |
+| `/skills/xninja-knowledge-management/` | `skills/xninja-knowledge-management/index.html` | `/en/skills/xninja-knowledge-management` |
+| `/articles/approval-workflow-automation/` | `articles/approval-workflow-automation/index.html` | `/en/articles/approval-workflow-automation` |
+| `/articles/maximize-eForm-with-xNinja/` | `articles/maximize-eForm-with-xNinja/index.html` | `/en/articles/maximize-eForm-with-xNinja` |
+| `/articles/maximize-eForm-with-xNinja/how-manufacturers-can-digitize-forms-and-approval-workflows/` | `…/index.html` | same path in Figma |
+| any missing page | `404.html` | — |
+
+All links between pages are relative, so the site works under `https://<user>.github.io/en-xninja-new/` and on a custom domain.
+`404.html` uses `/en-xninja-new/` paths; change them if the site moves to its own domain.
+
+## Folder structure
 
 ```
-index.html            Homepage
-assets/css/styles.css Styles (desktop layout matches the 1280px Figma frame; responsive down to phones)
-assets/js/main.js     Mobile menu, language menu, FAQ accordion, skill-card scroll indicator,
-                      AI-prompt typing loop, scaling of the hero/map compositions
-assets/img/           Images and icons exported from Figma
-assets/fonts/         Montserrat (self-hosted, SIL Open Font License – see OFL-LICENSE.txt)
+assets/
+  css/
+    base.css         tokens (colors, gradients, shadows), fonts, reset, type, buttons   – every page
+    layout.css       header + Skills dropdown, mobile menu, footer                       – every page
+    components.css   FAQ accordion, section headers, cards, checklists, tags             – every page
+    pages/
+      home.css       homepage only
+      about.css      About Us only
+      skill.css      both skill pages (theme via body.skill-page--bpm / --km)
+      article.css    all article pages (title, table of contents, prose, tables, callouts)
+  js/main.js         menus, dropdowns, FAQ, homepage animations, table-of-contents highlight
+  img/
+    common/          logo, icons and backgrounds used on several pages
+    home/ about/ skills/ articles/
+  fonts/             Montserrat (self-hosted, SIL Open Font License)
 ```
+
+Each page loads `base.css → layout.css → components.css → its page CSS`.
+To change a brand color, edit the variables at the top of `base.css`.
+
+## Still to add
+
+- **Video links**: BPM and KM demo videos (skill pages + Approval Workflow article). The cover images are in place; add the link and they become clickable.
+- **TikTok link**: "Watch on TikTok — Hundred Plus TH" (end of the Approval Workflow article).
+- **purchaseRequestFlow image**: placeholder box in the Manufacturers article ("How to design approval workflows").
+- **Book a Demo**: currently opens an email to service@hundredplus.com. Swap in a booking form when there is one.
 
 ## Run locally
 
 ```
 python3 -m http.server 8000
-# then open http://localhost:8000
+# open http://localhost:8000
 ```
 
-## Deploy with GitHub Pages
+## Deploy (GitHub Pages)
 
-Settings → Pages → Source: *Deploy from a branch* → Branch `main`, folder `/ (root)`.
-
-## Notes
-
-- Links to the other pages use the routes from the Figma file (`about-us/`, `skills/xninja-business-process-management/`,
-  `skills/xninja-knowledge-management/`, `articles/approval-workflow-automation/`,
-  `articles/maximize-eForm-with-xNinja/`). Those pages aren't built yet.
-- "Book a Demo" opens an email to service@hundredplus.com; swap in a booking form URL when there is one.
-- The hero video is the still image from the design; add the video source when it's available.
-- Motion follows the Figma prototype notes (floating cards drift; prompts type in a loop) and is turned off for
-  visitors who prefer reduced motion.
+Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`.
