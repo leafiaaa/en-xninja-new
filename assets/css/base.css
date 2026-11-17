@@ -53,6 +53,8 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
+/* Traditional Chinese pages (/tw/): Montserrat for Latin, the system's Traditional Chinese font for the rest */
+html:lang(zh-Hant-TW) body { font-family: "Montserrat", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
 body {
   margin: 0;

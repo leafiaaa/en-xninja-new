@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>製造業如何數位化表單與簽核流程 – xNinja</title>
+  <meta name="description" content="給製造業的實用指南：哪些表單應優先數位化、如何設計簽核流程、如何推行，以及該衡量哪些指標。">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../../../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../../../assets/img/common/apple-touch-icon.png">
+  <link rel="preload" href="../../../../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../../assets/css/pages/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="主選單">
+      <a class="nav__logo" href="../../../" aria-label="xNinja AI Workhub – 首頁">
+        <img src="../../../../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">選單</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="../../../about-us/">關於我們</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              技能 <img src="../../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../../../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../../../../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">企業流程管理</span><span class="mega__desc">設計電子表單，自動化簽核流程</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../../../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../../../../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">知識管理</span><span class="mega__desc">搜尋、摘要與分享企業知識</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../../../../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO 管理 <span class="mega__soon">即將推出</span></span><span class="mega__desc">讓組織隨時做好稽核準備</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="../../../#contact">預約展示</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            繁中 <img src="../../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="../../../../articles/maximize-eForm-with-xNinja/how-manufacturers-can-digitize-forms-and-approval-workflows/" lang="en" hreflang="en">English</a>
+            <a href="./" lang="zh-Hant-TW" hreflang="zh-Hant-TW" aria-current="true">繁體中文</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <img class="article__banner" src="../../../../assets/img/articles/manufacturers-banner.png" alt="表單與簽核數位化 – 製造業指南" width="1224" height="462">
+      <header class="article__header">
+        <h1 class="article__title">製造業如何數位化表單與簽核流程？</h1>
+        <p class="article__meta"><span class="article__chip">洞察</span><span aria-hidden="true">•</span><time datetime="2026-06-24">2026 年 6 月 24 日</time><span aria-hidden="true">•</span><span>6 分鐘閱讀</span></p>
+      </header>
+      <div class="article__body">
+        <div class="article__main">
+        <section class="prose" id="introduction">
+          <p>許多製造業者在請購、品質檢驗、設備維修與請假申請等日常流程中，仍仰賴紙本或試算表。這些方式看似可行，直到<strong>表單遺失</strong>、<strong>簽核人不在</strong>，或<strong>有人需要快速找出舊紀錄</strong>時，問題就浮現了。</p>
+          <p>當涉及多個部門或廠區時，這些小延誤會拖慢日常營運，也讓人難以掌握實際狀況。本文將說明<strong>哪些表單應優先數位化</strong>、<strong>如何設計簽核流程</strong>，以及<strong>如何帶領團隊推動改變</strong>。</p>
+          <div class="callout">
+            <p class="callout__title">快速解答</p>
+            <p class="callout__row"><strong>製造業可以透過以下方式快速數位化流程：</strong></p>
+            <ul class="check-list">
+            <li>將高使用量或常延誤的表單改建為電子表單</li>
+            <li>依照 SOP 設定流程路徑</li>
+            <li>先由一個團隊試行</li>
+            <li>再將流程擴展到更多部門或廠區</li>
+          </ul>
+          </div>
+        </section>
+
+        <section class="prose" id="which-forms" aria-labelledby="which-forms-h">
+          <h2 id="which-forms-h">哪些表單應優先數位化？</h2>
+          <p>從經常送出、需經多位簽核人，或常需用於報表的表單開始。一開始先避開最複雜的流程，選擇流程較簡單的表單試行。</p>
+          <div class="table-wrap"><table class="table table--compact">
+          <thead><tr><th scope="col">表單</th><th scope="col">主要使用者</th><th scope="col">數位化帶來的改善</th></tr></thead>
+          <tbody>
+          <tr><td><strong>請假與加班申請</strong></td><td>全體員工、主管、人資</td><td>簽核更快速，出勤報表更容易</td></tr>
+          <tr><td><strong>請購單</strong></td><td>申請人、主管、採購、財務</td><td>簽核狀態清楚，支出紀錄完整</td></tr>
+          <tr><td><strong>設備維修申請</strong></td><td>作業員、維修團隊</td><td>問題追蹤更容易，設備歷程可搜尋</td></tr>
+          <tr><td><strong>品質檢驗紀錄</strong></td><td>品管人員、生產主管</td><td>資料一致，缺失追蹤更快速</td></tr>
+          <tr><td><strong>不合格品報告</strong></td><td>品保、生產、工程</td><td>矯正措施權責清楚</td></tr>
+          <tr><td><strong>工程變更申請</strong></td><td>工程、生產、品保</td><td>跨部門審查追蹤更完善</td></tr>
+          <tr><td><strong>工安事故報告</strong></td><td>員工、主管、工安團隊</td><td>通報更快速，趨勢分析更容易</td></tr>
+          </tbody>
+          </table></div>
+          <p>要選出第一張表單，可先列出目前所有表單，並依以下三個問題評分：</p>
+          <ul class="check-list">
+            <li><strong>使用量：</strong>多久送出一次？</li>
+            <li><strong>延誤：</strong>通常要等多久才會被簽核或處理？</li>
+            <li><strong>資料價值：</strong>這張表單的資料是否能協助主管做決策？</li>
+          </ul>
+          <p>從三項分數都高、但簽核路徑簡單的表單開始。</p>
+        </section>
+
+        <section class="prose" id="design-workflows" aria-labelledby="design-workflows-h">
+          <h2 id="design-workflows-h">如何設計簽核流程</h2>
+          <p>好的數位流程應反映決策該如何做出，而不只是複製紙本表單一貫的傳遞方式。建置之前，先確認每張申請需要由誰審查、為何需要審查，以及被駁回時該如何處理。</p>
+          <p>以下範例說明請購單如何依金額走不同的簽核路徑。實際步驟與金額門檻應依照您的 SOP 訂定。</p>
+          <div class="media-slot" role="img" aria-label="請購單簽核流程範例">請購單簽核流程範例<br>(purchaseRequestFlow.webp)</div>
+          <p>設計流程時，請把握以下原則：</p>
+          <ul class="check-list">
+            <li><strong>刪除不必要的步驟。</strong>只有在該簽核人確實需要做決定時才保留這一關。</li>
+            <li><strong>善用條件。</strong>依金額、部門、廠區或申請類型等條件分流。</li>
+            <li><strong>以角色而非人名指派。</strong>人員異動時，簽核路徑更容易維護。</li>
+            <li><strong>預先規劃代理人。</strong>設定代理簽核人，並決定逾期申請何時應升級處理。</li>
+            <li><strong>定義駁回後的處理方式。</strong>清楚說明申請是結案，還是退回修改。</li>
+            <li><strong>保留完整紀錄。</strong>記錄由誰處理、何時處理，以及所留下的意見。</li>
+          </ul>
+        </section>
+
+        <section class="prose" id="roll-out" aria-labelledby="roll-out-h">
+          <h2 id="roll-out-h">如何推行電子表單</h2>
+          <h3>1. 指定負責人</h3>
+          <p>為每個流程指定一位能做決策、並在需求變動時更新表單的負責人。</p>
+          <h3>2. 小規模試行</h3>
+          <p>從一張表單與一個團隊開始，若流程同時涉及辦公室與現場人員，最好兩者都納入。</p>
+          <h3>3. 訂定明確的切換日期</h3>
+          <p>決定紙本版本何時停用，避免團隊長期同時維護兩套系統。</p>
+          <h3>4. 依任務進行教育訓練</h3>
+          <p>讓每個群組了解自己需要做什麼，例如送出、簽核或查詢進度。</p>
+          <h3>5. 規劃現場人員的使用方式</h3>
+          <p>確認作業員與檢驗人員在當班時都能使用表單，包括沒有個人電腦的人員。</p>
+          <h3>6. 蒐集回饋並調整</h3>
+          <p>詢問使用者哪裡卡住了，在擴大推行前先修正令人困惑的欄位或簽核步驟。</p>
+          <h3>7. 分階段擴展</h3>
+          <p>試行順利後，再加入更多團隊、廠區與表單，並沿用累積的經驗。</p>
+        </section>
+
+        <section class="prose" id="measure" aria-labelledby="measure-h">
+          <h2 id="measure-h">該衡量哪些指標</h2>
+          <p>在試行開始前先記錄基準值，才能呈現改變的成果。通常幾項簡單的指標就足夠：</p>
+          <div class="table-wrap"><table class="table">
+          <thead><tr><th scope="col">指標</th><th scope="col">代表的意義</th></tr></thead>
+          <tbody>
+          <tr><td><strong>簽核週期時間</strong></td><td>申請從送出到最終決定所需的時間</td></tr>
+          <tr><td><strong>各步驟等待時間</strong></td><td>簽核卡在哪個環節</td></tr>
+          <tr><td><strong>駁回或退件的表單</strong></td><td>欄位或說明是否造成錯誤</td></tr>
+          <tr><td><strong>紀錄查找時間</strong></td><td>找到過去表單所需的時間</td></tr>
+          <tr><td><strong>數位化採用率</strong></td><td>目前有多少申請使用電子表單</td></tr>
+          </tbody>
+          </table></div>
+          <p>資料累積之後，也可以從中找出營運模式。例如，維修申請可能顯示哪些機台最常故障，品質紀錄則可能顯示哪些缺失反覆出現。</p>
+        </section>
+
+        <section class="prose" id="mistakes" aria-labelledby="mistakes-h">
+          <h2 id="mistakes-h">常見的錯誤</h2>
+          <p><strong>完全照搬紙本表單。</strong>刪除沒人使用的欄位，並藉此機會簡化流程。</p>
+          <p><strong>加入過多簽核人。</strong>每多一關都可能多一份延誤，只保留目的明確的審查。</p>
+          <p><strong>設計時沒有納入現場意見。</strong>只由辦公室設計的表單，可能不符合作業員與檢驗人員實際的工作方式。</p>
+          <p><strong>忽略簽核人不在的情況。</strong>沒有代理簽核人或升級規則，一個人缺席就可能讓整個流程停擺。</p>
+          <p><strong>紙本與電子無限期並行。</strong>兩套系統並行會讓紀錄分散，資料也更難信任。</p>
+          <p><strong>蒐集沒人檢視的資料。</strong>決定每份報表由誰使用，以及要支援哪些決策。</p>
+        </section>
+
+        <section class="prose" id="how-xninja-helps" aria-labelledby="how-xninja-helps-h">
+          <h2 id="how-xninja-helps-h">xNinja 如何協助製造業數位化表單</h2>
+          <p>xNinja 協助團隊在不需撰寫程式的情況下，將表單與簽核整合到同一個系統：</p>
+          <ul class="check-list">
+            <li><strong>彈性建立表單：</strong>在表單設計器中建立電子表單，或從既有的 Microsoft Word 文件開始。</li>
+            <li><strong>從掃描表單擷取資料：</strong>透過 OCR 將掃描文件中的資訊帶入電子表單。</li>
+            <li><strong>依照您的 SOP：</strong>設定符合企業作業程序的簽核流程。</li>
+            <li><strong>追蹤每個動作：</strong>從送出到簽核，所有電子表單動作皆可追溯。</li>
+            <li><strong>將申請轉化為洞察：</strong>透過報表與樞紐分析表探索累積的表單資料。</li>
+          </ul>
+          <p>進一步了解 <a href="../../../skills/xninja-business-process-management/">xNinja.企業流程管理</a>。</p>
+        </section>
+
+        <section class="prose" id="start" aria-labelledby="start-h">
+          <h2 id="start-h">從一張表單開始</h2>
+          <p>數位化不必一開始就是全公司的專案。選出一張拖慢團隊的表單、訂定基準值，並和每天使用它的人一起測試更好的流程。</p>
+          <p><a href="../../../#contact">預約展示</a>，了解 <strong>xNinja</strong> 如何協助您將第一張表單變成可運作的數位流程。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="目錄">
+          <p class="toc__title">目錄</p>
+          <ol>
+            <li><a href="#which-forms">哪些表單應優先數位化</a></li>
+            <li><a href="#design-workflows">如何設計簽核流程</a></li>
+            <li><a href="#roll-out">如何推行電子表單</a></li>
+            <li><a href="#measure">該衡量哪些指標</a></li>
+            <li><a href="#mistakes">常見的錯誤</a></li>
+            <li><a href="#how-xninja-helps">xNinja 如何協助製造業</a></li>
+            <li><a href="#start">從一張表單開始</a></li>
+          </ol>
+        </nav>
+      </div>
+    </article>
+
+    <section class="article-faq" aria-label="常見問題">
+<div class="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="faq__title">常見問題</h2>
+  <div class="faq__list">
+    <div class="faq__item is-open">
+      <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="art_mfg-faq-a1" id="art_mfg-faq-q1">製造業應優先數位化哪些表單？<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_mfg-faq-a1" role="region" aria-labelledby="art_mfg-faq-q1"><p>從經常使用、會延誤工作，或能產生有用資料的表單開始。請假單、請購單與維修申請單通常有清楚的簽核路徑，是常見的起點。</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_mfg-faq-a2" id="art_mfg-faq-q2">製造業需要更換 ERP 才能數位化表單嗎？<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_mfg-faq-a2" role="region" aria-labelledby="art_mfg-faq-q2" hidden><p>不一定。許多表單與簽核位於 ERP 之外，通常可以作為獨立專案進行數位化。開始之前，先確認兩個系統之間是否有資料需要串接。</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_mfg-faq-a3" id="art_mfg-faq-q3">沒有公司電腦的員工如何使用電子表單？<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_mfg-faq-a3" role="region" aria-labelledby="art_mfg-faq-q3" hidden><p>可以在現場設置共用工作站、使用平板，或由主管代為送出。請依任務、工作環境與公司政策選擇，並在實際當班時測試。</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_mfg-faq-a4" id="art_mfg-faq-q4">舊的紙本紀錄該如何處理？<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_mfg-faq-a4" role="region" aria-labelledby="art_mfg-faq-q4" hidden><p>先確認法規、客戶與內部的保存要求，再決定哪些紀錄必須保留正本、哪些應掃描存檔，哪些可以封存至保存期限屆滿。</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_mfg-faq-a5" id="art_mfg-faq-q5">不同廠區的簽核流程可以不同嗎？<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_mfg-faq-a5" role="region" aria-labelledby="art_mfg-faq-q5" hidden><p>可以，只要您的流程工具支援。盡可能維持共同標準，只有在當地角色或程序確實需要時，才加入廠區專屬的步驟。</p></div>
+    </div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="../../../"><img src="../../../../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="技能">
+        <p class="footer__head">技能</p>
+        <a href="../../../skills/xninja-business-process-management/">企業流程管理</a>
+        <a href="../../../skills/xninja-knowledge-management/">知識管理</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="公司">
+        <p class="footer__head">公司</p>
+        <a class="footer__link-blue" href="../../../about-us/">關於我們</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja by Hundred Plus Co., Ltd. 版權所有 · 台灣</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>100 台北市中正區忠孝東路一段 150 號 5 樓</p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js" defer></script>
+</body>
+</html>

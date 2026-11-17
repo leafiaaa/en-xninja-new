@@ -59,3 +59,9 @@ python3 -m http.server 8000
 ## Deploy (GitHub Pages)
 
 Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`.
+
+## Traditional Chinese (Taiwan) version
+
+The `/tw/` folder mirrors every English page in Traditional Chinese (Taiwan) and uses the same CSS, JS and images.
+The language menu in the navigation switches between `English` and `繁體中文` on the same page.
+Wording follows xninja.biz/tw where that page has it. Text inside illustrations and screenshots (PNG/WebP) is still in English.
