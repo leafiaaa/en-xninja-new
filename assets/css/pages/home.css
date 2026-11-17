@@ -49,8 +49,7 @@
   50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(90, 162, 240, .18), 0 0 18px 6px rgba(1, 86, 215, .35); }
 }
 
-/* slogan + sparkle share one shimmer: a light-blue highlight sweeping across dark blue */
-@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+/* slogan + sparkle share the shimmer keyframes in components.css */
 .hero__map { position: absolute; left: 912px; top: 185px; width: 309px; height: 216px; }
 .hero__pin-detail { position: absolute; left: 1166.9px; top: 285.75px; width: 14px; height: 14px; }
 .hero__pin { position: absolute; left: 1164.8px; top: 297.9px; width: 14px; height: 24px; }

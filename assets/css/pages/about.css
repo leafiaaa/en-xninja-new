@@ -10,7 +10,7 @@
 /* ---------- Vision ---------- */
 .vision { height: 474px; padding: 0 40px; display: flex; align-items: center; justify-content: center; gap: 28px; }
 .vision__text { width: 479px; padding: 34px 0; display: flex; flex-direction: column; gap: 22px; text-align: center; }
-.vision__title { font-weight: 600; font-size: 48px; color: #191919; }
+.vision__title { font-weight: 600; font-size: 48px; }
 .vision__card { min-height: 182px; padding: 26px 56px 32px; display: flex; flex-direction: column; align-items: center; gap: 7px; border-top-color: #6db8ff; }
 .vision__label { font-weight: 700; font-size: 18px; color: var(--blue-600); }
 .vision__statement { font-weight: 500; font-size: 20px; }
@@ -21,10 +21,9 @@
 .journey__inner { position: relative; max-width: var(--max); height: 1150px; margin: 0 auto; }
 .journey__path { position: absolute; left: 520px; top: 0; width: 240px; height: 1150px; }
 
-/* Scroll colouring: the story starts grey and takes on its colours as you scroll (main.js sets --lit 0 → 1).
-   The path is a grey copy with a full-colour copy on top, uncovered from the top down. */
-.lit { filter: grayscale(calc(1 - var(--lit, 1))); opacity: calc(.45 + .55 * var(--lit, 1)); }
-.journey__path.lit { opacity: 1; }
+/* Scroll colouring: the story starts as a pale, faded blue and takes on its colours as you scroll (main.js sets --lit 0 → 1).
+   The path is a faded copy with a full-colour copy on top, uncovered from the top down. */
+.lit { opacity: calc(.28 + .72 * var(--lit, 1)); filter: saturate(calc(.6 + .4 * var(--lit, 1))); }
 .journey__path--colour { filter: none; clip-path: inset(0 0 calc((1 - var(--lit, 1)) * 100%) 0); }
 .journey__step {
   position: absolute; width: 64px; height: 64px; border-radius: 50%;
