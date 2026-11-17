@@ -110,14 +110,14 @@
 .skills { display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 43px 0; }
 .skills .section-head { padding: 0 var(--gutter); width: min(948px, 100%); }
 .skills__scroller {
-  width: 100%; max-width: var(--max); height: 515px; display: flex; align-items: center;
+  width: 100%; max-width: var(--max); height: 465px; display: flex; align-items: center;
   overflow-x: auto; overflow-y: hidden; padding: 0 40px; scroll-snap-type: x proximity;
   scrollbar-width: none; overscroll-behavior-x: contain;
 }
 .skills__scroller::-webkit-scrollbar { display: none; }
 .skills__row { display: flex; gap: 28px; padding-right: 40px; }
 .skill {
-  position: relative; flex: none; width: 453px; height: 490px; overflow: hidden;
+  position: relative; flex: none; width: 453px; height: 440px; overflow: hidden;
   scroll-snap-align: start; scroll-margin-left: 40px;
   border: 2px solid #fff; border-radius: 30px;
   background: linear-gradient(to bottom, #d1e6ff 23.083%, #e4ecf9 61.541%, #eff5ff);
@@ -127,11 +127,18 @@
 .skill:has(.skill__link):hover { transform: translateY(-4px); box-shadow: 3px 10px 14px 0 #cfe8ff; }
 .skill__link { position: absolute; inset: 0; z-index: 5; border-radius: 28px; }
 .skill__more {
-  position: absolute; left: 25px; bottom: 26px; z-index: 4; font-weight: 600; font-size: 16px; color: var(--blue);
+  position: absolute; left: 25px; bottom: 22px; z-index: 4; font-weight: 600; font-size: 16px; color: var(--blue);
   opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease;
 }
 .skill:hover .skill__more, .skill__link:focus-visible ~ .skill__more { opacity: 1; transform: none; }
-@media (hover: none) { .skill__more { opacity: 1; transform: none; } }
+/* title + description slide up to make room for "Learn more" */
+.skill__title, .skill__desc { transition: transform .3s ease; }
+.skill:has(.skill__link):hover :is(.skill__title, .skill__desc),
+.skill__link:focus-visible ~ :is(.skill__title, .skill__desc) { transform: translateY(-26px); }
+@media (hover: none) {
+  .skill__more { opacity: 1; transform: none; }
+  .skill:has(.skill__link) :is(.skill__title, .skill__desc) { transform: translateY(-26px); }
+}
 .skill .tag-soon { position: absolute; right: 22px; top: 37px; z-index: 4; }
 .skill__icon { position: absolute; top: 13px; width: 88px; height: 74px; border-radius: 19px; display: flex; align-items: center; justify-content: center; }
 .skill__icon--bpm { left: 15px; background: linear-gradient(to bottom, #355caa, #4c74b9); }
@@ -192,15 +199,14 @@
 .arch-svg.is-playing .arch-svg__step { animation: arch-rise .6s cubic-bezier(.2, .7, .2, 1) both; }
 .arch-svg.is-playing .arch-svg__step--2 { animation-delay: .95s; }
 .arch-svg.is-playing .arch-svg__step--3 { animation-delay: 1.9s; }
-.arch-svg.is-playing .arch-svg__arrow { animation: arch-wipe .5s ease-out .55s both, arch-flow 1.6s ease-in-out 1.1s infinite; }
-.arch-svg.is-playing .arch-svg__arrow--2 { animation-delay: 1.5s, 2.05s; }
+.arch-svg.is-playing .arch-svg__arrow { animation: arch-wipe .5s ease-out .55s both; }
+.arch-svg.is-playing .arch-svg__arrow--2 { animation-delay: 1.5s; }
 .arch-svg.is-playing .arch-svg__core { animation: arch-pop .5s cubic-bezier(.3, 1.4, .5, 1) 2.4s both; }
 .arch-svg.is-playing .arch-svg__lines { animation: arch-draw .55s ease-out 2.75s both; }
 .arch-svg.is-playing .arch-svg__side--l { --from: 14px; animation: arch-slide .5s ease-out 3.15s both; }
 .arch-svg.is-playing .arch-svg__side--r { --from: -14px; animation: arch-slide .5s ease-out 3.3s both; }
 @keyframes arch-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes arch-wipe { from { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } to { opacity: 1; clip-path: inset(0); } }
-@keyframes arch-flow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 @keyframes arch-pop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
 @keyframes arch-draw { from { opacity: 1; clip-path: inset(0 50%); } to { opacity: 1; clip-path: inset(0); } }
 @keyframes arch-slide { from { opacity: 0; transform: translateX(var(--from)); } to { opacity: 1; transform: none; } }
@@ -284,6 +290,19 @@
   .about { --about-shift: max(0px, (100svh - var(--header-h) - 623px) / 2); height: max(623px, 100svh - var(--header-h)); }
 }
 
+/* ---------- Challenges: a new "area" that slides over the architecture, then is covered by the articles ----------
+   main.js adds .stack to the three sections and sets --cover (0 → 1) on the section being covered. */
+.stack-group { display: flex; flex-direction: column; gap: var(--section-gap); }
+.stack { --cover: 0; transform-origin: 50% 30%; scale: calc(1 - .06 * var(--cover)); filter: brightness(calc(1 - .45 * var(--cover))); }
+.arch.stack { position: sticky; top: var(--stick-top, var(--header-h)); z-index: 0; }
+.challenges.stack { position: sticky; top: var(--stick-top, var(--header-h)); z-index: 1; }
+.articles.stack { position: relative; z-index: 2; }
+.challenges.stack, .articles.stack { border-radius: 40px 40px 0 0; box-shadow: 0 -24px 48px rgba(13, 38, 80, .22); }
+.challenges__head, .challenge { transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); }
+.challenges.stack:not(.is-entered) :is(.challenges__head, .challenge) { opacity: 0; transform: translateY(60px); }
+.challenges .challenge:nth-child(2) { transition-delay: .1s; }
+.challenges .challenge:nth-child(3) { transition-delay: .2s; }
+
 /* ---------- Scroll reveal (GitHub-style fade + rise); main.js adds the classes ---------- */
 .reveal { opacity: 0; transform: translateY(48px); transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1); }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -307,7 +326,7 @@
   .hero__sub { font-size: 17px; }
   .eyebrow { font-size: 15px; }
   .br-lg { display: none; }
-  .skills__scroller { padding: 0 20px; height: 512px; }
+  .skills__scroller { padding: 0 20px; height: 465px; }
   .skill { scroll-margin-left: 20px; }
   .challenge { width: min(387px, 100%); min-height: 0; gap: 28px; }
   .post { width: min(372px, 100%); height: auto; min-height: 480px; }
@@ -320,7 +339,7 @@
   .arch { padding: 48px 20px; }
   .cta-faq { padding: 0 16px; gap: 72px; }
   .cta { width: 100%; }
-  .skills__scroller { height: 384px; }
+  .skills__scroller { height: 350px; }
   .skills__row { gap: 16px; }
   .skill { zoom: .74; }
 }

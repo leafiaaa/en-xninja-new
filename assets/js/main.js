@@ -26,7 +26,7 @@
 
   /* ---------- Scroll reveal: sections after the hero fade and rise in ---------- */
   var canObserve = "IntersectionObserver" in window && !reduceMotion;
-  var revealEls = $$(".hero ~ section");
+  var revealEls = $$(".hero ~ section, .stack-group > .arch");
   if (revealEls.length && canObserve) {
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -34,6 +34,33 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealEls.forEach(function (el) { el.classList.add("reveal"); revealIO.observe(el); });
+  }
+
+  /* ---------- Stacked sections: challenges slide over the architecture, articles slide over the challenges.
+     The covered section sticks, shrinks and dims (--cover 0 → 1); the challenge cards rise in as the area is entered. */
+  var stack = $$(".stack-group > section");
+  if (stack.length === 3 && !reduceMotion) {
+    var clamp01 = function (v) { return Math.max(0, Math.min(1, v)); };
+    var headerH = function () { return header ? header.offsetHeight : 0; };
+    var layoutStack = function () {
+      stack.slice(0, 2).forEach(function (el) {
+        el.style.setProperty("--stick-top", Math.min(headerH(), window.innerHeight - el.offsetHeight) + "px");
+      });
+    };
+    var ticking = false;
+    var updateStack = function () {
+      ticking = false;
+      var vh = window.innerHeight, hh = headerH();
+      for (var i = 0; i < 2; i++) {
+        var top = stack[i + 1].getBoundingClientRect().top;
+        stack[i].style.setProperty("--cover", clamp01((vh - top) / (vh - hh)).toFixed(3));
+      }
+      if (stack[1].getBoundingClientRect().top < vh * 0.55) stack[1].classList.add("is-entered");
+    };
+    stack.forEach(function (el) { el.classList.add("stack"); });
+    layoutStack(); updateStack();
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; window.requestAnimationFrame(updateStack); } }, { passive: true });
+    window.addEventListener("resize", function () { layoutStack(); updateStack(); });
   }
 
   /* ---------- Solutions Architecture: play the layer-by-layer animation once in view ---------- */
