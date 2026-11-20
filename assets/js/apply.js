@@ -5,7 +5,7 @@
   "use strict";
 
   // ← paste your Apps Script web app URL here (ends with /exec). Leave empty to disable sending.
-  var ENDPOINT = "";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbzjQKjZs_9eMd0qOgkNORbV98uvxe1cmlM9TfIDg5kCP7eneLnqBuGe-1voRc6Rkkd1wA/exec";
 
   var form = document.querySelector(".apply-form");
   if (!form) return;
