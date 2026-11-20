@@ -22,7 +22,7 @@
 /* ---------- Core features ---------- */
 .features { display: flex; flex-direction: column; gap: 31px; }
 .feature { min-height: var(--row-h, auto); width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: center; gap: 54px; }
-.feature__art { flex: none; width: auto; max-width: 100%; height: auto; }
+.feature__art { flex: none; max-width: 100%; height: auto; }   /* width comes from the img width attribute (display size), not the 2x file */
 .feature__text { width: 497px; flex: none; }
 .feature__head { display: flex; align-items: center; gap: 20px; }
 .feature__icon { flex: none; width: 93px; height: 80px; margin: -2px -8px -6px -1px; }
