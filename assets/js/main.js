@@ -25,7 +25,7 @@
     cv.setAttribute("aria-hidden", "true");
     heroVis.insertBefore(cv, heroVis.firstChild);
     var ctx = cv.getContext("2d");
-    var CELL = 34, SQ = 24, R = 150;           // cell pitch, square size, reach of the grid around the cursor
+    var CELL = 20, SQ = 14, R = 150;           // cell pitch, square size, how far from the cursor squares can light
     var W = 0, H = 0, dpr = 1;
     var ptr = { x: -999, y: -999 }, eased = { x: -999, y: -999 };
     var power = 0, inside = false, lit = {}, raf = 0, last = 0;
@@ -39,7 +39,7 @@
     var square = function (cx, cy) {
       var x = cx * CELL + (CELL - SQ) / 2, y = cy * CELL + (CELL - SQ) / 2;
       ctx.beginPath();
-      if (ctx.roundRect) ctx.roundRect(x, y, SQ, SQ, 4); else ctx.rect(x, y, SQ, SQ);
+      if (ctx.roundRect) ctx.roundRect(x, y, SQ, SQ, 3); else ctx.rect(x, y, SQ, SQ);
     };
     var frame = function (t) {
       var dt = Math.min(64, t - (last || t)); last = t;
