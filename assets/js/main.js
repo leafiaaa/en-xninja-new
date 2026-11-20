@@ -16,23 +16,25 @@
   }
   if (stages.length) { fitStages(); window.addEventListener("resize", fitStages); }
 
-  /* ---------- Hero: squares light up softly around the cursor ---------- */
-  var heroVis = document.querySelector(".hero__visuals");
+  /* ---------- Soft squares that light up around the cursor ----------
+     Hero visuals and "Learn More" get the full effect; the skills, architecture and
+     about (map) sections get a much fainter, rarer one. Desktop with a mouse only. */
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (heroVis && finePointer && !reduceMotion && document.createElement("canvas").getContext) {
+  var pointerSquares = function (host, opts) {
     var cv = document.createElement("canvas");
-    cv.className = "hero__grid";
+    cv.className = "pointer-squares";
     cv.setAttribute("aria-hidden", "true");
-    heroVis.insertBefore(cv, heroVis.firstChild);
+    host.classList.add("has-pointer-squares");
+    host.insertBefore(cv, host.firstChild);
     var ctx = cv.getContext("2d");
     var CELL = 20, SQ = 14, R = 150;           // cell pitch, square size, how far from the cursor squares can light
-    var W = 0, H = 0, dpr = 1;
-    var ptr = { x: -999, y: -999 }, eased = { x: -999, y: -999 };
-    var power = 0, inside = false, lit = {}, raf = 0, last = 0;
+    var W = 0, H = 0;
+    var ptr = { x: 0, y: 0 }, eased = { x: 0, y: 0 };
+    var inside = false, lit = {}, raf = 0, last = 0;
 
     var size = function () {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = heroVis.clientWidth; H = heroVis.clientHeight;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = host.clientWidth; H = host.clientHeight;
       cv.width = W * dpr; cv.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
@@ -43,13 +45,12 @@
     };
     var frame = function (t) {
       var dt = Math.min(64, t - (last || t)); last = t;
-      power += ((inside ? 1 : 0) - power) * 0.08;
-      eased.x += (ptr.x - eased.x) * 0.18;
-      eased.y += (ptr.y - eased.y) * 0.18;
+      eased.x += (ptr.x - eased.x) * 0.3;
+      eased.y += (ptr.y - eased.y) * 0.3;
       ctx.clearRect(0, 0, W, H);
 
-      // now and then a cell near the cursor lights up, then fades out
-      if (inside && Math.random() < 0.12) {
+      // cells near the cursor light up, then fade out
+      if (inside && Math.random() < opts.rate) {
         var a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * R * 0.8;
         var k = Math.floor((eased.x + Math.cos(a) * d) / CELL) + "," + Math.floor((eased.y + Math.sin(a) * d) / CELL);
         if (!lit[k]) lit[k] = { life: 1, tone: Math.random() < 0.2 ? "1, 86, 215" : "109, 184, 255" };
@@ -57,11 +58,11 @@
       var alive = false;
       for (var key in lit) {
         var cell = lit[key];
-        cell.life -= dt / 1600;
+        cell.life -= dt / 1000;
         if (cell.life <= 0) { delete lit[key]; continue; }
         alive = true;
         var p = key.split(",");
-        var o = Math.sin(cell.life * Math.PI) * 0.3;   // fade in, then out
+        var o = Math.sin(cell.life * Math.PI) * opts.alpha;   // fade in, then out
         ctx.fillStyle = "rgba(" + cell.tone + "," + o.toFixed(3) + ")";
         square(+p[0], +p[1]); ctx.fill();
       }
@@ -72,14 +73,24 @@
     var start = function () { if (!raf) raf = requestAnimationFrame(frame); };
 
     size();
-    window.addEventListener("resize", size);
-    heroVis.addEventListener("pointermove", function (e) {
-      var r = heroVis.getBoundingClientRect();
+    if ("ResizeObserver" in window) new ResizeObserver(size).observe(host);
+    else window.addEventListener("resize", size);
+    host.addEventListener("pointermove", function (e) {
+      var r = host.getBoundingClientRect();
       ptr.x = e.clientX - r.left; ptr.y = e.clientY - r.top;
-      if (!inside) { inside = true; if (power < 0.05) { eased.x = ptr.x; eased.y = ptr.y; } }
+      if (!inside) { inside = true; if (!raf) { eased.x = ptr.x; eased.y = ptr.y; } }
       start();
     });
-    heroVis.addEventListener("pointerleave", function () { inside = false; start(); });
+    host.addEventListener("pointerleave", function () { inside = false; start(); });
+  };
+  if (finePointer && !reduceMotion && document.createElement("canvas").getContext) {
+    [
+      [".hero__visuals", { rate: 0.3, alpha: 0.3 }],
+      [".articles", { rate: 0.3, alpha: 0.3 }],
+      [".skills, .arch, .about", { rate: 0.08, alpha: 0.12 }]
+    ].forEach(function (set) {
+      $$(set[0]).forEach(function (el) { pointerSquares(el, set[1]); });
+    });
   }
 
   /* ---------- Sticky header: add a shadow once the page has scrolled ---------- */

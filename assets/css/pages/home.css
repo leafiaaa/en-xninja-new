@@ -70,13 +70,6 @@
 .forms__sheet { position: absolute; left: 67px; top: 86px; width: 163px; height: 95px; background: #fcfdff; border-radius: 10px 10px 0 0; box-shadow: 0 1px 2.8px 0 #9cc0f6; }
 @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* ---------- Hero pointer squares (desktop only) ----------
-   main.js draws a canvas behind the visuals: a few soft blue squares light up
-   near the cursor and fade, then everything clears. */
-.hero__visuals { position: relative; }
-.hero__grid { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
-.hero .stage { z-index: 1; }
-
 /* AI prompt pill (hero cards + skill cards) */
 .prompt { display: flex; align-items: center; gap: 5px; white-space: nowrap; overflow: hidden; background: #262626; color: #fff; font-weight: 600; border-radius: 6px; padding: 5px 9px 5px 8px; }
 .prompt img { flex: none; }
