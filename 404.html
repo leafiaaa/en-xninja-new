@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found – xNinja AI Workhub</title>
   <meta name="description" content="Page not found.">
-  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="/en-xninja-new/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/en-xninja-new/assets/img/common/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/en-xninja-new/assets/img/common/favicon-192.png">
   <link rel="apple-touch-icon" href="/en-xninja-new/assets/img/common/apple-touch-icon.png">
@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="/en-xninja-new/assets/css/base.css">
   <link rel="stylesheet" href="/en-xninja-new/assets/css/layout.css">
   <link rel="stylesheet" href="/en-xninja-new/assets/css/components.css">
+  <link rel="stylesheet" href="/en-xninja-new/assets/css/pages/404.css">
 </head>
-<body>
+<body class="nf-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -69,10 +70,24 @@
   </header>
 
   <main id="main">
-    <section style="min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:64px var(--gutter)">
-      <p class="eyebrow">PAGE NOT FOUND</p>
-      <h1 class="h2">We couldn’t find that page.</h1>
-      <a class="btn btn--arrow btn--blue" href="/en-xninja-new/">Back to the homepage</a>
+    <section class="nf" aria-labelledby="nf-title">
+      <img class="nf__art" src="/en-xninja-new/assets/img/404/xninja-lost-map.webp" width="680" height="773"
+           alt="" data-tw-alt="" fetchpriority="high">
+      <div class="nf__inner">
+        <div class="nf__content">
+          <p class="nf__code" aria-hidden="true">404</p>
+          <h1 class="nf__title" id="nf-title" data-tw="就連忍者也會迷路。">Even ninjas get lost sometimes.</h1>
+          <p class="nf__text" data-tw="您要找的頁面不存在。">This page you are looking for is not available.</p>
+          <div class="nf__buttons">
+            <a class="nf__btn nf__btn--solid" href="/en-xninja-new/" data-tw="回到首頁" data-tw-href="/en-xninja-new/tw/">Back to home</a>
+            <a class="nf__btn nf__btn--outline" href="/en-xninja-new/apply/" data-tw="聯絡我們" data-tw-href="/en-xninja-new/tw/apply/">Connect with Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="nf__deco" aria-hidden="true">
+        <span class="nf__spark nf__spark--1"></span><span class="nf__spark nf__spark--2"></span><span class="nf__spark nf__spark--3"></span>
+        <span class="nf__fly nf__fly--1"></span><span class="nf__fly nf__fly--2"></span><span class="nf__fly nf__fly--3"></span>
+      </div>
     </section>
   </main>
 
@@ -96,6 +111,93 @@
     </div>
   </footer>
 
+  <template id="nf-tw-chrome">
+  <header class="site-header">
+    <nav class="nav" aria-label="主選單">
+      <a class="nav__logo" href="/en-xninja-new/tw/" aria-label="xNinja AI Workhub – 首頁">
+        <img src="/en-xninja-new/assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">選單</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="/en-xninja-new/tw/about-us/">關於我們</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              技能 <img src="/en-xninja-new/assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="/en-xninja-new/tw/skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="/en-xninja-new/assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">企業流程管理</span><span class="mega__desc">設計電子表單，自動化簽核流程</span></span>
+                </a></li>
+                <li><a class="mega__item" href="/en-xninja-new/tw/skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="/en-xninja-new/assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">知識管理</span><span class="mega__desc">搜尋、摘要與分享企業知識</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="/en-xninja-new/assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO 管理 <span class="mega__soon">即將推出</span></span><span class="mega__desc">讓組織隨時做好稽核準備</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="/en-xninja-new/tw/apply/">預約展示</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            繁中 <img src="/en-xninja-new/assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="/en-xninja-new/" lang="en" hreflang="en">English</a>
+            <a href="/en-xninja-new/tw/" lang="zh-Hant-TW" hreflang="zh-Hant-TW" aria-current="true">繁體中文</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="/en-xninja-new/tw/"><img src="/en-xninja-new/assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="技能">
+        <p class="footer__head">技能</p>
+        <a href="/en-xninja-new/tw/skills/xninja-business-process-management/">企業流程管理</a>
+        <a href="/en-xninja-new/tw/skills/xninja-knowledge-management/">知識管理</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="公司">
+        <p class="footer__head">公司</p>
+        <a href="/en-xninja-new/tw/about-us/">關於我們</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja by Hundred Plus Co., Ltd. 版權所有 · 台灣</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>100 台北市中正區忠孝東路一段 150 號 5 樓</p>
+    </div>
+  </footer>
+  </template>
+  <script>
+    /* GitHub Pages serves this one 404 page for every missing URL; show it in Chinese under /tw/ */
+    (function () {
+      if (location.pathname.indexOf("/en-xninja-new/tw/") !== 0) return;
+      document.documentElement.lang = "zh-Hant-TW";
+      document.title = "找不到頁面 – xNinja AI Workhub";
+      var t = document.getElementById("nf-tw-chrome").content;
+      var h = document.querySelector("header.site-header"), f = document.querySelector("footer");
+      if (h && t.querySelector("header")) h.replaceWith(t.querySelector("header").cloneNode(true));
+      if (f && t.querySelector("footer")) f.replaceWith(t.querySelector("footer").cloneNode(true));
+      document.querySelectorAll("[data-tw]").forEach(function (el) {
+        el.textContent = el.getAttribute("data-tw");
+        if (el.hasAttribute("data-tw-href")) el.setAttribute("href", el.getAttribute("data-tw-href"));
+      });
+    })();
+  </script>
   <script src="/en-xninja-new/assets/js/main.js" defer></script>
 </body>
 </html>
