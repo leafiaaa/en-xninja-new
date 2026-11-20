@@ -122,15 +122,28 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
   .mega__title { white-space: normal; flex-wrap: wrap; }
   .lang { width: auto; justify-content: flex-start; }
   .footer__col { width: 50%; }
-  /* Book a Demo: shimmering text like the homepage slogan */
+  /* Book a Demo: just shimmering text like the homepage slogan (no outline) */
   .btn--nav {
-    border: 1.5px solid #1f5fc4; font-weight: 600;
+    width: auto; height: auto; padding: 0; border: 0; border-radius: 0; justify-content: flex-start; font-weight: 600;
     background: linear-gradient(110deg, #1f5fc4 0%, #1f5fc4 35%, #9cccff 50%, #1f5fc4 65%, #1f5fc4 100%);
     background-size: 250% 100%;
     -webkit-background-clip: text; background-clip: text; color: transparent;
     animation: shimmer 2.8s ease-in-out infinite;
   }
   .btn--nav:hover { background-color: transparent; color: transparent; }
+  /* Language: always-visible chips (EN / TW) instead of a dropdown */
+  .lang .dropdown__btn { display: none; }
+  .lang .dropdown__menu, .lang .dropdown__menu[hidden] {
+    display: flex; flex-direction: row; gap: 8px; padding: 4px 0 0; background: none; border: 0; box-shadow: none;
+  }
+  .lang .dropdown__menu a {
+    font-size: 0; padding: 7px 14px; border-radius: 6px; background: #e8f0fc; color: var(--blue); line-height: 1;
+  }
+  .lang .dropdown__menu a::before { font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+  .lang .dropdown__menu a[hreflang="en"]::before { content: "EN"; }
+  .lang .dropdown__menu a[hreflang="zh-Hant-TW"]::before { content: "TW"; }
+  .lang .dropdown__menu a[aria-current] { background: var(--blue); color: #fff; }
+  .lang .dropdown__menu a:not([aria-current]):hover { background: #d6e5fb; }
 }
 
 @media (prefers-reduced-motion: reduce) {
