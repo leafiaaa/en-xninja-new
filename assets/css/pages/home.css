@@ -19,7 +19,9 @@
 .hero .stage { max-width: var(--max); margin: 0 auto; height: calc(489px * var(--s, 1)); }
 .hero__stage { width: 1280px; height: 489px; }
 
-.hero__video { position: absolute; left: 347px; top: 76px; width: 555px; height: 316px; border-radius: 14px; }
+.hero__video { position: absolute; left: 347px; top: 76px; width: 555px; height: 316px; border-radius: 14px; overflow: hidden; }
+.hero__video img { width: 100%; height: 100%; object-fit: cover; transition: filter .2s; }
+.hero__video:hover img { filter: brightness(1.06); }
 /* sparkle badge: white disc with blue ring; the sparkle shimmers light -> dark blue */
 .hero__badge {
   position: absolute; left: 858px; top: 348px; width: 88px; height: 88px; z-index: 3;
@@ -36,7 +38,7 @@
 
 /* play button drawn over the one baked into the video still, pulsing with a soft glow */
 .hero__play {
-  position: absolute; left: 606px; top: 222px; width: 36px; height: 26px; z-index: 2;
+  position: absolute; left: calc(50% - 18px); top: calc(50% - 13px); width: 36px; height: 26px; z-index: 2;
   border-radius: 7px; background: #08264d;
   animation: play-pulse 2.2s ease-in-out infinite;
 }
@@ -357,6 +359,17 @@
   .about__title { font-size: 28px; }
   .cta { padding: 36px 24px; }
   .cta__title { font-size: 32px; }
+}
+/* mobile hero: no floating cards or map, just a larger video */
+@media (max-width: 640px) {
+  .hero .stage { height: auto; }
+  .hero__stage { position: relative; width: 100%; height: auto; transform: none; padding: 28px 16px 36px; }
+  .hero .fcard, .hero__map, .hero__pin, .hero__pin-detail { display: none; }
+  .hero__video { position: relative; left: auto; top: auto; display: block; width: 100%; height: auto; aspect-ratio: 555 / 316; }
+  .hero__play { left: calc(50% - 27px); top: calc(50% - 19px); width: 54px; height: 38px; border-radius: 10px; }
+  .hero__play::after { left: 21px; top: 10px; border-width: 9px 0 9px 15px; }
+  .hero__badge { left: auto; top: auto; right: 6px; bottom: 18px; width: 52px; height: 52px; border-width: 3px; }
+  .hero__sparkle { -webkit-mask-size: 52px 52px; mask-size: 52px 52px; inset: -3px; }
 }
 @media (max-width: 520px) {
   .arch { padding: 48px 20px; }

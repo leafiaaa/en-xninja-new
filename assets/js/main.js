@@ -210,6 +210,44 @@
     });
   }
 
+  /* ---------- Video facade: open YouTube in a pop-up only when clicked (no player loads with the page) ---------- */
+  var facades = $$(".video-facade[data-youtube-id]");
+  if (facades.length) {
+    var warmed = false;
+    var warm = function () {   // connect to YouTube early once the visitor shows intent (hover / touch)
+      if (warmed) return; warmed = true;
+      ["https://www.youtube-nocookie.com", "https://www.google.com", "https://i.ytimg.com"].forEach(function (href) {
+        var l = document.createElement("link"); l.rel = "preconnect"; l.href = href; document.head.appendChild(l);
+      });
+    };
+    var openVideo = function (facade) {
+      var id = facade.getAttribute("data-youtube-id");
+      var modal = document.createElement("div");
+      modal.className = "video-modal";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      modal.setAttribute("aria-label", facade.getAttribute("aria-label") || "Video");
+      modal.innerHTML = '<div class="video-modal__frame"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+        '?autoplay=1&rel=0&playsinline=1" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' +
+        '<button class="video-modal__close" type="button" aria-label="Close">&times;</button>';
+      var close = function () {
+        modal.remove(); document.body.classList.remove("has-modal");
+        document.removeEventListener("keydown", onKey); facade.focus();
+      };
+      var onKey = function (e) { if (e.key === "Escape") close(); };
+      modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest(".video-modal__close")) close(); });
+      document.addEventListener("keydown", onKey);
+      document.body.appendChild(modal);
+      document.body.classList.add("has-modal");
+      modal.querySelector(".video-modal__close").focus();
+    };
+    facades.forEach(function (f) {
+      f.addEventListener("pointerenter", warm, { once: true });
+      f.addEventListener("touchstart", warm, { once: true, passive: true });
+      f.addEventListener("click", function () { openVideo(f); });
+    });
+  }
+
   /* ---------- FAQ accordion ---------- */
   $$(".faq__q").forEach(function (btn) {
     btn.addEventListener("click", function () {

@@ -82,6 +82,10 @@
   .skill-hero__desc { font-size: 17px; }
   .feature__list { padding-block: 24px; }
   .ai-skill__title { height: auto; padding: 18px 22px; font-size: 21px; }
-  .ai-skills__label { transform: scale(.7); transform-origin: left center; margin-block: 0 -20px; }
+  /* smaller BPM/KM Skills label that fits narrow screens (was a scaled 489px box that overflowed) */
+  .ai-skills__label { width: 300px; height: 80px; margin-top: 16px; }
+  .ai-skills__pill { left: 28px; top: 17px; width: 272px; height: 46px; padding-left: 64px; font-size: 22px; }
+  .ai-skills__badge { left: 4px; top: 0; width: 84px; height: 80px; }
+  .skill-page--km .ai-skills__badge { left: 8px; top: 6px; width: 76px; height: 68px; }
   .ai-skill__list li { font-size: 16px; }
 }
