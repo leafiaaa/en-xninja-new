@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Demo – xNinja AI Workhub</title>
+  <meta name="description" content="Book a free xNinja AI Workhub demo: tell us about you and your company, and pick a time that suits you.">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../assets/img/common/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/apply.css">
+</head>
+<body class="apply-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a class="nav__logo" href="../" aria-label="xNinja AI Workhub – home">
+        <img src="../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">Menu</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="../about-us/">About Us</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              Skills <img src="../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Business Process Management</span><span class="mega__desc">Design eForms and automate approval workflows</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Knowledge Management</span><span class="mega__desc">Search, summarize and share company knowledge</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO Management <span class="mega__soon">Coming soon</span></span><span class="mega__desc">Keep your organization audit-ready</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="./">Book a Demo</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            EN <img src="../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="./" lang="en" hreflang="en" aria-current="true">English</a>
+            <a href="../tw/apply/" lang="zh-Hant-TW" hreflang="zh-Hant-TW">繁體中文</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="apply" aria-labelledby="apply-title">
+      <div class="apply__inner">
+        <div class="apply__intro">
+          <h1 class="apply__title" id="apply-title">Connect with our sales team</h1>
+          <ul class="apply__points"><li>Free access to a no-cost trial and product demo</li><li>Best for managers and groups looking into transforming their workflows digitally and efficiently</li><li>Determine the right xNinja Skills for your business</li></ul>
+        </div>
+        <div class="apply-card">
+          <form class="apply-form" novalidate aria-label="Book a demo" data-msg-required="This field is required." data-msg-email="Please enter a valid email address.">
+            <p class="apply__live visually-hidden" aria-live="polite"></p>
+            <fieldset class="step" data-step="1"><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-current"></span><span class=""></span><span class=""></span></div><p class="step__label">Step 1 of 3</p><h2 class="step__title">About you</h2></div><p class="apply__note">All fields marked with an asterisk (*) are required.</p><div class="row"><div class="field"><label class="field__label" for="first-name">First name<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="first-name" name="first-name" autocomplete="given-name" required aria-describedby="first-name-error"><p class="field__error" id="first-name-error"></p></div><div class="field"><label class="field__label" for="last-name">Last name<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="last-name" name="last-name" autocomplete="family-name" required aria-describedby="last-name-error"><p class="field__error" id="last-name-error"></p></div></div><div class="row"><div class="field"><label class="field__label" for="email">Work email<span class="req" aria-hidden="true">*</span></label><input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="name@company.com" required aria-describedby="email-error"><p class="field__error" id="email-error"></p></div><div class="field"><label class="field__label" for="mobile">Mobile number</label><input class="input" type="tel" id="mobile" name="mobile" autocomplete="tel" placeholder="e.g. +886 912 345 678" aria-describedby="mobile-error"><p class="field__error" id="mobile-error"></p></div></div><div class="step__actions"><div class="step__buttons"><button class="btn btn--solid" type="button" data-next>Next</button></div></div></fieldset>
+            <fieldset class="step" data-step="2" hidden><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-done"></span><span class="is-current"></span><span class=""></span></div><p class="step__label">Step 2 of 3</p><h2 class="step__title">Your company</h2></div><div class="row"><div class="field"><label class="field__label" for="company">Company<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="company" name="company" autocomplete="organization" required aria-describedby="company-error"><p class="field__error" id="company-error"></p></div><div class="field"><label class="field__label" for="job-title">Job title<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="job-title" name="job-title" autocomplete="organization-title" placeholder="e.g. HR Manager" required aria-describedby="job-title-error"><p class="field__error" id="job-title-error"></p></div></div><div class="row row--full"><div class="field"><label class="field__label" for="company-size">Company size<span class="req" aria-hidden="true">*</span></label><select class="input" id="company-size" name="company-size" required aria-describedby="company-size-error"><option value="" disabled selected>Select...</option><option>1–50 employees</option><option>51–200 employees</option><option>201–500 employees</option><option>501–1,000 employees</option><option>1,000+ employees</option></select><p class="field__error" id="company-size-error"></p></div></div><fieldset class="group"><legend class="group__label">I&#x27;m interested in</legend><div class="options"><label class="check"><input type="checkbox" name="interests" value="xNinja.Business Process Management"><span>xNinja.Business Process Management</span></label><label class="check"><input type="checkbox" name="interests" value="xNinja.Knowledge Management"><span>xNinja.Knowledge Management</span></label><label class="check"><input type="checkbox" name="interests" value="101Form Green Business Suite"><span>101Form Green Business Suite</span></label><label class="check"><input type="checkbox" name="interests" value="Others"><span>Others</span></label></div></fieldset><fieldset class="group"><legend class="group__label">What business challenges are you trying to solve?</legend><div class="options"><label class="check"><input type="checkbox" name="challenges" value="Need a digital transformation tool"><span>Need a digital transformation tool</span></label><label class="check"><input type="checkbox" name="challenges" value="Need AI for company operations"><span>Need AI for company operations</span></label><label class="check"><input type="checkbox" name="challenges" value="Need AI to manage company data"><span>Need AI to manage company data</span></label><label class="check"><input type="checkbox" name="challenges" value="Others"><span>Others</span></label></div></fieldset><div class="step__actions"><div class="step__buttons"><button class="btn btn--ghost" type="button" data-back>Back</button><button class="btn btn--solid" type="button" data-next>Next</button></div></div></fieldset>
+            <fieldset class="step" data-step="3" hidden><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-done"></span><span class="is-done"></span><span class="is-current"></span></div><p class="step__label">Step 3 of 3</p><h2 class="step__title">Schedule your demo</h2></div><div class="row"><div class="field"><label class="field__label" for="demo-date">Preferred demo date</label><input class="input" type="date" id="demo-date" name="demo-date" aria-describedby="demo-date-error"><p class="field__error" id="demo-date-error"></p></div><div class="field"><label class="field__label" for="demo-time">Preferred demo time</label><select class="input" id="demo-time" name="demo-time" aria-describedby="demo-time-error"><option value="" disabled selected>Select...</option><option>Morning (10:00–12:00)</option><option>Afternoon (13:00–18:00)</option></select><p class="field__error" id="demo-time-error"></p></div></div><div class="row row--full"><div class="field"><label class="field__label" for="message">Anything else you would like us to know?</label><textarea class="input" id="message" name="message" aria-describedby="message-error"></textarea><p class="field__error" id="message-error"></p></div></div><div class="step__actions"><div class="step__buttons"><button class="btn btn--ghost" type="button" data-back>Back</button><button class="btn btn--solid" type="submit">Book a demo</button></div><p class="apply__consent">By submitting this form, you agree that Hundred Plus may contact you about xNinja AI Workhub.</p></div></fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="../"><img src="../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="Skills">
+        <p class="footer__head">Skills</p>
+        <a href="../skills/xninja-business-process-management/">Business Process Management</a>
+        <a href="../skills/xninja-knowledge-management/">Knowledge Management</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="Company">
+        <p class="footer__head">Company</p>
+        <a href="../about-us/">About Us</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja by Hundred Plus Co., Ltd. All rights reserved. Hundred Plus Co., Ltd · Taiwan</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>5F., No.150, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/apply.js" defer></script>
+</body>
+</html>

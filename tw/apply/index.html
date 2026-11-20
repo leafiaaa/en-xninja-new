@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>預約展示 – xNinja AI Workhub</title>
+  <meta name="description" content="預約免費的 xNinja AI Workhub 產品展示：留下您與公司的資訊，並選擇方便的時段。">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../assets/img/common/apple-touch-icon.png">
+  <link rel="preload" href="../../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages/apply.css">
+</head>
+<body class="apply-page">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="主選單">
+      <a class="nav__logo" href="../" aria-label="xNinja AI Workhub – 首頁">
+        <img src="../../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">選單</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="../about-us/">關於我們</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              技能 <img src="../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">企業流程管理</span><span class="mega__desc">設計電子表單，自動化簽核流程</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">知識管理</span><span class="mega__desc">搜尋、摘要與分享企業知識</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO 管理 <span class="mega__soon">即將推出</span></span><span class="mega__desc">讓組織隨時做好稽核準備</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="./">預約展示</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            繁中 <img src="../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="../../apply/" lang="en" hreflang="en">English</a>
+            <a href="./" lang="zh-Hant-TW" hreflang="zh-Hant-TW" aria-current="true">繁體中文</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="apply" aria-labelledby="apply-title">
+      <div class="apply__inner">
+        <div class="apply__intro">
+          <h1 class="apply__title" id="apply-title">與我們的業務團隊聯繫</h1>
+          <ul class="apply__points"><li>免費試用並預約產品展示</li><li>適合希望以數位方式高效轉型工作流程的主管與團隊</li><li>找出最適合您企業的 xNinja Skills</li></ul>
+        </div>
+        <div class="apply-card">
+          <form class="apply-form" novalidate aria-label="預約展示" data-msg-required="此欄位為必填。" data-msg-email="請輸入有效的電子郵件地址。">
+            <p class="apply__live visually-hidden" aria-live="polite"></p>
+            <fieldset class="step" data-step="1"><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-current"></span><span class=""></span><span class=""></span></div><p class="step__label">第 1 步，共 3 步</p><h2 class="step__title">關於您</h2></div><p class="apply__note">標示星號（*）的欄位為必填。</p><div class="row"><div class="field"><label class="field__label" for="last-name">姓氏<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="last-name" name="last-name" autocomplete="family-name" required aria-describedby="last-name-error"><p class="field__error" id="last-name-error"></p></div><div class="field"><label class="field__label" for="first-name">名字<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="first-name" name="first-name" autocomplete="given-name" required aria-describedby="first-name-error"><p class="field__error" id="first-name-error"></p></div></div><div class="row"><div class="field"><label class="field__label" for="email">公司電子郵件<span class="req" aria-hidden="true">*</span></label><input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="name@company.com" required aria-describedby="email-error"><p class="field__error" id="email-error"></p></div><div class="field"><label class="field__label" for="mobile">手機號碼</label><input class="input" type="tel" id="mobile" name="mobile" autocomplete="tel" placeholder="例如：0912 345 678" aria-describedby="mobile-error"><p class="field__error" id="mobile-error"></p></div></div><div class="step__actions"><div class="step__buttons"><button class="btn btn--solid" type="button" data-next>下一步</button></div></div></fieldset>
+            <fieldset class="step" data-step="2" hidden><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-done"></span><span class="is-current"></span><span class=""></span></div><p class="step__label">第 2 步，共 3 步</p><h2 class="step__title">您的公司</h2></div><div class="row"><div class="field"><label class="field__label" for="company">公司名稱<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="company" name="company" autocomplete="organization" required aria-describedby="company-error"><p class="field__error" id="company-error"></p></div><div class="field"><label class="field__label" for="job-title">職稱<span class="req" aria-hidden="true">*</span></label><input class="input" type="text" id="job-title" name="job-title" autocomplete="organization-title" placeholder="例如：人資經理" required aria-describedby="job-title-error"><p class="field__error" id="job-title-error"></p></div></div><div class="row row--full"><div class="field"><label class="field__label" for="company-size">公司規模<span class="req" aria-hidden="true">*</span></label><select class="input" id="company-size" name="company-size" required aria-describedby="company-size-error"><option value="" disabled selected>請選擇…</option><option>1–50 人</option><option>51–200 人</option><option>201–500 人</option><option>501–1,000 人</option><option>1,000 人以上</option></select><p class="field__error" id="company-size-error"></p></div></div><fieldset class="group"><legend class="group__label">我有興趣的方案</legend><div class="options"><label class="check"><input type="checkbox" name="interests" value="xNinja 企業流程管理"><span>xNinja 企業流程管理</span></label><label class="check"><input type="checkbox" name="interests" value="xNinja 知識管理"><span>xNinja 知識管理</span></label><label class="check"><input type="checkbox" name="interests" value="101Form 綠色企業套件"><span>101Form 綠色企業套件</span></label><label class="check"><input type="checkbox" name="interests" value="其他"><span>其他</span></label></div></fieldset><fieldset class="group"><legend class="group__label">您希望解決哪些業務挑戰？</legend><div class="options"><label class="check"><input type="checkbox" name="challenges" value="需要數位轉型工具"><span>需要數位轉型工具</span></label><label class="check"><input type="checkbox" name="challenges" value="需要 AI 協助公司營運"><span>需要 AI 協助公司營運</span></label><label class="check"><input type="checkbox" name="challenges" value="需要 AI 管理公司資料"><span>需要 AI 管理公司資料</span></label><label class="check"><input type="checkbox" name="challenges" value="其他"><span>其他</span></label></div></fieldset><div class="step__actions"><div class="step__buttons"><button class="btn btn--ghost" type="button" data-back>上一步</button><button class="btn btn--solid" type="button" data-next>下一步</button></div></div></fieldset>
+            <fieldset class="step" data-step="3" hidden><div class="step__head"><div class="dots" aria-hidden="true"><span class="is-done"></span><span class="is-done"></span><span class="is-current"></span></div><p class="step__label">第 3 步，共 3 步</p><h2 class="step__title">安排展示</h2></div><div class="row"><div class="field"><label class="field__label" for="demo-date">偏好展示日期</label><input class="input" type="date" id="demo-date" name="demo-date" aria-describedby="demo-date-error"><p class="field__error" id="demo-date-error"></p></div><div class="field"><label class="field__label" for="demo-time">偏好展示時段</label><select class="input" id="demo-time" name="demo-time" aria-describedby="demo-time-error"><option value="" disabled selected>請選擇…</option><option>上午（10:00–12:00）</option><option>下午（13:00–18:00）</option></select><p class="field__error" id="demo-time-error"></p></div></div><div class="row row--full"><div class="field"><label class="field__label" for="message">還有其他想讓我們知道的事嗎？</label><textarea class="input" id="message" name="message" aria-describedby="message-error"></textarea><p class="field__error" id="message-error"></p></div></div><div class="step__actions"><div class="step__buttons"><button class="btn btn--ghost" type="button" data-back>上一步</button><button class="btn btn--solid" type="submit">預約展示</button></div><p class="apply__consent">送出此表單即表示您同意 Hundred Plus 就 xNinja AI Workhub 與您聯繫。</p></div></fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="../"><img src="../../assets/img/common/xninja-logo.png" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="技能">
+        <p class="footer__head">技能</p>
+        <a href="../skills/xninja-business-process-management/">企業流程管理</a>
+        <a href="../skills/xninja-knowledge-management/">知識管理</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="公司">
+        <p class="footer__head">公司</p>
+        <a href="../about-us/">關於我們</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja by Hundred Plus Co., Ltd. 版權所有 · 台灣</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>100 台北市中正區忠孝東路一段 150 號 5 樓</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/apply.js" defer></script>
+</body>
+</html>
