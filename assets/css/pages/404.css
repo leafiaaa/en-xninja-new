@@ -17,7 +17,6 @@
 
 .nf__code {
   font-weight: 800; font-size: 168px; line-height: 1; letter-spacing: -6px; color: #0b1f4b;
-  text-shadow: 0 10px 28px rgba(77, 140, 255, .35);
 }
 .nf__title { font-weight: 600; font-size: 36px; line-height: 1.22; color: #0b1f4b; }
 .nf__text { font-weight: 500; font-size: 18px; line-height: 1.5; color: #4a5568; }
