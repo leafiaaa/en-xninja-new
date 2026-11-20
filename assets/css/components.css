@@ -44,6 +44,9 @@
 .video { position: relative; display: block; border-radius: 16px; overflow: hidden; }
 .video img { width: 100%; height: auto; }
 .video[data-video=""] { cursor: default; }
+button.video { width: 100%; }
+.video-facade img { transition: filter .2s; }
+.video-facade:hover img { filter: brightness(1.06); }
 
 @media (max-width: 900px) {
   .faq__title { font-size: 30px; }
