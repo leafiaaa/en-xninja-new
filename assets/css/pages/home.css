@@ -70,49 +70,12 @@
 .forms__sheet { position: absolute; left: 67px; top: 86px; width: 163px; height: 95px; background: #fcfdff; border-radius: 10px 10px 0 0; box-shadow: 0 1px 2.8px 0 #9cc0f6; }
 @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* ---------- Hero pointer interaction (desktop only; main.js sets the variables) ----------
-   --px/--py: eased pointer position across the stage, -1..1 · --mx/--my: pointer in px.
-   A soft light follows the cursor and the layers drift at different depths. Without a fine pointer nothing here moves. */
+/* ---------- Hero pointer grid (desktop only) ----------
+   main.js draws a canvas of small squares behind the visuals: a faint grid shows
+   around the cursor and a few cells light up and fade, then everything clears. */
 .hero__visuals { position: relative; }
-.hero__visuals::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 255, 255, .6), rgba(140, 196, 255, .16) 42%, transparent 70%);
-  opacity: 0; transition: opacity .6s ease;
-}
-.hero__visuals.is-pointer::before { opacity: 1; }
+.hero__grid { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero .stage { z-index: 1; }
-
-.hero__video, .hero__badge, .fcard, .hero__map, .hero__pin, .hero__pin-detail {
-  translate: calc(var(--px, 0) * var(--depth, 0) * 1px) calc(var(--py, 0) * var(--depth, 0) * 1px);
-}
-.hero__video { --depth: 4; }
-.hero__map, .hero__pin, .hero__pin-detail { --depth: 7; }
-.hero__badge { --depth: 11; }
-.fcard--forms { --depth: 16; }
-.fcard--analyze { --depth: 20; }
-
-/* a faint sheen slides across the video as the pointer moves */
-.hero__video::after {
-  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .16) 50%, transparent 62%) no-repeat;
-  background-size: 260% 100%;
-  background-position: calc(50% - var(--px, 0) * 45%) 0;
-  opacity: 0; transition: opacity .5s ease;
-}
-.hero__visuals.is-pointer .hero__video::after { opacity: 1; }
-
-/* cards lift a little under the cursor */
-.fcard { transition: scale .4s cubic-bezier(.2, .8, .2, 1); }
-.fcard .fcard__bg { transition: box-shadow .4s ease; }
-.fcard:hover { scale: 1.035; z-index: 4; }
-.fcard:hover .fcard__bg { box-shadow: 0 14px 34px -10px rgba(1, 86, 215, .32), var(--shadow-card); }
-.hero__badge { transition: scale .4s cubic-bezier(.2, .8, .2, 1); }
-.hero__badge:hover { scale: 1.08; }
-.hero__map { transition: filter .5s ease; }
-.hero__map:hover { filter: saturate(1.35) brightness(1.04); }
-.hero__map:hover ~ .hero__pin { animation: pin-hop .6s cubic-bezier(.3, 1.6, .5, 1); }
-@keyframes pin-hop { 40% { transform: translateY(-6px); } }
 
 /* AI prompt pill (hero cards + skill cards) */
 .prompt { display: flex; align-items: center; gap: 5px; white-space: nowrap; overflow: hidden; background: #262626; color: #fff; font-weight: 600; border-radius: 6px; padding: 5px 9px 5px 8px; }
@@ -414,8 +377,6 @@ html[lang|="zh"] .skills__scroller { height: 573px; }
   .hero .stage { height: auto; }
   .hero__stage { position: relative; width: 100%; height: auto; transform: none; padding: 28px 16px 36px; }
   .hero .fcard, .hero__map, .hero__pin, .hero__pin-detail { display: none; }
-  .hero__video { translate: none; }
-  .hero__visuals::before, .hero__video::after { display: none; }
   .hero__video { position: relative; left: auto; top: auto; display: block; width: 100%; height: auto; aspect-ratio: 555 / 316; }
   .hero__play { left: calc(50% - 27px); top: calc(50% - 19px); width: 54px; height: 38px; border-radius: 10px; }
   .hero__play::after { left: 21px; top: 10px; border-width: 9px 0 9px 15px; }

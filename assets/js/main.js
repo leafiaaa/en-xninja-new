@@ -16,34 +16,84 @@
   }
   if (stages.length) { fitStages(); window.addEventListener("resize", fitStages); }
 
-  /* ---------- Hero: soft light follows the cursor, layers drift with depth ---------- */
+  /* ---------- Hero: grid of squares that lights up around the cursor ---------- */
   var heroVis = document.querySelector(".hero__visuals");
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (heroVis && finePointer && !reduceMotion) {
-    var cur = { x: 0, y: 0 }, goal = { x: 0, y: 0 }, raf = 0;
-    var tick = function () {
-      cur.x += (goal.x - cur.x) * 0.08;
-      cur.y += (goal.y - cur.y) * 0.08;
-      heroVis.style.setProperty("--px", cur.x.toFixed(4));
-      heroVis.style.setProperty("--py", cur.y.toFixed(4));
-      raf = (Math.abs(goal.x - cur.x) + Math.abs(goal.y - cur.y) > 0.001) ? requestAnimationFrame(tick) : 0;
+  if (heroVis && finePointer && !reduceMotion && document.createElement("canvas").getContext) {
+    var cv = document.createElement("canvas");
+    cv.className = "hero__grid";
+    cv.setAttribute("aria-hidden", "true");
+    heroVis.insertBefore(cv, heroVis.firstChild);
+    var ctx = cv.getContext("2d");
+    var CELL = 20, SQ = 14, R = 160;           // cell pitch, square size, reach of the grid around the cursor
+    var W = 0, H = 0, dpr = 1;
+    var ptr = { x: -999, y: -999 }, eased = { x: -999, y: -999 };
+    var power = 0, inside = false, lit = {}, raf = 0, last = 0;
+
+    var size = function () {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = heroVis.clientWidth; H = heroVis.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
-    var kick = function () { if (!raf) raf = requestAnimationFrame(tick); };
+    var square = function (cx, cy) {
+      var x = cx * CELL + (CELL - SQ) / 2, y = cy * CELL + (CELL - SQ) / 2;
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x, y, SQ, SQ, 3); else ctx.rect(x, y, SQ, SQ);
+    };
+    var frame = function (t) {
+      var dt = Math.min(64, t - (last || t)); last = t;
+      power += ((inside ? 1 : 0) - power) * 0.08;
+      eased.x += (ptr.x - eased.x) * 0.18;
+      eased.y += (ptr.y - eased.y) * 0.18;
+      ctx.clearRect(0, 0, W, H);
+
+      // faint outlines around the cursor, fading with distance
+      var c0 = Math.max(0, Math.floor((eased.x - R) / CELL)), c1 = Math.ceil((eased.x + R) / CELL);
+      var r0 = Math.max(0, Math.floor((eased.y - R) / CELL)), r1 = Math.ceil((eased.y + R) / CELL);
+      ctx.lineWidth = 1;
+      for (var cy = r0; cy <= r1; cy++) {
+        for (var cx = c0; cx <= c1; cx++) {
+          var dx = cx * CELL + CELL / 2 - eased.x, dy = cy * CELL + CELL / 2 - eased.y;
+          var f = 1 - Math.sqrt(dx * dx + dy * dy) / R;
+          if (f <= 0) continue;
+          ctx.strokeStyle = "rgba(1, 86, 215," + (f * f * 0.32 * power).toFixed(3) + ")";
+          square(cx, cy); ctx.stroke();
+        }
+      }
+
+      // now and then a cell near the cursor lights up, then fades out
+      if (inside && Math.random() < 0.35) {
+        var a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * R * 0.8;
+        var k = Math.floor((eased.x + Math.cos(a) * d) / CELL) + "," + Math.floor((eased.y + Math.sin(a) * d) / CELL);
+        if (!lit[k]) lit[k] = { life: 1, tone: Math.random() < 0.3 ? "1, 86, 215" : "109, 184, 255" };
+      }
+      var alive = false;
+      for (var key in lit) {
+        var cell = lit[key];
+        cell.life -= dt / 1100;
+        if (cell.life <= 0) { delete lit[key]; continue; }
+        alive = true;
+        var p = key.split(",");
+        var o = Math.sin(cell.life * Math.PI) * 0.45;   // fade in, then out
+        ctx.fillStyle = "rgba(" + cell.tone + "," + o.toFixed(3) + ")";
+        square(+p[0], +p[1]); ctx.fill();
+      }
+
+      raf = (inside || power > 0.01 || alive) ? requestAnimationFrame(frame) : 0;
+      if (!raf) { last = 0; ctx.clearRect(0, 0, W, H); }
+    };
+    var start = function () { if (!raf) raf = requestAnimationFrame(frame); };
+
+    size();
+    window.addEventListener("resize", size);
     heroVis.addEventListener("pointermove", function (e) {
       var r = heroVis.getBoundingClientRect();
-      var x = e.clientX - r.left, y = e.clientY - r.top;
-      heroVis.style.setProperty("--mx", x + "px");
-      heroVis.style.setProperty("--my", y + "px");
-      goal.x = Math.max(-1, Math.min(1, (x / r.width) * 2 - 1));
-      goal.y = Math.max(-1, Math.min(1, (y / r.height) * 2 - 1));
-      heroVis.classList.add("is-pointer");
-      kick();
+      ptr.x = e.clientX - r.left; ptr.y = e.clientY - r.top;
+      if (!inside) { inside = true; if (power < 0.05) { eased.x = ptr.x; eased.y = ptr.y; } }
+      start();
     });
-    heroVis.addEventListener("pointerleave", function () {
-      goal.x = 0; goal.y = 0;
-      heroVis.classList.remove("is-pointer");
-      kick();
-    });
+    heroVis.addEventListener("pointerleave", function () { inside = false; start(); });
   }
 
   /* ---------- Sticky header: add a shadow once the page has scrolled ---------- */
