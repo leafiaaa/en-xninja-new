@@ -17,8 +17,8 @@
   if (stages.length) { fitStages(); window.addEventListener("resize", fitStages); }
 
   /* ---------- Soft squares that light up around the cursor ----------
-     Hero visuals and "Learn More" get the full effect; the skills, architecture and
-     about (map) sections get a much fainter, rarer one. Desktop with a mouse only. */
+     Full on the hero, a little softer on the about (map) section, lighter on
+     "Learn More", and faint on skills and architecture. Desktop with a mouse only. */
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var pointerSquares = function (host, opts) {
     var cv = document.createElement("canvas");
@@ -86,8 +86,9 @@
   if (finePointer && !reduceMotion && document.createElement("canvas").getContext) {
     [
       [".hero__visuals", { rate: 0.3, alpha: 0.3 }],
-      [".articles", { rate: 0.3, alpha: 0.3 }],
-      [".skills, .arch, .about", { rate: 0.08, alpha: 0.12 }]
+      [".about", { rate: 0.2, alpha: 0.24 }],
+      [".articles", { rate: 0.14, alpha: 0.18 }],
+      [".skills, .arch", { rate: 0.08, alpha: 0.12 }]
     ].forEach(function (set) {
       $$(set[0]).forEach(function (el) { pointerSquares(el, set[1]); });
     });
