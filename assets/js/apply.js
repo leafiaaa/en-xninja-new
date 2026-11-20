@@ -1,7 +1,12 @@
 /* Book a demo — 3-step form: Next checks the current step's required fields, Back goes to the previous step.
-   The final "Book a demo" button is not connected to a backend yet (see TODO below). */
+   "Book Now" sends the answers to the Google Apps Script below, which emails them to you and sends the
+   applicant the thank-you email (see emails/README.md). */
 (function () {
   "use strict";
+
+  // ← paste your Apps Script web app URL here (ends with /exec). Leave empty to disable sending.
+  var ENDPOINT = "";
+
   var form = document.querySelector(".apply-form");
   if (!form) return;
 
@@ -75,6 +80,55 @@
     e.preventDefault();
     if (!validStep(current)) return;
     if (current < steps.length - 1) { show(current + 1); return; }   // Enter key on steps 1–2 acts as Next
-    // TODO: send the form data (new FormData(form)) to the booking backend once it exists.
+    send();
   });
+
+  /* ---------- sending ---------- */
+  var submitBtn = form.querySelector('[type="submit"]');
+  var errorBox = form.querySelector(".apply__error");
+  if (!errorBox) {   // pages built before sending was added
+    errorBox = document.createElement("p"); errorBox.className = "apply__error"; errorBox.setAttribute("role", "alert"); errorBox.hidden = true;
+    submitBtn.parentNode.parentNode.insertBefore(errorBox, submitBtn.parentNode.nextSibling);
+  }
+
+  function collect() {
+    var data = { lang: document.documentElement.lang.indexOf("zh") === 0 ? "tw" : "en", page: location.pathname };
+    new FormData(form).forEach(function (value, key) {
+      value = String(value).trim();
+      if (key === "interests" || key === "challenges") { (data[key] = data[key] || []).push(value); }
+      else data[key] = value;
+    });
+    return data;
+  }
+
+  function fail() {
+    submitBtn.disabled = false;
+    submitBtn.textContent = submitBtn.getAttribute("data-label");
+    errorBox.textContent = form.getAttribute("data-msg-error");
+    errorBox.hidden = false;
+  }
+
+  function done(data) {
+    var name = data["first-name"] || "";
+    var wrap = form.parentNode.querySelector(".apply-done");
+    wrap.querySelector(".apply-done__title").textContent = form.getAttribute("data-msg-done-title").replace("{name}", name);
+    wrap.querySelector(".apply-done__text").textContent = form.getAttribute("data-msg-done-text").replace("{email}", data.email || "");
+    form.hidden = true;
+    wrap.hidden = false;
+    wrap.focus();
+  }
+
+  function send() {
+    var data = collect();
+    errorBox.hidden = true;
+    if (!ENDPOINT) { fail(); return; }
+    submitBtn.setAttribute("data-label", submitBtn.textContent);
+    submitBtn.disabled = true;
+    submitBtn.textContent = form.getAttribute("data-msg-sending");
+    // text/plain keeps this a "simple" request, which Google Apps Script accepts from another website
+    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (res) { if (res && res.ok) done(data); else fail(); })
+      .catch(fail);
+  }
 })();
