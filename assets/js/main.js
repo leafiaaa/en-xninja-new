@@ -25,7 +25,7 @@
     cv.setAttribute("aria-hidden", "true");
     heroVis.insertBefore(cv, heroVis.firstChild);
     var ctx = cv.getContext("2d");
-    var CELL = 20, SQ = 14, R = 160;           // cell pitch, square size, reach of the grid around the cursor
+    var CELL = 34, SQ = 24, R = 150;           // cell pitch, square size, reach of the grid around the cursor
     var W = 0, H = 0, dpr = 1;
     var ptr = { x: -999, y: -999 }, eased = { x: -999, y: -999 };
     var power = 0, inside = false, lit = {}, raf = 0, last = 0;
@@ -39,7 +39,7 @@
     var square = function (cx, cy) {
       var x = cx * CELL + (CELL - SQ) / 2, y = cy * CELL + (CELL - SQ) / 2;
       ctx.beginPath();
-      if (ctx.roundRect) ctx.roundRect(x, y, SQ, SQ, 3); else ctx.rect(x, y, SQ, SQ);
+      if (ctx.roundRect) ctx.roundRect(x, y, SQ, SQ, 4); else ctx.rect(x, y, SQ, SQ);
     };
     var frame = function (t) {
       var dt = Math.min(64, t - (last || t)); last = t;
@@ -57,25 +57,25 @@
           var dx = cx * CELL + CELL / 2 - eased.x, dy = cy * CELL + CELL / 2 - eased.y;
           var f = 1 - Math.sqrt(dx * dx + dy * dy) / R;
           if (f <= 0) continue;
-          ctx.strokeStyle = "rgba(1, 86, 215," + (f * f * 0.32 * power).toFixed(3) + ")";
+          ctx.strokeStyle = "rgba(1, 86, 215," + (f * f * 0.09 * power).toFixed(3) + ")";
           square(cx, cy); ctx.stroke();
         }
       }
 
       // now and then a cell near the cursor lights up, then fades out
-      if (inside && Math.random() < 0.35) {
+      if (inside && Math.random() < 0.1) {
         var a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * R * 0.8;
         var k = Math.floor((eased.x + Math.cos(a) * d) / CELL) + "," + Math.floor((eased.y + Math.sin(a) * d) / CELL);
-        if (!lit[k]) lit[k] = { life: 1, tone: Math.random() < 0.3 ? "1, 86, 215" : "109, 184, 255" };
+        if (!lit[k]) lit[k] = { life: 1, tone: Math.random() < 0.2 ? "1, 86, 215" : "109, 184, 255" };
       }
       var alive = false;
       for (var key in lit) {
         var cell = lit[key];
-        cell.life -= dt / 1100;
+        cell.life -= dt / 1600;
         if (cell.life <= 0) { delete lit[key]; continue; }
         alive = true;
         var p = key.split(",");
-        var o = Math.sin(cell.life * Math.PI) * 0.45;   // fade in, then out
+        var o = Math.sin(cell.life * Math.PI) * 0.22;   // fade in, then out
         ctx.fillStyle = "rgba(" + cell.tone + "," + o.toFixed(3) + ")";
         square(+p[0], +p[1]); ctx.fill();
       }
