@@ -49,7 +49,7 @@
     step.hidden = false;
     step.classList.remove("is-entering"); void step.offsetWidth; step.classList.add("is-entering");
     var title = step.querySelector(".step__title");
-    if (live && title) live.textContent = step.querySelector(".step__label").textContent + " – " + title.textContent;
+    if (live && title) live.textContent = title.textContent;
     var card = form.closest(".apply-card");
     if (card && card.getBoundingClientRect().top < 70) card.scrollIntoView({ behavior: "smooth", block: "start" });
     var first = step.querySelector(".input, input");
