@@ -64,6 +64,7 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
 .lang { width: 213px; display: flex; justify-content: flex-end; }
 .lang .dropdown__btn { display: inline-flex; align-items: center; gap: 3px; height: 35px; font-weight: 500; font-size: 18px; }
 .lang .dropdown__menu { left: auto; right: 0; transform: none; min-width: 140px; }
+.lang .dropdown__menu a:hover, .lang .dropdown__menu a[aria-current] { background: none; }   /* desktop language options: blue text only */
 
 /* Compact navbar (Traditional Chinese site) — matches the Figma Navigation component: 63px bar, 15px links, hugging pill button */
 @media (min-width: 901px) {
