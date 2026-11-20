@@ -63,6 +63,16 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
 .lang .dropdown__btn { display: inline-flex; align-items: center; gap: 3px; height: 35px; font-weight: 500; font-size: 18px; }
 .lang .dropdown__menu { left: auto; right: 0; transform: none; min-width: 140px; }
 
+/* Compact navbar (Traditional Chinese site) — matches the Figma Navigation component: 63px bar, 15px links, hugging pill button */
+@media (min-width: 901px) {
+  html[lang|="zh"] { --header-h: 63px; }
+  html[lang|="zh"] .nav { padding-block: 14px; }
+  html[lang|="zh"] .nav__logo img { width: 246px; height: 28px; }
+  html[lang|="zh"] .nav__links { gap: 40px; font-size: 15px; }
+  html[lang|="zh"] .btn--nav { width: auto; height: auto; padding: 6px 18px; font-size: 15px; }
+  html[lang|="zh"] .lang .dropdown__btn { font-size: 15px; }
+}
+
 /* ---------- Footer ---------- */
 .footer { margin-top: var(--section-gap); }
 .footer__main { max-width: var(--max); margin: 0 auto; min-height: 196px; padding: 62px 0 40px 146px; display: flex; align-items: flex-start; }
@@ -72,7 +82,6 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
 .footer__col--company { width: 200px; }
 .footer__head { font-weight: 700; line-height: 20px; color: var(--navy-2); margin-bottom: 7px; }
 .footer__col a:hover { color: var(--blue); }
-.footer__link-blue { color: var(--blue-link); }
 .footer__bar { background: var(--footer-bg); min-height: 90px; padding: 20px 34px; display: flex; align-items: center; gap: 14px; font-size: 13px; color: #d9dee5; }
 .footer__divider { width: 2px; height: 22px; background: #b5becb; flex: none; }
 
@@ -111,8 +120,18 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
   .mega__title { white-space: normal; flex-wrap: wrap; }
   .lang { width: auto; justify-content: flex-start; }
   .footer__col { width: 50%; }
+  /* Book a Demo: shimmering text like the homepage slogan */
+  .btn--nav {
+    border: 1.5px solid #1f5fc4; font-weight: 600;
+    background: linear-gradient(110deg, #1f5fc4 0%, #1f5fc4 35%, #9cccff 50%, #1f5fc4 65%, #1f5fc4 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 2.8s ease-in-out infinite;
+  }
+  .btn--nav:hover { background-color: transparent; color: transparent; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .nav__link::after, .dropdown__btn img, .site-header { transition: none; }
+  .btn--nav { animation: none; }
 }
