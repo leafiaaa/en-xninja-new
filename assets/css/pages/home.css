@@ -70,9 +70,9 @@
 .forms__sheet { position: absolute; left: 67px; top: 86px; width: 163px; height: 95px; background: #fcfdff; border-radius: 10px 10px 0 0; box-shadow: 0 1px 2.8px 0 #9cc0f6; }
 @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* ---------- Hero pointer grid (desktop only) ----------
-   main.js draws a canvas of small squares behind the visuals: a faint grid shows
-   around the cursor and a few cells light up and fade, then everything clears. */
+/* ---------- Hero pointer squares (desktop only) ----------
+   main.js draws a canvas behind the visuals: a few soft blue squares light up
+   near the cursor and fade, then everything clears. */
 .hero__visuals { position: relative; }
 .hero__grid { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero .stage { z-index: 1; }

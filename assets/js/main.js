@@ -16,7 +16,7 @@
   }
   if (stages.length) { fitStages(); window.addEventListener("resize", fitStages); }
 
-  /* ---------- Hero: grid of squares that lights up around the cursor ---------- */
+  /* ---------- Hero: squares light up softly around the cursor ---------- */
   var heroVis = document.querySelector(".hero__visuals");
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (heroVis && finePointer && !reduceMotion && document.createElement("canvas").getContext) {
@@ -48,22 +48,8 @@
       eased.y += (ptr.y - eased.y) * 0.18;
       ctx.clearRect(0, 0, W, H);
 
-      // faint outlines around the cursor, fading with distance
-      var c0 = Math.max(0, Math.floor((eased.x - R) / CELL)), c1 = Math.ceil((eased.x + R) / CELL);
-      var r0 = Math.max(0, Math.floor((eased.y - R) / CELL)), r1 = Math.ceil((eased.y + R) / CELL);
-      ctx.lineWidth = 1;
-      for (var cy = r0; cy <= r1; cy++) {
-        for (var cx = c0; cx <= c1; cx++) {
-          var dx = cx * CELL + CELL / 2 - eased.x, dy = cy * CELL + CELL / 2 - eased.y;
-          var f = 1 - Math.sqrt(dx * dx + dy * dy) / R;
-          if (f <= 0) continue;
-          ctx.strokeStyle = "rgba(1, 86, 215," + (f * f * 0.09 * power).toFixed(3) + ")";
-          square(cx, cy); ctx.stroke();
-        }
-      }
-
       // now and then a cell near the cursor lights up, then fades out
-      if (inside && Math.random() < 0.1) {
+      if (inside && Math.random() < 0.12) {
         var a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * R * 0.8;
         var k = Math.floor((eased.x + Math.cos(a) * d) / CELL) + "," + Math.floor((eased.y + Math.sin(a) * d) / CELL);
         if (!lit[k]) lit[k] = { life: 1, tone: Math.random() < 0.2 ? "1, 86, 215" : "109, 184, 255" };
@@ -75,12 +61,12 @@
         if (cell.life <= 0) { delete lit[key]; continue; }
         alive = true;
         var p = key.split(",");
-        var o = Math.sin(cell.life * Math.PI) * 0.22;   // fade in, then out
+        var o = Math.sin(cell.life * Math.PI) * 0.3;   // fade in, then out
         ctx.fillStyle = "rgba(" + cell.tone + "," + o.toFixed(3) + ")";
         square(+p[0], +p[1]); ctx.fill();
       }
 
-      raf = (inside || power > 0.01 || alive) ? requestAnimationFrame(frame) : 0;
+      raf = (inside || alive) ? requestAnimationFrame(frame) : 0;
       if (!raf) { last = 0; ctx.clearRect(0, 0, W, H); }
     };
     var start = function () { if (!raf) raf = requestAnimationFrame(frame); };
