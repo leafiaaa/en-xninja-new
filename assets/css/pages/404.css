@@ -9,6 +9,7 @@
   position: relative; overflow: hidden;
   min-height: 797px; padding: 0 var(--gutter);
   display: flex; align-items: center;
+  width: 100%; max-width: 1280px; margin: 0 auto;   /* fixed, centred frame: text + illustration stay together on wide screens */
   background: var(--page);
 }
 .nf__inner { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 0 24px 64px; }
@@ -33,10 +34,14 @@
 .nf__btn--outline:hover { background: #e8f0fc; }
 
 /* illustration: exported from Figma with its feathered edge already blended into #f8f8f8 */
-.nf__art { position: absolute; z-index: 1; top: 0; right: 0; width: 680px; height: auto; }   /* bleeds to the right edge on wide screens */
+.nf__art { position: absolute; z-index: 1; top: 0; right: 0; width: 680px; height: auto; }
+/* wider than the frame: feather the illustration's right edge into the page too */
+@media (min-width: 1281px) {
+  .nf__art { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }
+}
 
 /* sparkles + fireflies crossing the seam (positions from the Figma frame) */
-.nf__deco { position: absolute; top: 0; bottom: 0; right: 0; width: 1280px; z-index: 3; pointer-events: none; }   /* anchored with the art */
+.nf__deco { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .nf__spark, .nf__fly { position: absolute; }
 .nf__spark { background: #4d8dff; -webkit-mask: url("../../img/404/sparkle.svg") center / contain no-repeat; mask: url("../../img/404/sparkle.svg") center / contain no-repeat; animation: nf-twinkle 3.2s ease-in-out infinite; }
 .nf__spark--1 { left: 520px; top: 170px; width: 18px; height: 18px; }
