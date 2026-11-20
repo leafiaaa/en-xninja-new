@@ -66,3 +66,9 @@ Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`.
 The `/tw/` folder mirrors every English page in Traditional Chinese (Taiwan) and uses the same CSS, JS and images.
 The language menu in the navigation switches between `English` and `繁體中文` on the same page.
 Wording follows xninja.biz/tw where that page has it. Text inside illustrations and screenshots (PNG/WebP) is still in English.
+
+## Thai version
+
+The `/th/` folder mirrors every English page in Thai, using the same CSS, JS and images. The language menu offers English, 繁體中文 and ไทย on every page.
+Wording follows the old xninja.biz/th site where it had a matching line (homepage headings, challenges, FAQ questions, "นัดหมายสาธิต"); the rest is a new translation.
+Product names (xNinja.Business Process Management, Master Skills…) and the "Right When You Need It" slogan stay in English, as on the old Thai site.
