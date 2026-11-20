@@ -16,6 +16,36 @@
   }
   if (stages.length) { fitStages(); window.addEventListener("resize", fitStages); }
 
+  /* ---------- Hero: soft light follows the cursor, layers drift with depth ---------- */
+  var heroVis = document.querySelector(".hero__visuals");
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (heroVis && finePointer && !reduceMotion) {
+    var cur = { x: 0, y: 0 }, goal = { x: 0, y: 0 }, raf = 0;
+    var tick = function () {
+      cur.x += (goal.x - cur.x) * 0.08;
+      cur.y += (goal.y - cur.y) * 0.08;
+      heroVis.style.setProperty("--px", cur.x.toFixed(4));
+      heroVis.style.setProperty("--py", cur.y.toFixed(4));
+      raf = (Math.abs(goal.x - cur.x) + Math.abs(goal.y - cur.y) > 0.001) ? requestAnimationFrame(tick) : 0;
+    };
+    var kick = function () { if (!raf) raf = requestAnimationFrame(tick); };
+    heroVis.addEventListener("pointermove", function (e) {
+      var r = heroVis.getBoundingClientRect();
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      heroVis.style.setProperty("--mx", x + "px");
+      heroVis.style.setProperty("--my", y + "px");
+      goal.x = Math.max(-1, Math.min(1, (x / r.width) * 2 - 1));
+      goal.y = Math.max(-1, Math.min(1, (y / r.height) * 2 - 1));
+      heroVis.classList.add("is-pointer");
+      kick();
+    });
+    heroVis.addEventListener("pointerleave", function () {
+      goal.x = 0; goal.y = 0;
+      heroVis.classList.remove("is-pointer");
+      kick();
+    });
+  }
+
   /* ---------- Sticky header: add a shadow once the page has scrolled ---------- */
   var header = document.querySelector(".site-header");
   if (header) {
