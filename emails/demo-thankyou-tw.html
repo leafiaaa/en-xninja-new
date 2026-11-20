@@ -1,60 +1,92 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-Hant-TW" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="x-apple-disable-message-reformatting">
-<meta name="color-scheme" content="light">
-<meta name="supported-color-schemes" content="light">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
 <title>我們已收到您的展示預約 – xNinja AI Workhub</title>
 <!-- Edit freely: words in curly brackets are filled in per applicant by the Apps Script. The <title> is used as the email subject. -->
+<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!--<![endif]-->
+<!--[if mso]><style>* { font-family: Arial, sans-serif !important; }</style><![endif]-->
 <style>
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
   body { margin:0; padding:0; }
   a { text-decoration:none; }
+  .logo-dark { display:none; }
   @media (max-width:620px) {
     .container { width:100% !important; }
     .px { padding-left:24px !important; padding-right:24px !important; }
     .title { font-size:26px !important; line-height:32px !important; }
     .lbl { width:96px !important; }
   }
+  /* Dark mode (Apple Mail, iOS Mail, Outlook for Mac, Samsung…) – Figma "/en/email-thankyou – dark mode" */
+  @media (prefers-color-scheme: dark) {
+    .bg-outer, .bg-foot { background-color:#0B1220 !important; }
+    .bg-main { background-color:#121A2B !important; }
+    .bg-head { background-color:#121A2B !important; border-bottom:1px solid #22304A !important; }
+    .bg-box { background-color:#1B2740 !important; }
+    .bg-accent { background-color:#2F7CFF !important; }
+    .t-head { color:#E8EEF8 !important; }
+    .t-body { color:#A9B5C7 !important; }
+    .t-label, .t-foot, .t-foot a { color:#8D9AAE !important; }
+    .logo-light { display:none !important; }
+    .logo-dark { display:block !important; }
+  }
+  /* Outlook.com / Outlook app dark mode */
+  [data-ogsc] .bg-outer, [data-ogsc] .bg-foot { background-color:#0B1220 !important; }
+  [data-ogsc] .bg-main, [data-ogsc] .bg-head { background-color:#121A2B !important; }
+  [data-ogsc] .bg-box { background-color:#1B2740 !important; }
+  [data-ogsc] .t-head { color:#E8EEF8 !important; }
+  [data-ogsc] .t-body { color:#A9B5C7 !important; }
+  [data-ogsc] .t-label, [data-ogsc] .t-foot { color:#8D9AAE !important; }
+  [data-ogsc] .logo-light { display:none !important; }
+  [data-ogsc] .logo-dark { display:block !important; }
+  /* Gmail app (iOS) dark mode forces its own colours: this blend trick keeps white text white */
+  u + .body .gm-s { background:#000; mix-blend-mode:screen; }
+  u + .body .gm-d { background:#000; mix-blend-mode:difference; }
 </style>
 </head>
-<body style="margin:0;padding:0;background-color:#E6ECF5;">
+<body class="body" style="margin:0;padding:0;background-color:#E6ECF5;">
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#E6ECF5;">{first_name}，感謝您的預約！以下是接下來的流程。&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E6ECF5" style="background-color:#E6ECF5;">
+<table role="presentation" class="bg-outer" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E6ECF5" style="background-color:#E6ECF5;">
 <tr><td align="center" style="padding:24px 0;">
-<table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background-color:#FFFFFF;">
+<table role="presentation" class="container bg-main" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background-color:#FFFFFF;">
 
-<tr><td align="center" bgcolor="#FFFFFF" style="padding:24px 40px;">
-<a href="{site_url}" target="_blank"><img src="https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png" width="234" height="26" alt="xNinja | AI Workhub" style="display:block;border:0;width:234px;height:26px;"></a>
+<tr><td class="bg-head" align="center" bgcolor="#FFFFFF" style="padding:24px 40px;background-color:#FFFFFF;">
+<a href="{site_url}" target="_blank">
+<img class="logo-light" src="https://www.101form.net/en/wp-content/uploads/2026/11/xninja-logo.png" width="234" height="26" alt="xNinja | AI Workhub" style="display:block;border:0;width:234px;height:auto;">
+<!--[if !mso]><!--><img class="logo-dark" src="https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png" width="234" height="26" alt="xNinja | AI Workhub" style="display:none;border:0;width:234px;height:auto;"><!--<![endif]-->
+</a>
 </td></tr>
 
 <tr><td class="px" align="center" bgcolor="#1A5CC4" style="padding:40px 40px 44px 40px;background-color:#1A5CC4;background-image:linear-gradient(160deg,#0D4DB3 0%,#1A5CC4 45%,#286BD5 100%);">
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:12px;line-height:16px;font-weight:700;letter-spacing:1.5px;color:#FFFFFF;">已收到您的展示預約</div>
-<div class="title" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:32px;line-height:40px;font-weight:800;color:#FFFFFF;padding-top:10px;">{first_name}，感謝您！</div>
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:16px;line-height:24px;font-weight:500;color:#FFFFFF;padding-top:12px;">我們很期待向您展示 xNinja AI Workhub 如何讓團隊的工作更快速、更簡單。</div>
+<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:12px;line-height:16px;font-weight:700;letter-spacing:1.5px;color:#FFFFFF;"><div class="gm-s"><div class="gm-d">已收到您的展示預約</div></div></div>
+<div class="title" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:32px;line-height:40px;font-weight:800;color:#FFFFFF;padding-top:10px;"><div class="gm-s"><div class="gm-d">{first_name}，感謝您！</div></div></div>
+<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:16px;line-height:24px;font-weight:500;color:#FFFFFF;padding-top:12px;"><div class="gm-s"><div class="gm-d">我們很期待向您展示 xNinja AI Workhub 如何讓團隊的工作更快速、更簡單。</div></div></div>
 </td></tr>
 
-<tr><td class="px" bgcolor="#FFFFFF" style="padding:36px 40px 12px 40px;">
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:18px;line-height:24px;font-weight:700;color:#0B1F4B;padding-bottom:16px;">您的預約資訊</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F6FB" style="background-color:#F3F6FB;border-radius:12px;">
-<tr><td style="padding:14px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="lbl" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">姓名</td><td valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{last_name}{first_name}</td></tr><tr><td class="lbl" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">公司</td><td valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{company}</td></tr><tr><td class="lbl" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">有興趣的方案</td><td valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{interests}</td></tr><tr><td class="lbl" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">偏好展示時間</td><td valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{demo_date} · {demo_time}</td></tr></table></td></tr>
+<tr><td class="px bg-main" bgcolor="#FFFFFF" style="padding:36px 40px 12px 40px;background-color:#FFFFFF;">
+<div class="t-head" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:18px;line-height:24px;font-weight:700;color:#0B1F4B;padding-bottom:16px;">您的預約資訊</div>
+<table role="presentation" class="bg-box" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F6FB" style="background-color:#F3F6FB;border-radius:12px;">
+<tr><td style="padding:14px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="lbl t-label" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">姓名</td><td class="t-head" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{last_name}{first_name}</td></tr><tr><td class="lbl t-label" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">公司</td><td class="t-head" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{company}</td></tr><tr><td class="lbl t-label" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">有興趣的方案</td><td class="t-head" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{interests}</td></tr><tr><td class="lbl t-label" width="142" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:13px;line-height:20px;color:#70767C;font-weight:500;">偏好展示時間</td><td class="t-head" valign="top" style="padding:6px 0;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:20px;color:#1F2328;font-weight:600;">{demo_date} · {demo_time}</td></tr></table></td></tr>
 </table>
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:18px;line-height:24px;font-weight:700;color:#0B1F4B;padding:32px 0 18px 0;">接下來的流程</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;">1</td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">我們審閱您的需求</div><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">業務團隊會先了解您的回覆，準備最符合您企業需求的展示內容。</div></td></tr><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;">2</td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">1 個工作天內與您聯繫</div><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">我們會透過電子郵件或電話與您確認展示時間。</div></td></tr><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;">3</td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">專屬於您的產品展示</div><div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">以您的實際應用情境，親眼見證 xNinja Master Skills 的實力。</div></td></tr></table>
+<div class="t-head" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:18px;line-height:24px;font-weight:700;color:#0B1F4B;padding:32px 0 18px 0;">接下來的流程</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td class="bg-accent" width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;"><div class="gm-s"><div class="gm-d">1</div></div></td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div class="t-head" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">我們審閱您的需求</div><div class="t-body" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">業務團隊會先了解您的回覆，準備最符合您企業需求的展示內容。</div></td></tr><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td class="bg-accent" width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;"><div class="gm-s"><div class="gm-d">2</div></div></td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div class="t-head" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">1 個工作天內與您聯繫</div><div class="t-body" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">我們會透過電子郵件或電話與您確認展示時間。</div></td></tr><tr><td width="48" valign="top" style="padding:0 0 22px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td class="bg-accent" width="32" height="32" align="center" valign="middle" bgcolor="#0156D7" style="width:32px;height:32px;border-radius:16px;background-color:#0156D7;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;"><div class="gm-s"><div class="gm-d">3</div></div></td></tr></table></td><td valign="top" style="padding:0 0 22px 0;"><div class="t-head" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:15px;line-height:22px;font-weight:700;color:#1F2328;">專屬於您的產品展示</div><div class="t-body" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:14px;line-height:21px;color:#4A5568;padding-top:4px;">以您的實際應用情境，親眼見證 xNinja Master Skills 的實力。</div></td></tr></table>
 </td></tr>
 
-<tr><td align="center" bgcolor="#FFFFFF" style="padding:4px 40px 40px 40px;">
+<tr><td class="bg-main" align="center" bgcolor="#FFFFFF" style="padding:4px 40px 40px 40px;background-color:#FFFFFF;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-<td align="center" bgcolor="#0156D7" style="border-radius:45px;background-color:#0156D7;">
-<a href="{site_url}" target="_blank" style="display:inline-block;padding:14px 28px;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:15px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:45px;">探索 xNinja AI Workhub</a>
+<td class="bg-accent" align="center" bgcolor="#0156D7" style="border-radius:45px;background-color:#0156D7;">
+<a href="{site_url}" target="_blank" style="display:inline-block;padding:14px 28px;font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:15px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:45px;"><div class="gm-s"><div class="gm-d">探索 xNinja AI Workhub</div></div></a>
 </td></tr></table>
 </td></tr>
 
-<tr><td class="px" align="center" bgcolor="#E6ECF5" style="padding:28px 40px 32px 40px;background-color:#E6ECF5;">
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:12px;line-height:18px;font-weight:500;color:#6E7781;">有任何問題嗎？直接回覆此郵件，或聯絡 <a href="mailto:service@hundredplus.com" style="color:#6E7781;text-decoration:underline;">service@hundredplus.com</a> · +886 2-2357-8866</div>
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:11px;line-height:17px;color:#6E7781;padding-top:8px;">© 2026 xNinja by Hundred Plus Co., Ltd. · 100 台北市中正區忠孝東路一段 150 號 5 樓</div>
-<div style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC',Arial,sans-serif;font-size:11px;line-height:17px;color:#6E7781;padding-top:8px;">您收到此郵件，是因為您在 xninja.biz 預約了產品展示。</div>
+<tr><td class="px bg-foot" align="center" bgcolor="#E6ECF5" style="padding:28px 40px 32px 40px;background-color:#E6ECF5;">
+<div class="t-foot" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:12px;line-height:18px;font-weight:500;color:#6E7781;">有任何問題嗎？直接回覆此郵件，或聯絡 <a href="mailto:service@hundredplus.com" style="color:#6E7781;text-decoration:underline;">service@hundredplus.com</a> · +886 2-2357-8866</div>
+<div class="t-foot" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:11px;line-height:17px;color:#6E7781;padding-top:8px;">© 2026 xNinja by Hundred Plus Co., Ltd. · 100 台北市中正區忠孝東路一段 150 號 5 樓</div>
+<div class="t-foot" style="font-family:Montserrat,'PingFang TC','Microsoft JhengHei','Noto Sans TC','Segoe UI',Arial,sans-serif;font-size:11px;line-height:17px;color:#6E7781;padding-top:8px;">您收到此郵件，是因為您在 xninja.biz 預約了產品展示。</div>
 </td></tr>
 
 </table>
