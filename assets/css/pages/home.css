@@ -75,7 +75,7 @@
 .prompt img { flex: none; }
 .prompt--lg { position: absolute; font-size: 10px; }
 .prompt--lg img { width: 8.5px; height: 8.5px; }
-.prompt--analyze { left: 86px; top: -1.85px; width: 212px; gap: 2px; }
+.prompt--analyze { left: 86px; top: -1.85px; gap: 2px; }   /* hugs its text */
 .prompt--forms { left: 0; top: 36px; }
 .prompt--md { height: 20px; font-size: 8.5px; }
 .prompt--md img { width: 9.5px; height: 9.5px; }
