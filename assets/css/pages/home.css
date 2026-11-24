@@ -423,3 +423,9 @@ html:lang(th) .skills__scroller { height: 541px; }   /* fits the taller Thai car
 @media (hover: none) {
   .skill:has(.skill__link) .skill__more { transform: translateY(-26px); }
 }
+/* Keep "Learn more" on the same line in every card: each description is at least as tall
+   as the longest one in its language (EN 4 lines, TW 5 lines, TH 3 lines).
+   If a description gets longer, raise its number here. */
+.skill__desc { min-height: 76px; min-height: 4lh; }
+html[lang|="zh"] .skill__desc { min-height: 120px; }  /* Chinese lines are taller than the Latin font's lh, so use px */
+html:lang(th) .skill__desc { min-height: 96px; min-height: 3lh; }
