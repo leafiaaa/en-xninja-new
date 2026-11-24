@@ -395,3 +395,13 @@ html[lang|="zh"] .skills__scroller { height: 550px; }
   .about-pin__pulse { opacity: 0; }
   .arch-svg > g { opacity: 1; animation: none; }
 }
+
+/* ---------- Thai: room for the taller Thai line spacing ---------- */
+/* hero floating cards: tighter label lines + taller card so the label has bottom padding */
+html:lang(th) .fcard__label { line-height: 1.6; }
+html:lang(th) .fcard--forms { height: 286px; }
+html:lang(th) .fcard--forms .fcard__bg { height: 276px; }
+html:lang(th) .fcard--analyze { height: 214px; }
+html:lang(th) .fcard--analyze .fcard__bg { height: 204px; }
+/* skill cards: taller card so the description and "ดูรายละเอียดเพิ่มเติม" don't touch */
+html:lang(th) .skill { height: 516px; }
