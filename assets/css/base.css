@@ -97,7 +97,7 @@ table { border-collapse: collapse; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   border-radius: 45px; font-weight: 500;
-  transition: background-color .2s, color .2s, border-color .2s;
+  transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s;
 }
 .btn img { transition: transform .2s, filter .2s; }
 .btn:hover img { transform: translateX(3px); }
@@ -112,7 +112,8 @@ table { border-collapse: collapse; }
 .btn--blue:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
 .btn--blue:hover img { filter: brightness(0) invert(1); }  /* blue arrow turns white */
 .btn--white { border-color: #fff; color: #fff; }
-.btn--white:hover { background: rgba(255, 255, 255, .12); }
+.btn--white:hover { background: #fff; border-color: #fff; color: var(--blue); box-shadow: 0 6px 22px rgba(120, 180, 255, .45); }
+.btn--white:hover img { filter: brightness(0) invert(22%) sepia(94%) saturate(2747%) hue-rotate(209deg) brightness(91%) contrast(102%); }  /* white arrow turns brand blue */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
