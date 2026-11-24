@@ -55,7 +55,7 @@
 .ai-skill__art { flex: none; height: auto; max-width: 100%; }
 .ai-skill__text { width: 497px; flex: none; }
 .ai-skill__title {
-  height: 72px; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 30px;
+  min-height: 72px; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 18px 30px;
   background-image: var(--bar);
   font-weight: 600; font-size: 24px;
 }
