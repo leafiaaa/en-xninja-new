@@ -117,3 +117,9 @@ table { border-collapse: collapse; }
   html { scroll-behavior: auto; }
   .btn, .btn img { transition: none; }
 }
+
+/* ---------- Thai line spacing ----------
+   Thai stacks vowels and tone marks above and below the letters, so it needs
+   more room between lines than English. Applies to /th/ pages only. */
+html:lang(th) main :is(p, li, td, th, dd, blockquote, figcaption, .faq__q) { line-height: 1.75; }
+html:lang(th) main :is(h1, h2, h3, h4) { line-height: 1.45; }
