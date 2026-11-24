@@ -10,7 +10,7 @@ When someone presses **Book Now** on `/apply/` or `/tw/apply/`:
 | `demo-thankyou-en.html` / `demo-thankyou-tw.html` | The email design. Words in curly brackets (`{first_name}`, `{company}`, `{interests}`, `{demo_date}`, `{demo_time}`, `{site_url}`) are filled in per applicant. The `<title>` is the email subject. |
 | `apps-script/Code.gs` | The Google Apps Script that sends both emails. |
 | `../assets/js/apply.js` | The form. Its `ENDPOINT` line holds the Apps Script web-app URL. |
-| Logos | Light mode: `https://www.101form.net/en/wp-content/uploads/2026/11/xninja-logo.png`. Dark mode (white): `https://www.101form.net/en/wp-content/uploads/2026/11/Group-5.png`. |
+| Logos | Hosted on this site: `assets/img/email/xninja-logo@2x.png` (light) and `assets/img/email/xninja-logo-white@2x.png` (dark mode). |
 
 **Light & dark mode:** both emails follow the reader's mail app setting. The dark colours match the Figma frame `/en/email-thankyou – dark mode` (Apple Mail, iOS Mail, Outlook for Mac/Outlook.com, Samsung Mail). Gmail picks its own dark colours and can't be controlled.
 
@@ -38,3 +38,5 @@ When someone presses **Book Now** on `/apply/` or `/tw/apply/`:
 - A free Gmail account can send about 100 emails a day through Apps Script; a Google Workspace account more. Plenty for demo requests.
 - Emails come from the Google account that owns the script. To send as `@hundredplus.com`, run the script in a Workspace account on that domain (or add the address as a "Send mail as" alias).
 - Spam protection: a hidden "honeypot" field blocks simple bots, and the same email address can only send once per minute.
+- Gmail and Outlook for Windows don't support custom fonts, so they show the fallback font (Segoe UI / Helvetica / Arial). Apple Mail, iOS Mail and Outlook for Mac show Montserrat.
+- Gmail hides all images in the Spam folder. If the logo is missing, check the email isn't in Spam and that 'Display images' is allowed.
