@@ -20,7 +20,12 @@ const CONFIG = {
     en: 'https://leafiaaa.github.io/en-xninja-new/',
     tw: 'https://leafiaaa.github.io/en-xninja-new/tw/'
   },
-  TBC: { en: 'To be confirmed', tw: '待確認' }
+  TBC: { en: 'To be confirmed', tw: '待確認' },
+  // Logos are attached to the email itself (inline), so they show even when the mail app blocks outside images
+  INLINE_IMAGES: {
+    logo: 'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png',
+    logoWhite: 'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png'
+  }
 };
 
 function doPost(e) {
@@ -51,10 +56,12 @@ function doPost(e) {
     // 1) the applicant's thank-you email
     const tpl = template_(lang);
     const subject = (tpl.match(/<title>([\s\S]*?)<\/title>/) || [, 'xNinja AI Workhub'])[1];
+    const body = inlineImages_(fill_(tpl, values, true));
     MailApp.sendEmail({
       to: email,
       subject: unescape_(fill_(subject, values, false)),
-      htmlBody: fill_(tpl, values, true),
+      htmlBody: body.html,
+      inlineImages: body.images,
       name: CONFIG.SENDER_NAME,
       replyTo: CONFIG.REPLY_TO
     });
@@ -93,6 +100,20 @@ function testSend() {
 }
 
 /* ---------- helpers ---------- */
+
+// Swap the logo URLs for attached copies ("cid:"), so the logo is part of the email instead of a link
+function inlineImages_(html) {
+  const images = {};
+  Object.keys(CONFIG.INLINE_IMAGES).forEach(function (id) {
+    const url = CONFIG.INLINE_IMAGES[id];
+    if (html.indexOf(url) < 0) return;
+    try {
+      images[id] = UrlFetchApp.fetch(url).getBlob().setName(id + '.png');
+      html = html.split(url).join('cid:' + id);
+    } catch (err) { /* keep the normal link if the download fails */ }
+  });
+  return { html: html, images: images };
+}
 
 function template_(lang) {
   const cache = CacheService.getScriptCache();
