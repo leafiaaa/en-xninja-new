@@ -405,3 +405,7 @@ html:lang(th) .fcard--analyze { height: 214px; }
 html:lang(th) .fcard--analyze .fcard__bg { height: 204px; }
 /* skill cards: taller card so the description and "ดูรายละเอียดเพิ่มเติม" don't touch */
 html:lang(th) .skill { height: 516px; }
+html:lang(th) .skills__scroller { height: 541px; }   /* fits the taller Thai cards plus the hover lift */
+@media (max-width: 520px) {
+  html:lang(th) .skills__scroller { height: 408px; } /* cards are zoomed to .74 on phones */
+}
