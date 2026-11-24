@@ -99,6 +99,7 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
   :root { --header-h: 72px; --gutter: 20px; }
   .nav { padding: 16px var(--gutter); }
   .nav__logo img { width: 220px; height: 25px; }
+  .footer__divider { flex-basis: 100%; width: 100%; height: 1px; background: #fff; margin: 8px 0; }
   .nav__toggle { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 10px; }
   .nav__toggle-bar, .nav__toggle-bar::before, .nav__toggle-bar::after {
     display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; position: relative; transition: transform .2s, background .2s;
