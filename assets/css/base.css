@@ -99,7 +99,7 @@ table { border-collapse: collapse; }
   border-radius: 45px; font-weight: 500;
   transition: background-color .2s, color .2s, border-color .2s;
 }
-.btn img { transition: transform .2s; }
+.btn img { transition: transform .2s, filter .2s; }
 .btn:hover img { transform: translateX(3px); }
 
 /* pill outline used in the nav */
@@ -109,7 +109,8 @@ table { border-collapse: collapse; }
 /* text + arrow buttons ("Read more", "Book a Demo") */
 .btn--arrow { font-weight: 600; font-size: 16px; line-height: 24px; padding: 11px 26px 11px 27px; border-radius: 24px; border: 1.5px solid; }
 .btn--blue { border-color: var(--blue-600); color: var(--blue); }
-.btn--blue:hover { background: #e8f0fc; }
+.btn--blue:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--blue:hover img { filter: brightness(0) invert(1); }  /* blue arrow turns white */
 .btn--white { border-color: #fff; color: #fff; }
 .btn--white:hover { background: rgba(255, 255, 255, .12); }
 
