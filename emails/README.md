@@ -1,13 +1,13 @@
 # Book a demo → automatic emails
 
-When someone presses **Book Now** on `/apply/` or `/tw/apply/`:
+When someone presses **Book Now** on `/apply/`, `/tw/apply/` or `/th/apply/`:
 
 1. the answers are emailed to you (until the eForm connection is ready), and
-2. the applicant receives the thank-you email designed in Figma (`/en/email-thankyou`), in English or Chinese.
+2. the applicant receives the thank-you email designed in Figma (`/en/email-thankyou`), in English, Chinese or Thai.
 
 | File | What it is |
 |---|---|
-| `demo-thankyou-en.html` / `demo-thankyou-tw.html` | The email design. Words in curly brackets (`{first_name}`, `{company}`, `{interests}`, `{demo_date}`, `{demo_time}`, `{site_url}`) are filled in per applicant. The `<title>` is the email subject. |
+| `demo-thankyou-en.html` / `-tw.html` / `-th.html` | The email design. Words in curly brackets (`{first_name}`, `{company}`, `{interests}`, `{demo_date}`, `{demo_time}`, `{site_url}`) are filled in per applicant. The `<title>` is the email subject. |
 | `apps-script/Code.gs` | The Google Apps Script that sends both emails. |
 | `../assets/js/apply.js` | The form. Its `ENDPOINT` line holds the Apps Script web-app URL. |
 | Logos | One logo with its own background, used in light and dark mode: `https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png` (the script also attaches it inside the email). |

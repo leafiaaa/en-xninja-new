@@ -1,0 +1,8 @@
+# GitHub Pages build settings.
+# Files listed here stay in the repo but are NOT published on the website.
+# (The email templates in emails/ must stay published: the Apps Script reads them from the site.)
+exclude:
+  - README.md
+  - emails/README.md
+  - emails/apps-script/
+  - tools/

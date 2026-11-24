@@ -409,3 +409,17 @@ html:lang(th) .skills__scroller { height: 541px; }   /* fits the taller Thai car
 @media (max-width: 520px) {
   html:lang(th) .skills__scroller { height: 408px; } /* cards are zoomed to .74 on phones */
 }
+
+/* ---------- Skill cards: even "Learn more" spacing (all languages) ----------
+   Title, description and "Learn more" sit in one column, so "Learn more" is always the
+   same distance (20px) below the description, however long the description is. */
+.skill { display: flex; flex-direction: column; align-items: flex-start; padding: 331px 0 0 25px; }
+.skill :is(.skill__title, .skill__desc, .skill__more) { position: relative; left: auto; top: auto; bottom: auto; flex: none; }
+.skills .skill__title { order: 1; height: 30px; line-height: 30px; white-space: nowrap; }
+.skill__desc { order: 2; }
+.skill__more { order: 3; margin-top: 20px; }
+.skill:has(.skill__link):hover .skill__more,
+.skill__link:focus-visible ~ .skill__more { transform: translateY(-26px); }
+@media (hover: none) {
+  .skill:has(.skill__link) .skill__more { transform: translateY(-26px); }
+}

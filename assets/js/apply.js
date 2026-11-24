@@ -92,7 +92,8 @@
   }
 
   function collect() {
-    var data = { lang: document.documentElement.lang.indexOf("zh") === 0 ? "tw" : "en", page: location.pathname };
+    var htmlLang = document.documentElement.lang;
+    var data = { lang: htmlLang.indexOf("zh") === 0 ? "tw" : htmlLang.indexOf("th") === 0 ? "th" : "en", page: location.pathname };
     new FormData(form).forEach(function (value, key) {
       value = String(value).trim();
       if (key === "interests" || key === "challenges") { (data[key] = data[key] || []).push(value); }
