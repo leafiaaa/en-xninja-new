@@ -156,8 +156,8 @@
 .skill__desc { position: absolute; left: 25px; top: 361px; width: 403px; font-size: 16px; }
 
 /* Chinese descriptions are longer: taller cards so the text and "了解更多" fit (Figma /tw/home) */
-html[lang|="zh"] .skill { height: 548px; }
-html[lang|="zh"] .skills__scroller { height: 573px; }
+html[lang|="zh"] .skill { height: 525px; }
+html[lang|="zh"] .skills__scroller { height: 550px; }
 
 .mini { position: absolute; overflow: hidden; border: 1px solid #dce7f5; border-radius: 10px; background: linear-gradient(to bottom, #fff, #f1f6fe); box-shadow: var(--shadow-mini); }
 .mini__strip { position: absolute; left: -1px; top: -1px; right: -1px; height: 5px; background: #2d7bf4; }
@@ -356,7 +356,7 @@ html[lang|="zh"] .skills__scroller { height: 573px; }
   .eyebrow { font-size: 15px; }
   .br-lg { display: none; }
   .skills__scroller { padding: 0 20px; height: 493px; }
-  html[lang|="zh"] .skills__scroller { height: 573px; }
+  html[lang|="zh"] .skills__scroller { height: 550px; }
   .skill { scroll-margin-left: 20px; }
   .challenge { width: min(387px, 100%); min-height: 0; gap: 28px; }
   .post { width: min(372px, 100%); height: auto; min-height: 480px; }
@@ -381,7 +381,7 @@ html[lang|="zh"] .skills__scroller { height: 573px; }
   .cta-faq { padding: 0 16px; gap: 72px; }
   .cta { width: 100%; }
   .skills__scroller { height: 370px; }
-  html[lang|="zh"] .skills__scroller { height: 430px; }
+  html[lang|="zh"] .skills__scroller { height: 414px; }
   .skills__row { gap: 16px; }
   .skill { zoom: .74; }
 }
