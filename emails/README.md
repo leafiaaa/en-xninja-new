@@ -10,7 +10,7 @@ When someone presses **Book Now** on `/apply/` or `/tw/apply/`:
 | `demo-thankyou-en.html` / `demo-thankyou-tw.html` | The email design. Words in curly brackets (`{first_name}`, `{company}`, `{interests}`, `{demo_date}`, `{demo_time}`, `{site_url}`) are filled in per applicant. The `<title>` is the email subject. |
 | `apps-script/Code.gs` | The Google Apps Script that sends both emails. |
 | `../assets/js/apply.js` | The form. Its `ENDPOINT` line holds the Apps Script web-app URL. |
-| Logos | Hosted on this site: `assets/img/email/xninja-logo@2x.png` (light) and `assets/img/email/xninja-logo-white@2x.png` (dark mode). |
+| Logos | One logo with its own background, used in light and dark mode: `https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png` (the script also attaches it inside the email). |
 
 **Light & dark mode:** both emails follow the reader's mail app setting. The dark colours match the Figma frame `/en/email-thankyou – dark mode` (Apple Mail, iOS Mail, Outlook for Mac/Outlook.com, Samsung Mail). Gmail picks its own dark colours and can't be controlled.
 

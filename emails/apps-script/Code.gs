@@ -26,6 +26,7 @@ const CONFIG = {
   LOGO_URL: 'https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png',
   // logo links in the email design that get replaced by the logo above
   LOGO_SLOTS: [
+    'https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png',
     'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png',
     'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png'
   ]

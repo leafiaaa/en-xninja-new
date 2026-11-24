@@ -24,7 +24,6 @@
   :root { color-scheme: light dark; supported-color-schemes: light dark; }
   body { margin:0; padding:0; }
   a { text-decoration:none; }
-  .logo-dark { display:none; }
   @media (max-width:620px) {
     .container { width:100% !important; }
     .px { padding-left:24px !important; padding-right:24px !important; }
@@ -41,8 +40,6 @@
     .t-head { color:#E8EEF8 !important; }
     .t-body { color:#A9B5C7 !important; }
     .t-label, .t-foot, .t-foot a { color:#8D9AAE !important; }
-    .logo-light { display:none !important; }
-    .logo-dark { display:block !important; }
   }
   /* Outlook.com / Outlook app dark mode */
   [data-ogsc] .bg-outer, [data-ogsc] .bg-foot { background-color:#0B1220 !important; }
@@ -53,8 +50,6 @@
   [data-ogsc] .t-head { color:#E8EEF8 !important; }
   [data-ogsc] .t-body { color:#A9B5C7 !important; }
   [data-ogsc] .t-label, [data-ogsc] .t-foot { color:#8D9AAE !important; }
-  [data-ogsc] .logo-light { display:none !important; }
-  [data-ogsc] .logo-dark { display:block !important; }
   /* Gmail app (iOS) dark mode forces its own colours: this blend trick keeps white text white */
   u + .body .gm-s { background:#000; mix-blend-mode:screen; }
   u + .body .gm-d { background:#000; mix-blend-mode:difference; }
@@ -68,8 +63,7 @@
 
 <tr><td class="bg-head" align="center" bgcolor="#FFFFFF" style="padding:24px 40px;background-color:#FFFFFF;">
 <a href="{site_url}" target="_blank">
-<img class="logo-light" src="https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png" width="234" height="26" alt="xNinja | AI Workhub" style="display:block;border:0;width:234px;height:auto;">
-<!--[if !mso]><!--><img class="logo-dark" src="https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png" width="234" height="29" alt="xNinja | AI Workhub" style="display:none;border:0;width:234px;height:auto;"><!--<![endif]-->
+<img class="logo" src="https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png" width="234" alt="xNinja | AI Workhub" style="display:block;border:0;width:234px;height:auto;">
 </a>
 </td></tr>
 
