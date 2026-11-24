@@ -37,7 +37,7 @@ assets/
   img/
     common/          logo, icons and backgrounds used on several pages
     home/ about/ skills/ articles/
-  fonts/             Montserrat (self-hosted, SIL Open Font License)
+  fonts/             Montserrat + Sarabun Thai subset (self-hosted, SIL Open Font License)
 ```
 
 Each page loads `base.css → layout.css → components.css → its page CSS`.

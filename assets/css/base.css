@@ -3,12 +3,18 @@
    Loaded on every page, first.
    ========================================================= */
 
-/* ---------- Fonts (self-hosted Montserrat, SIL OFL) ---------- */
+/* ---------- Fonts (self-hosted Montserrat and Sarabun, SIL OFL) ---------- */
 @font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/montserrat-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal; font-display: swap; src: url("../fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+/* Sarabun (SIL OFL), Thai characters only: English words and numbers stay in Montserrat */
+@font-face { font-family: "Sarabun"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/sarabun-thai-400-normal.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/sarabun-thai-500-normal.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/sarabun-thai-600-normal.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/sarabun-thai-700-normal.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; font-weight: 800; font-style: normal; font-display: swap; src: url("../fonts/sarabun-thai-800-normal.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
 
 /* ---------- Tokens (from the Figma file) ---------- */
 :root {
@@ -55,8 +61,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 /* Traditional Chinese pages (/tw/): Montserrat for Latin, the system's Traditional Chinese font for the rest */
 html:lang(zh-Hant-TW) body { font-family: "Montserrat", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; }
-/* Thai pages (/th/): Montserrat for Latin, the system's Thai font for the rest */
-html:lang(th) body { font-family: "Montserrat", "Noto Sans Thai", "Leelawadee UI", "Thonburi", "Sukhumvit Set", system-ui, sans-serif; }
+/* Thai pages (/th/): Montserrat for English words and numbers, Sarabun for Thai */
+html:lang(th) body { font-family: "Montserrat", "Sarabun", "Noto Sans Thai", "Leelawadee UI", "Thonburi", "Sukhumvit Set", system-ui, sans-serif; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
 body {
   margin: 0;
