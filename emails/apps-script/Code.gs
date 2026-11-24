@@ -21,11 +21,14 @@ const CONFIG = {
     tw: 'https://leafiaaa.github.io/en-xninja-new/tw/'
   },
   TBC: { en: 'To be confirmed', tw: '待確認' },
-  // Logos are attached to the email itself (inline), so they show even when the mail app blocks outside images
-  INLINE_IMAGES: {
-    logo: 'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png',
-    logoWhite: 'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png'
-  }
+  // One logo (with its own background) for light AND dark mode. It is attached to the email itself (inline),
+  // so it shows even when the mail app blocks outside images. To change the logo, just change this URL.
+  LOGO_URL: 'https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png',
+  // logo links in the email design that get replaced by the logo above
+  LOGO_SLOTS: [
+    'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo@2x.png',
+    'https://leafiaaa.github.io/en-xninja-new/assets/img/email/xninja-logo-white@2x.png'
+  ]
 };
 
 function doPost(e) {
@@ -101,18 +104,17 @@ function testSend() {
 
 /* ---------- helpers ---------- */
 
-// Swap the logo URLs for attached copies ("cid:"), so the logo is part of the email instead of a link
+// Attach the logo to the email ("cid:logo") and use it in every logo spot of the design
 function inlineImages_(html) {
-  const images = {};
-  Object.keys(CONFIG.INLINE_IMAGES).forEach(function (id) {
-    const url = CONFIG.INLINE_IMAGES[id];
-    if (html.indexOf(url) < 0) return;
-    try {
-      images[id] = UrlFetchApp.fetch(url).getBlob().setName(id + '.png');
-      html = html.split(url).join('cid:' + id);
-    } catch (err) { /* keep the normal link if the download fails */ }
-  });
-  return { html: html, images: images };
+  const used = CONFIG.LOGO_SLOTS.filter(function (url) { return html.indexOf(url) >= 0; });
+  if (!used.length) return { html: html, images: {} };
+  try {
+    const blob = UrlFetchApp.fetch(CONFIG.LOGO_URL).getBlob().setName('xninja-logo.png');
+    used.forEach(function (url) { html = html.split(url).join('cid:logo'); });
+    return { html: html, images: { logo: blob } };
+  } catch (err) {
+    return { html: html, images: {} };   // download failed: keep the normal links
+  }
 }
 
 function template_(lang) {
