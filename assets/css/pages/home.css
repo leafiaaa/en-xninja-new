@@ -196,7 +196,6 @@ html[lang|="zh"] .skills__scroller { height: 550px; }
 .arch__head { width: 551px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .arch__desc { width: min(462px, 100%); font-size: 18px; }
 .arch__art { width: 636px; max-width: 100%; }
-.arch__img { display: block; width: 100%; height: auto; border-radius: 20px; }
 
 /* Animated diagram: each layer rises in, arrows wipe downward and keep flowing,
    then the agent core pops in, its connectors draw outward and the capabilities slide in.
