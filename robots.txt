@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leafiaaa.github.io/en-xninja-new/sitemap.xml
