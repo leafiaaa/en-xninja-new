@@ -47,7 +47,6 @@ To change a brand color, edit the variables at the top of `base.css`.
 
 - **Video links**: BPM and KM demo videos (skill pages + Approval Workflow article). The cover images are in place; add the link and they become clickable.
 - **TikTok link**: "Watch on TikTok — Hundred Plus TH" (end of the Approval Workflow article).
-- **purchaseRequestFlow image**: placeholder box in the Manufacturers article ("How to design approval workflows").
 - **Book a Demo**: currently opens an email to service@hundredplus.com. Swap in a booking form when there is one.
 
 ## Run locally
