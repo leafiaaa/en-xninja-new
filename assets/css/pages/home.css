@@ -417,6 +417,9 @@ html[lang|="zh"] .skills__scroller { height: 550px; }
 /* ---------- Thai: room for the taller Thai line spacing ---------- */
 /* hero floating cards: tighter label lines + taller card so the label has bottom padding */
 html:lang(th) .fcard__label { line-height: 1.6; }
+/* Indonesian: 2-line analyze label ("…Internal / dengan Cepat") gets room below it */
+html:lang(id) .fcard--analyze { height: 215px; }
+html:lang(id) .fcard--analyze .fcard__bg { height: 205px; }
 html:lang(th) .fcard--forms { height: 286px; }
 html:lang(th) .fcard--forms .fcard__bg { height: 276px; }
 html:lang(th) .fcard--analyze { height: 214px; }
