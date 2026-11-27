@@ -74,6 +74,7 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
   html[lang|="zh"] .nav__links { gap: 40px; font-size: 15px; }
   html[lang|="zh"] .btn--nav { width: auto; height: auto; padding: 6px 18px; font-size: 15px; }
   html[lang|="zh"] .lang .dropdown__btn { font-size: 15px; }
+  html:lang(id) .btn--nav { width: auto; padding: 0 28px; }   /* "Jadwalkan Demo" needs more room than the 186px English button */
 }
 
 /* ---------- Footer ---------- */
