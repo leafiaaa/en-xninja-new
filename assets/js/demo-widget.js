@@ -16,7 +16,7 @@
 
   // hover icon: a speech bubble with a "play demo" triangle, and a small shuriken spark (xNinja)
   var chat = '<svg class="demo-fab__chat" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M15 5.5a10.5 10.5 0 1 0 0 21c1.2 0 2.3-.2 3.4-.5l5.1 2.5-1.1-4.9A10.5 10.5 0 0 0 25.5 16" stroke="#fff" stroke-width="2.4"/>' +
+    '<path d="M15 5.5a10.5 10.5 0 1 0 0 21c1.2 0 2.3-.2 3.4-.5l5.1 2.5-1.1-4.9A10.5 10.5 0 0 0 25.5 16" fill="none" stroke="#fff" stroke-width="2.4"/>' +
     '<path d="M12.6 11.8v8.4a.8.8 0 0 0 1.2.7l6.6-4.2a.8.8 0 0 0 0-1.4l-6.6-4.2a.8.8 0 0 0-1.2.7z" fill="#fff"/>' +
     '<path class="demo-fab__star" d="M25.5 1.8l1.5 3.4 3.4 1.5-3.4 1.5-1.5 3.4-1.5-3.4-3.4-1.5 3.4-1.5z" fill="#bcd5ff"/>' +
     '<circle cx="25.5" cy="6.7" r=".9" fill="#0156d7"/></svg>';
