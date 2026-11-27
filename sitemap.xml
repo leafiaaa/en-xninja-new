@@ -64,6 +64,27 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/apply/"/>
   </url>
   <url>
+    <loc>https://leafiaaa.github.io/en-xninja-new/articles/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://leafiaaa.github.io/en-xninja-new/tw/articles/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/articles/"/>
+  </url>
+  <url>
+    <loc>https://leafiaaa.github.io/en-xninja-new/th/articles/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://leafiaaa.github.io/en-xninja-new/tw/articles/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/articles/"/>
+  </url>
+  <url>
+    <loc>https://leafiaaa.github.io/en-xninja-new/tw/articles/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://leafiaaa.github.io/en-xninja-new/tw/articles/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/articles/"/>
+  </url>
+  <url>
     <loc>https://leafiaaa.github.io/en-xninja-new/articles/approval-workflow-automation/</loc>
     <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/approval-workflow-automation/"/>

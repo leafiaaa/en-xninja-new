@@ -11,6 +11,7 @@ Plain HTML, CSS and JavaScript with no build step and no dependencies, ready for
 | `/about-us/` | `about-us/index.html` | `/en/about-us` |
 | `/skills/xninja-business-process-management/` | `skills/xninja-business-process-management/index.html` | `/en/skills/xninja-business-process-management` |
 | `/skills/xninja-knowledge-management/` | `skills/xninja-knowledge-management/index.html` | `/en/skills/xninja-knowledge-management` |
+| `/articles/` | `articles/index.html` | — (blog index: latest article + grid; CSS `pages/blog.css`) |
 | `/articles/approval-workflow-automation/` | `articles/approval-workflow-automation/index.html` | `/en/articles/approval-workflow-automation` |
 | `/articles/maximize-eForm-with-xNinja/` | `articles/maximize-eForm-with-xNinja/index.html` | `/en/articles/maximize-eForm-with-xNinja` |
 | `/articles/maximize-eForm-with-xNinja/how-manufacturers-can-digitize-forms-and-approval-workflows/` | `…/index.html` | same path in Figma |
@@ -34,6 +35,7 @@ assets/
       about.css      About Us only
       skill.css      both skill pages (theme via body.skill-page--bpm / --km)
       article.css    all article pages (title, table of contents, prose, tables, callouts)
+      blog.css       blog index /articles/ (latest article, article grid, demo band)
   js/main.js         menus, dropdowns, FAQ, homepage animations, table-of-contents highlight
   img/
     common/          logo, icons and backgrounds used on several pages
