@@ -11,7 +11,9 @@
     form: me.getAttribute("data-form") || "apply/",
     title: me.getAttribute("data-title") || "Book a Demo",
     tip: me.getAttribute("data-tip") || "Book a free demo",
-    close: me.getAttribute("data-close") || "Close"
+    close: me.getAttribute("data-close") || "Close",
+    callout: me.getAttribute("data-callout") || "Have any questions? Feel free to ask us",
+    calloutMs: 15000
   };
 
   // hover icon: a speech bubble with a "play demo" triangle, and a small shuriken spark (xNinja)
@@ -52,8 +54,32 @@
     '<div class="demo-panel__body"><span class="demo-panel__loading" aria-hidden="true"></span></div>';
   panel.querySelector(".demo-panel__title span").textContent = cfg.title;
 
+  // speech bubble above the launcher: shows the first time the launcher appears, for 15 seconds
+  var callout = document.createElement("div");
+  callout.className = "demo-callout";
+  callout.innerHTML = '<button class="demo-callout__text" type="button"></button>' +
+    '<button class="demo-callout__x" type="button" aria-label="' + cfg.close + '">' + x + "</button>";
+  callout.querySelector(".demo-callout__text").textContent = cfg.callout;
+
   document.body.appendChild(panel);
+  document.body.appendChild(callout);
   document.body.appendChild(fab);
+
+  var calloutState = "new";   // new → showing → done
+  var calloutTimer = 0;
+  function showCallout() {
+    if (calloutState !== "new") return;
+    calloutState = "showing";
+    callout.classList.add("is-shown");
+    calloutTimer = setTimeout(hideCallout, cfg.calloutMs);
+  }
+  function hideCallout() {
+    calloutState = "done";
+    clearTimeout(calloutTimer);
+    callout.classList.remove("is-shown");
+  }
+  callout.querySelector(".demo-callout__text").addEventListener("click", function () { hideCallout(); open(); });
+  callout.querySelector(".demo-callout__x").addEventListener("click", hideCallout);
 
   var body = panel.querySelector(".demo-panel__body");
   var frame = null;
@@ -70,6 +96,7 @@
   }
 
   function open() {
+    hideCallout();
     load();
     isOpen = true;
     panel.classList.add("is-open");
@@ -104,7 +131,10 @@
   function update() {
     ticking = false;
     var limit = hero ? hero.offsetTop + hero.offsetHeight * 0.5 : 400;
-    fab.classList.toggle("is-shown", isOpen || window.scrollY > limit);
+    var shown = isOpen || window.scrollY > limit;
+    fab.classList.toggle("is-shown", shown);
+    if (shown) showCallout();
+    callout.classList.toggle("is-away", !shown);   // tuck the bubble away with the launcher
   }
   window.addEventListener("scroll", function () {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
