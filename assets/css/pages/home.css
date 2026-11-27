@@ -36,24 +36,22 @@
   animation: shimmer 2.8s ease-in-out infinite;
 }
 
-/* play button over the video still: a pulsing pill with a short invitation ("Meet xNinja in 1 minute") */
+/* play button over the video still: a calm white pill with a short invitation, breathing softly */
 .hero__play {
-  position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 2;
-  display: inline-flex; align-items: center; gap: 10px; padding: 7px 18px 7px 7px;
-  border-radius: 999px; background: rgba(8, 38, 77, .92); color: #fff;
+  position: absolute; left: 71%; top: 63%; translate: -50% -50%; z-index: 2;   /* just under the ninja's face */
+  display: inline-flex; align-items: center; gap: 10px; padding: 6px 18px 6px 6px;
+  border-radius: 999px; background: rgba(255, 255, 255, .94); color: var(--blue);
   font-weight: 600; font-size: 15px; line-height: 1; white-space: nowrap;
-  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-  transition: background-color .2s;
-  animation: play-pulse 2.2s ease-in-out infinite;
+  box-shadow: 0 4px 14px rgba(8, 38, 77, .18);
+  animation: play-breathe 3.6s ease-in-out infinite;
 }
 .hero__play::before {
   content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 14'%3E%3Cpath d='M1 1.2v11.6a.8.8 0 0 0 1.2.7l9.4-5.8a.8.8 0 0 0 0-1.4L2.2.5A.8.8 0 0 0 1 1.2z' fill='%230156d7'/%3E%3C/svg%3E") no-repeat 55% center / 11px;
+  background: var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 14'%3E%3Cpath d='M1 1.2v11.6a.8.8 0 0 0 1.2.7l9.4-5.8a.8.8 0 0 0 0-1.4L2.2.5A.8.8 0 0 0 1 1.2z' fill='%23fff'/%3E%3C/svg%3E") no-repeat 56% center / 11px;
 }
-.hero__video:hover .hero__play, .hero__video:focus-visible .hero__play { background: var(--blue); }
-@keyframes play-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 162, 240, .55), 0 0 0 0 rgba(1, 86, 215, 0); }
-  50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(90, 162, 240, .18), 0 0 18px 6px rgba(1, 86, 215, .35); }
+@keyframes play-breathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(8, 38, 77, .18), 0 0 0 0 rgba(255, 255, 255, .55); }
+  50% { transform: scale(1.025); box-shadow: 0 4px 14px rgba(8, 38, 77, .18), 0 0 0 7px rgba(255, 255, 255, 0); }
 }
 
 /* slogan + sparkle share the shimmer keyframes in components.css */
@@ -394,7 +392,7 @@ html[lang|="zh"] .skills__scroller { height: 550px; }
   .hero__stage { position: relative; width: 100%; height: auto; transform: none; padding: 28px 16px 36px; }
   .hero .fcard, .hero__map, .hero__pin, .hero__pin-detail { display: none; }
   .hero__video { position: relative; left: auto; top: auto; display: block; width: 100%; height: auto; aspect-ratio: 555 / 316; }
-  .hero__play { font-size: 14px; padding: 6px 15px 6px 6px; gap: 8px; }
+  .hero__play { left: 50%; top: 66%; font-size: 14px; padding: 6px 15px 6px 6px; gap: 8px; }
   .hero__badge { left: auto; top: auto; right: 6px; bottom: 18px; width: 52px; height: 52px; border-width: 3px; }
   .hero__sparkle { -webkit-mask-size: 52px 52px; mask-size: 52px 52px; inset: -3px; }
 }
