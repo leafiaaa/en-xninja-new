@@ -1,0 +1,29 @@
+{
+ "images": {},
+ "replace": {
+  "index.html": {
+   "Enterprise Management System": "Sistem Manajemen Perusahaan",
+   "BPM Solution": "Solusi BPM",
+   "KM Solution": "Solusi KM",
+   "CRM Solution": "Solusi CRM",
+   "HR Solution": "Solusi HR",
+   "ISO Solution": "Solusi ISO",
+   "More Enterprise": "Solusi Perusahaan",
+   "y=\"121.2\" font-size=\"8.6\">Solutions": "y=\"121.2\" font-size=\"8.6\">Lainnya",
+   "AI Skills Layer": "Lapisan AI Skills",
+   "More Skills": "Skills Lainnya",
+   "Understanding &amp; Reasoning": "Pemahaman &amp; Penalaran",
+   "Understanding & Reasoning": "Pemahaman &amp; Penalaran",
+   ">Planning<": ">Perencanaan<",
+   "Execution &amp; Response": "Eksekusi &amp; Respons",
+   "Execution & Response": "Eksekusi &amp; Respons",
+   "Memory &amp; Knowledge": "Memori &amp; Pengetahuan",
+   "Memory & Knowledge": "Memori &amp; Pengetahuan",
+   "Tools &amp; Skills": "Alat &amp; Skills",
+   "Tools & Skills": "Alat &amp; Skills",
+   "Learning &amp; Optimization": "Pembelajaran &amp; Optimasi",
+   "Learning & Optimization": "Pembelajaran &amp; Optimasi",
+   "xNinja architecture: the Enterprise Management System (BPM, KM, CRM, HR, ISO and more) feeds the AI Skills Layer, which powers the xNinja AI Agent – understanding and reasoning, planning, execution and response, memory and knowledge, tools and skills, learning and optimization.": "Arsitektur xNinja: Sistem Manajemen Perusahaan (BPM, KM, CRM, HR, ISO, dan lainnya) memasok Lapisan AI Skills, yang menggerakkan xNinja AI Agent – pemahaman dan penalaran, perencanaan, eksekusi dan respons, memori dan pengetahuan, alat dan skills, serta pembelajaran dan optimasi."
+  }
+ }
+}

@@ -145,6 +145,7 @@ main { display: flex; flex-direction: column; gap: var(--section-gap); }
   .lang .dropdown__menu a[hreflang="en"]::before { content: "EN"; }
   .lang .dropdown__menu a[hreflang="zh-Hant-TW"]::before { content: "TW"; }
   .lang .dropdown__menu a[hreflang="th"]::before { content: "TH"; }
+  .lang .dropdown__menu a[hreflang="id"]::before { content: "ID"; }
   .lang .dropdown__menu a[aria-current] { background: var(--blue); color: #fff; }
   .lang .dropdown__menu a:not([aria-current]):hover { background: #d6e5fb; }
 }

@@ -1,11 +1,11 @@
 /**
  * xNinja "Book a demo" form handler – Google Apps Script web app.
  *
- * When someone presses "Book Now" on /apply/, /tw/apply/ or /th/apply/, the website sends the answers here. This script:
+ * When someone presses "Book Now" on /apply/, /tw/apply/, /th/apply/ or /id/apply/, the website sends the answers here. This script:
  *   1. emails the answers to you (NOTIFY_EMAIL)            – until the eForm connection is ready
  *   2. emails the applicant the designed thank-you email   – English, Chinese or Thai, from emails/demo-thankyou-*.html
  *
- * The email design is read from the website (GitHub Pages), so editing emails/demo-thankyou-en.html, -tw.html or -th.html
+ * The email design is read from the website (GitHub Pages), so editing emails/demo-thankyou-en.html, -tw.html, -th.html or -id.html
  * in the repo updates the email automatically (cached for 10 minutes).
  *
  * Setup: see emails/README.md
@@ -19,9 +19,10 @@ const CONFIG = {
   SITE_URL: {
     en: 'https://leafiaaa.github.io/en-xninja-new/',
     tw: 'https://leafiaaa.github.io/en-xninja-new/tw/',
-    th: 'https://leafiaaa.github.io/en-xninja-new/th/'
+    th: 'https://leafiaaa.github.io/en-xninja-new/th/',
+    id: 'https://leafiaaa.github.io/en-xninja-new/id/'
   },
-  TBC: { en: 'To be confirmed', tw: '待確認', th: 'รอการยืนยัน' },
+  TBC: { en: 'To be confirmed', tw: '待確認', th: 'รอการยืนยัน', id: 'Akan dikonfirmasi' },
   // One logo (with its own background) for light AND dark mode. It is attached to the email itself (inline),
   // so it shows even when the mail app blocks outside images. To change the logo, just change this URL.
   LOGO_URL: 'https://www.101form.net/en/wp-content/uploads/2026/11/xNinjaAiWorkhub_WithBG.png',
@@ -49,7 +50,7 @@ function doPost(e) {
     if (cache.get(key)) return reply_({ ok: true, duplicate: true });
     cache.put(key, '1', 60);
 
-    const lang = (d.lang === 'tw' || d.lang === 'th') ? d.lang : 'en';
+    const lang = (d.lang === 'tw' || d.lang === 'th' || d.lang === 'id') ? d.lang : 'en';
     const tbc = CONFIG.TBC[lang];
     const values = {
       first_name: d['first-name'], last_name: d['last-name'], company: d.company,
@@ -94,9 +95,9 @@ function doGet() {
 
 // Run this once from the editor (select "testSend" → Run) to send yourself a sample of each email (EN, TW, TH).
 function testSend() {
-  ['en', 'tw', 'th'].forEach(function (lang) {
+  ['en', 'tw', 'th', 'id'].forEach(function (lang) {
     doPost({ postData: { contents: JSON.stringify({
-      lang: lang, email: CONFIG.NOTIFY_EMAIL, 'first-name': { tw: '小明', th: 'สมชาย' }[lang] || 'Test', 'last-name': { tw: '王', th: 'ใจดี' }[lang] || 'User',
+      lang: lang, email: CONFIG.NOTIFY_EMAIL, 'first-name': { tw: '小明', th: 'สมชาย', id: 'Budi' }[lang] || 'Test', 'last-name': { tw: '王', th: 'ใจดี', id: 'Santoso' }[lang] || 'User',
       company: 'Hundred Plus', 'job-title': 'Designer', 'company-size': '51–200',
       interests: ['xNinja.Business Process Management'], 'demo-date': '2026-12-01', 'demo-time': 'Morning (10:00–12:00)'
     }) } });

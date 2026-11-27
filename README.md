@@ -19,6 +19,10 @@ Plain HTML, CSS and JavaScript with no build step and no dependencies, ready for
 | `/apply/` | `apply/index.html` | `/en/apply` (3-step Book a demo form; `assets/js/apply.js`) |
 | any missing page | `404.html` | — |
 
+Every page also exists in Traditional Chinese (`/tw/`), Thai (`/th/`) and Bahasa Indonesia (`/id/`).
+The Indonesian pages are generated from the English ones by `tools/i18n/i18n.py` (translations in
+`tools/i18n/id/strings.json`) — edit English, then run `extract id`, translate new strings, `build id` and `tools/seo.py`.
+
 All links between pages are relative, so the site works under `https://<user>.github.io/en-xninja-new/` and on a custom domain.
 `404.html` uses `/en-xninja-new/` paths; change them if the site moves to its own domain.
 

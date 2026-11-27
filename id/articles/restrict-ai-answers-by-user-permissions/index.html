@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cara Membatasi Jawaban AI Berdasarkan Hak Akses Pengguna – xNinja</title>
+  <meta name="description" content="Panduan praktis jawaban AI berbasis hak akses: buat AI mengikuti izin dokumen Anda, pilih aturan akses yang tepat, jaga agar tetap akurat, dan hindari kesalahan umum.">
+  <!-- seo:start -->
+  <link rel="canonical" href="https://leafiaaa.github.io/en-xninja-new/id/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="zh-Hant-TW" href="https://leafiaaa.github.io/en-xninja-new/tw/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="id" href="https://leafiaaa.github.io/en-xninja-new/id/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="x-default" href="https://leafiaaa.github.io/en-xninja-new/articles/restrict-ai-answers-by-user-permissions/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="xNinja AI Workhub">
+  <meta property="og:title" content="Cara Membatasi Jawaban AI Berdasarkan Hak Akses Pengguna – xNinja">
+  <meta property="og:description" content="Panduan praktis jawaban AI berbasis hak akses: buat AI mengikuti izin dokumen Anda, pilih aturan akses yang tepat, jaga agar tetap akurat, dan hindari kesalahan umum.">
+  <meta property="og:url" content="https://leafiaaa.github.io/en-xninja-new/id/articles/restrict-ai-answers-by-user-permissions/">
+  <meta property="og:image" content="https://leafiaaa.github.io/en-xninja-new/assets/img/common/og-image-id.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Cara Membatasi Jawaban AI Berdasarkan Hak Akses Pengguna",
+   "description": "Panduan praktis jawaban AI berbasis hak akses: buat AI mengikuti izin dokumen Anda, pilih aturan akses yang tepat, jaga agar tetap akurat, dan hindari kesalahan umum.",
+   "image": "https://leafiaaa.github.io/en-xninja-new/assets/img/common/og-image-id.jpg",
+   "inLanguage": "id",
+   "mainEntityOfPage": "https://leafiaaa.github.io/en-xninja-new/id/articles/restrict-ai-answers-by-user-permissions/",
+   "author": {
+    "@type": "Organization",
+    "name": "xNinja AI Workhub"
+   },
+   "publisher": {
+    "@id": "https://leafiaaa.github.io/en-xninja-new/#org"
+   },
+   "datePublished": "2026-11-27"
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "id",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Apakah AI dapat mengikuti izin folder yang sudah kami miliki?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ya, jika AI menelusuri atas nama pengguna yang sedang masuk. AI harus memeriksa akses orang tersebut setiap kali dan hanya menggunakan dokumen yang dapat mereka buka."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apakah cukup dengan meminta AI untuk tidak membagikan informasi sensitif?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tidak. Instruksi dapat diabaikan atau diakali. Perlindungan yang sesungguhnya berasal dari membatasi apa yang dapat ditelusuri AI untuk setiap pengguna."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apa yang terjadi jika seseorang menanyakan informasi yang tidak dapat mereka akses?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI harus menyatakan bahwa jawabannya tidak ditemukan dan menyarankan siapa yang dapat dihubungi, tanpa mengonfirmasi bahwa dokumen terbatas itu ada."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Seberapa sering kami perlu meninjau izin akses AI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tinjau folder sensitif setidaknya setiap kuartal, dan segera perbarui akses saat seseorang berganti peran atau keluar."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apakah kami perlu memberi label pada setiap dokumen sebelum menggunakan AI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tidak. Mulailah dengan izin tingkat folder dan lindungi folder paling sensitif Anda terlebih dahulu. Anda dapat menambahkan detail seiring waktu."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- seo:end -->
+  <link rel="icon" href="../../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/common/apple-touch-icon.png">
+  <link rel="preload" href="../../../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../assets/css/base.css?v=20261124m">
+  <link rel="stylesheet" href="../../../assets/css/layout.css?v=20261127h">
+  <link rel="stylesheet" href="../../../assets/css/components.css?v=20261124m">
+  <link rel="stylesheet" href="../../../assets/css/pages/article.css?v=20261124m">
+</head>
+<body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Utama">
+      <a class="nav__logo" href="../../" aria-label="xNinja AI Workhub – beranda">
+        <img src="../../../assets/img/common/xninja-logo.svg" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">Menu</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="../../about-us/">Tentang Kami</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              Skills <img src="../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../../../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Business Process Management</span><span class="mega__desc">Rancang eForm dan otomatiskan alur persetujuan</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../../../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Knowledge Management</span><span class="mega__desc">Cari, ringkas, dan bagikan pengetahuan perusahaan</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../../../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO Management <span class="mega__soon">Segera hadir</span></span><span class="mega__desc">Pastikan organisasi Anda selalu siap audit</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="../../apply/">Jadwalkan Demo</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            ID <img src="../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="../../../articles/restrict-ai-answers-by-user-permissions/" lang="en" hreflang="en">English</a>
+            <a href="../../../tw/articles/restrict-ai-answers-by-user-permissions/" lang="zh-Hant-TW" hreflang="zh-Hant-TW">繁體中文</a>
+            <a href="../../../th/articles/restrict-ai-answers-by-user-permissions/" lang="th" hreflang="th">ไทย</a>
+            <a href="./" lang="id" hreflang="id" aria-current="true">Bahasa Indonesia</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <img class="article__banner" src="../../../assets/img/articles/restrict-ai-banner.webp" alt="Batasi Jawaban AI Berdasarkan Hak Akses Pengguna – Jawaban yang tepat untuk orang yang tepat" width="2100" height="792">
+      <header class="article__header">
+        <h1 class="article__title">Cara Membatasi Jawaban AI Berdasarkan Hak Akses Pengguna</h1>
+        <p class="article__meta"><span class="article__chip">INSIGHT</span><span aria-hidden="true">•</span><time datetime="2026-11-27">27 November 2026</time><span aria-hidden="true">•</span><span>7 menit baca</span></p>
+      </header>
+      <div class="article__body">
+        <div class="article__main">
+        <section class="prose" id="introduction">
+          <p>AI memudahkan pencarian pengetahuan perusahaan, tetapi AI juga dapat memunculkan informasi yang seharusnya tidak dilihat sebagian karyawan. Jika asisten AI dapat menelusuri setiap kebijakan HR, kontrak, dan laporan keuangan, satu pertanyaan sederhana bisa membuka detail sensitif kepada orang yang salah. <strong>Semakin banyak pengetahuan yang Anda hubungkan ke AI, semakin penting kontrol akses.</strong></p>
+          <p>Solusinya adalah membuat AI mengikuti izin yang sama dengan sistem pengetahuan Anda. Sebelum menyusun jawaban, AI harus memeriksa apa yang boleh diakses pengguna dan hanya menggunakan konten tersebut. Artikel ini menjelaskan <strong>cara kerja jawaban AI berbasis hak akses</strong>, <strong>aturan akses apa yang perlu disiapkan</strong>, dan <strong>cara menjaganya tetap akurat</strong> seiring perubahan tim dan dokumen Anda.</p>
+          <div class="callout">
+            <p class="callout__title">Jawaban Singkat</p>
+            <p class="callout__row"><strong>Jawaban AI harus mengikuti izin yang sama dengan dokumen Anda:</strong></p>
+            <ul class="check-list">
+            <li><strong>Cari hanya konten yang diizinkan.</strong> AI hanya menggunakan apa yang dapat dibuka oleh orang yang bertanya.</li>
+            <li><strong>Periksa akses terlebih dahulu.</strong> Izin diterapkan sebelum jawaban disusun.</li>
+            <li><strong>Tampilkan sumber.</strong> Setiap jawaban mencantumkan dokumen asalnya.</li>
+            <li><strong>Diam soal file terbatas.</strong> AI tidak pernah mengungkapkan bahwa file tersebut ada.</li>
+          </ul>
+          </div>
+        </section>
+
+        <section class="prose" id="why-permissions" aria-labelledby="why-permissions-h">
+          <h2 id="why-permissions-h">Mengapa AI membutuhkan izin yang sama dengan dokumen Anda</h2>
+          <p>Sebagian besar perusahaan sudah mengatur siapa yang dapat membuka folder tertentu. File HR, data gaji, kontrak, dan laporan direksi biasanya terbatas untuk segelintir orang. Asisten AI mengubah cara informasi itu dijangkau: alih-alih membuka file, karyawan cukup mengajukan pertanyaan, dan AI menarik jawabannya dari apa pun yang bisa ditelusurinya.</p>
+          <p>Jika AI dapat menelusuri segalanya, AI menjadi jalan pintas yang melewati aturan akses Anda. Pertanyaan seperti <strong>“Berapa gaji manajer penjualan terakhir yang kita rekrut?”</strong> bisa memunculkan detail gaji dari file HR yang tidak pernah bisa dibuka langsung oleh karyawan tersebut. Bahkan ringkasan singkat pun bisa mengungkap terlalu banyak, karena detail sensitifnya ada di jawaban, bukan di file.</p>
+        </section>
+
+        <section class="prose" id="how-it-works" aria-labelledby="how-it-works-h">
+          <h2 id="how-it-works-h">Cara kerja jawaban AI berbasis hak akses</h2>
+          <p>Asisten AI yang memperhatikan hak akses <strong>memeriksa akses sebelum menjawab, bukan sesudahnya.</strong> Alur yang umum terlihat seperti ini:</p>
+          <ul class="check-list">
+            <li><strong>Bertanya.</strong> Karyawan masuk dan mengajukan pertanyaan.</li>
+            <li><strong>Identifikasi.</strong> Sistem memeriksa peran, departemen, dan proyek mereka.</li>
+            <li><strong>Telusuri.</strong> AI hanya mencari di dokumen dan folder yang dapat dibuka orang tersebut.</li>
+            <li><strong>Jawab.</strong> AI menyusun jawaban dari sumber-sumber tersebut dan menunjukkan dokumen mana yang digunakan.</li>
+            <li><strong>Tetap diam.</strong> Jika jawabannya hanya ada di konten terbatas, AI menyatakan bahwa informasinya tidak ditemukan, tanpa mengungkapkan bahwa dokumen terbatas itu ada.</li>
+          </ul>
+          <figure><img src="../../../assets/img/articles/permission-check-flow.webp" alt="Cara kerja jawaban AI berbasis hak akses: karyawan mengajukan pertanyaan, xNinja memeriksa siapa yang bertanya, hanya menelusuri folder yang dapat dibuka orang tersebut, dan menjawab beserta sumbernya. Folder terbatas dilewati dan tidak pernah disebutkan." width="1774" height="887" loading="lazy"></figure>
+        </section>
+
+        <section class="prose" id="access-rules" aria-labelledby="access-rules-h">
+          <h2 id="access-rules-h">Aturan akses apa yang perlu disiapkan</h2>
+          <p>Mulailah dari struktur yang sudah Anda miliki, lalu tambahkan detail hanya jika diperlukan. Sebagian besar organisasi menggabungkan empat jenis aturan:</p>
+          <ul class="check-list">
+            <li><strong>Peran:</strong> Manajer, karyawan, dan administrator melihat tingkat detail yang berbeda.</li>
+            <li><strong>Departemen:</strong> HR, Keuangan, Penjualan, dan Produksi masing-masing memiliki foldernya sendiri.</li>
+            <li><strong>Proyek atau lokasi:</strong> Tim yang menangani pelanggan, produk, atau pabrik tertentu dapat mengakses dokumennya.</li>
+            <li><strong>Tingkat sensitivitas:</strong> Beri label dokumen sebagai Publik, Internal, Rahasia, atau Terbatas, dan tentukan siapa yang dapat menggunakan setiap tingkat.</li>
+          </ul>
+          <figure><img src="../../../assets/img/articles/permission-matrix.webp" alt="Contoh matriks izin: semua karyawan, tim Penjualan, HR, dan Keuangan, serta manajemen masing-masing dapat menggunakan konten Publik, Internal, Rahasia, dan Terbatas dalam cakupan yang berbeda." width="1774" height="887" loading="lazy"></figure>
+          <p>Jaga agar jumlah aturan tetap sedikit. Izin tingkat folder lebih mudah dikelola daripada mengatur akses per file, dan memperjelas ke mana dokumen baru harus disimpan.</p>
+        </section>
+
+        <section class="prose" id="example" aria-labelledby="example-h">
+          <h2 id="example-h">Contoh: pertanyaan yang sama, jawaban berbeda</h2>
+          <p>Bayangkan dua karyawan mengajukan pertanyaan yang sama kepada asisten AI: <strong>“Bagaimana kebijakan upah lembur untuk insinyur senior?”</strong></p>
+          <p>Manajer HR dapat mengakses buku panduan karyawan dan pedoman kompensasi, sehingga jawabannya mencakup kebijakan umum dan tarif upah untuk setiap golongan. Supervisor produksi hanya dapat mengakses buku panduan karyawan, sehingga jawabannya menjelaskan kebijakan umum dan menyarankan untuk menghubungi HR terkait detail upah.</p>
+          <figure><img src="../../../assets/img/articles/same-question-different-answers.webp" alt="Pertanyaan sama, jawaban berbeda: jawaban untuk manajer HR mencakup tarif upah per golongan, sedangkan jawaban untuk supervisor produksi hanya mencakup kebijakan dalam buku panduan karyawan." width="1774" height="887" loading="lazy"></figure>
+          <p>Kedua jawaban itu benar. Tidak ada karyawan yang melihat sesuatu yang sebelumnya tidak bisa mereka buka, dan tidak ada yang perlu mengelola AI terpisah khusus untuk HR.</p>
+        </section>
+
+        <section class="prose" id="keep-accurate" aria-labelledby="keep-accurate-h">
+          <h2 id="keep-accurate-h">Cara menjaga hak akses tetap akurat</h2>
+          <p>Aturan akses hanya berfungsi jika selalu diperbarui. Orang berganti peran, proyek berakhir, dan dokumen baru ditambahkan setiap hari.</p>
+          <ul class="check-list">
+            <li><strong>Sinkronkan dengan direktori karyawan:</strong> Perubahan peran dan departemen diterapkan secara otomatis.</li>
+            <li><strong>Cabut akses pada hari terakhir:</strong> Termasuk akses ke asisten AI.</li>
+            <li><strong>Gunakan pewarisan folder:</strong> Dokumen baru otomatis mengikuti izin foldernya, tanpa perlu diatur satu per satu.</li>
+            <li><strong>Tinjau setiap kuartal:</strong> Periksa folder sensitif bersama setiap pemilik departemen.</li>
+            <li><strong>Simpan catatan:</strong> Catat pertanyaan dan sumber yang digunakan, agar Anda dapat memeriksa apa yang dibagikan AI jika muncul kekhawatiran.</li>
+          </ul>
+        </section>
+
+        <section class="prose" id="mistakes" aria-labelledby="mistakes-h">
+          <h2 id="mistakes-h">Kesalahan umum yang perlu dihindari</h2>
+          <p><strong>Menghubungkan AI dengan akun administrator.</strong> AI jadi dapat melihat segalanya, dan setiap pengguna secara efektif mendapatkan akses tersebut.</p>
+          <p><strong>Hanya mengandalkan instruksi.</strong> Meminta AI untuk “tidak membagikan informasi gaji” bukanlah kontrol akses. Jika datanya dapat ditelusuri, data itu tetap bisa muncul dalam jawaban.</p>
+          <p><strong>Menyalin file ke satu folder bersama untuk AI.</strong> Cara ini menghapus izin aslinya dan meninggalkan salinan yang kedaluwarsa.</p>
+          <p><strong>Melupakan versi lama dan lampiran.</strong> Draf sebelumnya dan lampiran email sering kali berisi detail sensitif yang sama dengan file finalnya.</p>
+        </section>
+
+        <section class="prose" id="how-xninja-helps" aria-labelledby="how-xninja-helps-h">
+          <h2 id="how-xninja-helps-h">Bagaimana xNinja membantu Anda mengendalikan jawaban AI</h2>
+          <p>xNinja.Knowledge Management membantu Anda membuat, mengatur, dan mengelola pengetahuan perusahaan, dengan kontrol akses bawaan:</p>
+          <ul class="check-list">
+            <li><strong>Izin berdasarkan jenis pengetahuan:</strong> Atur tingkat akses untuk setiap jenis pengetahuan guna melindungi informasi penting perusahaan.</li>
+            <li><strong>Jawaban dari sumber yang sah:</strong> Jawaban AI disusun dari sumber pengetahuan yang boleh diakses oleh masing-masing orang.</li>
+            <li><strong>Pencarian, ringkasan, dan rekomendasi AI:</strong> Karyawan menemukan informasi yang mereka butuhkan lebih cepat.</li>
+            <li><strong>Satu tempat untuk pengetahuan internal:</strong> Simpan SOP, manual, pedoman, dan FAQ di satu tempat.</li>
+          </ul>
+          <p>Pelajari lebih lanjut tentang <a href="../../skills/xninja-knowledge-management/">xNinja.Knowledge Management</a>.</p>
+        </section>
+
+        <section class="prose" id="start" aria-labelledby="start-h">
+          <h2 id="start-h">Mulai dari folder paling sensitif Anda</h2>
+          <p>Anda tidak perlu memberi label pada setiap dokumen di hari pertama. Mulailah dengan folder yang berisi data gaji, kontrak, dan catatan kepegawaian, pastikan siapa yang boleh melihatnya, dan hubungkan AI hanya setelah aturan tersebut diterapkan.</p>
+          <p><a href="../../apply/">Jadwalkan demo</a> untuk melihat bagaimana <strong>xNinja</strong> menjawab pertanyaan berdasarkan hak akses masing-masing karyawan.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Daftar isi">
+          <p class="toc__title">DAFTAR ISI</p>
+          <ol>
+            <li><a href="#why-permissions">Mengapa AI Membutuhkan Izin yang Sama</a></li>
+            <li><a href="#how-it-works">Cara Kerja Jawaban Berbasis Hak Akses</a></li>
+            <li><a href="#access-rules">Aturan Akses yang Perlu Disiapkan</a></li>
+            <li><a href="#example">Pertanyaan Sama, Jawaban Berbeda</a></li>
+            <li><a href="#keep-accurate">Cara Menjaga Hak Akses Tetap Akurat</a></li>
+            <li><a href="#mistakes">Kesalahan Umum yang Perlu Dihindari</a></li>
+            <li><a href="#how-xninja-helps">Bagaimana xNinja Membantu</a></li>
+            <li><a href="#start">Mulai dari Folder Sensitif</a></li>
+          </ol>
+        </nav>
+      </div>
+    </article>
+
+    <section class="article-faq" aria-label="Pertanyaan yang sering diajukan">
+<div class="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="faq__title">Pertanyaan yang Sering Diajukan</h2>
+  <div class="faq__list">
+    <div class="faq__item is-open">
+      <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="art_rai-faq-a1" id="art_rai-faq-q1">Apakah AI dapat mengikuti izin folder yang sudah kami miliki?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a1" role="region" aria-labelledby="art_rai-faq-q1"><p>Ya, jika AI menelusuri atas nama pengguna yang sedang masuk. AI harus memeriksa akses orang tersebut setiap kali dan hanya menggunakan dokumen yang dapat mereka buka.</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a2" id="art_rai-faq-q2">Apakah cukup dengan meminta AI untuk tidak membagikan informasi sensitif?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a2" role="region" aria-labelledby="art_rai-faq-q2" hidden><p>Tidak. Instruksi dapat diabaikan atau diakali. Perlindungan yang sesungguhnya berasal dari membatasi apa yang dapat ditelusuri AI untuk setiap pengguna.</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a3" id="art_rai-faq-q3">Apa yang terjadi jika seseorang menanyakan informasi yang tidak dapat mereka akses?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a3" role="region" aria-labelledby="art_rai-faq-q3" hidden><p>AI harus menyatakan bahwa jawabannya tidak ditemukan dan menyarankan siapa yang dapat dihubungi, tanpa mengonfirmasi bahwa dokumen terbatas itu ada.</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a4" id="art_rai-faq-q4">Seberapa sering kami perlu meninjau izin akses AI?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a4" role="region" aria-labelledby="art_rai-faq-q4" hidden><p>Tinjau folder sensitif setidaknya setiap kuartal, dan segera perbarui akses saat seseorang berganti peran atau keluar.</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a5" id="art_rai-faq-q5">Apakah kami perlu memberi label pada setiap dokumen sebelum menggunakan AI?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a5" role="region" aria-labelledby="art_rai-faq-q5" hidden><p>Tidak. Mulailah dengan izin tingkat folder dan lindungi folder paling sensitif Anda terlebih dahulu. Anda dapat menambahkan detail seiring waktu.</p></div>
+    </div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="../../"><img src="../../../assets/img/common/xninja-logo.svg" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="Skills">
+        <p class="footer__head">Skills</p>
+        <a href="../../skills/xninja-business-process-management/">Business Process Management</a>
+        <a href="../../skills/xninja-knowledge-management/">Knowledge Management</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="Perusahaan">
+        <p class="footer__head">Perusahaan</p>
+        <a href="../../about-us/">Tentang Kami</a>
+        <a href="../../articles/">Artikel</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja oleh Hundred Plus Co., Ltd. Hak cipta dilindungi undang-undang · Taiwan</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>5F., No.150, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js?v=20261127a" defer></script>
+</body>
+</html>

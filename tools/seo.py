@@ -17,6 +17,7 @@ LANGS = {  # folder prefix → (hreflang, og:locale, share image)
     "":    ("en",         "en_US", "assets/img/common/og-image-en.jpg"),
     "tw/": ("zh-Hant-TW", "zh_TW", "assets/img/common/og-image-tw.jpg"),
     "th/": ("th",         "th_TH", "assets/img/common/og-image-th.jpg"),
+    "id/": ("id",         "id_ID", "assets/img/common/og-image-id.jpg"),
 }
 SKIP = {"404.html"}   # gets noindex, not in the sitemap
 ORG = {
@@ -36,13 +37,13 @@ def text(s):
 def pages():
     """Yield (url path like 'skills/x/', language prefix, path without language) for every page."""
     for dirpath, dirs, files in os.walk(ROOT):
-        dirs[:] = [d for d in dirs if not d.startswith(".") and d not in ("emails", "assets", "tools", "node_modules")]
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d not in ("emails", "assets", "tools", "node_modules", "build")]
         for f in files:
             if not f.endswith(".html"):
                 continue
             rel = os.path.relpath(os.path.join(dirpath, f), ROOT).replace(os.sep, "/")
             url = rel[:-len("index.html")] if rel.endswith("index.html") else rel
-            prefix = next((p for p in ("tw/", "th/") if url.startswith(p)), "")
+            prefix = next((p for p in ("tw/", "th/", "id/") if url.startswith(p)), "")
             yield rel, url, prefix, url[len(prefix):]
 
 
