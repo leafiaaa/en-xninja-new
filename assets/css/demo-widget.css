@@ -94,4 +94,5 @@
 @media (prefers-reduced-motion: reduce) {
   .demo-fab, .demo-panel, .demo-fab svg, .demo-fab__tip { transition: none; }
   .demo-panel__loading { animation-duration: 2s; }
+  .demo-fab__shine { display: none; }
 }

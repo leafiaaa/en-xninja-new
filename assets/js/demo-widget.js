@@ -20,12 +20,15 @@
     '<path d="M12.6 11.8v8.4a.8.8 0 0 0 1.2.7l6.6-4.2a.8.8 0 0 0 0-1.4l-6.6-4.2a.8.8 0 0 0-1.2.7z" fill="#fff"/>' +
     '<path class="demo-fab__star" d="M25.5 1.8l1.5 3.4 3.4 1.5-3.4 1.5-1.5 3.4-1.5-3.4-3.4-1.5 3.4-1.5z" fill="#bcd5ff"/>' +
     '<circle cx="25.5" cy="6.7" r=".9" fill="#0156d7"/></svg>';
-  var spark = '<svg class="demo-fab__spark" viewBox="0 0 32 32" aria-hidden="true">' +
-    '<defs><linearGradient id="demo-fab-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fbcff"/><stop offset="1" stop-color="#1765dc"/></linearGradient></defs>' +
-    '<g fill="url(#demo-fab-grad)">' +
-    '<path d="M11.5 7q1 8.5 9.5 9.5-8.5 1-9.5 9.5-1-8.5-9.5-9.5 8.5-1 9.5-9.5z"/>' +
-    '<path d="M22.5 3q.55 4.45 5 5-4.45.55-5 5-.55-4.45-5-5 4.45-.55 5-5z"/>' +
-    '<path d="M24 19q.4 3.1 3.5 3.5-3.1.4-3.5 3.5-.4-3.1-3.5-3.5 3.1-.4 3.5-3.5z"/></g></svg>';
+  // resting icon: a solid gradient chat bubble with a light shimmer sweeping across it
+  var bubblePath = "M10 5h12a7 7 0 0 1 7 7v4.5a7 7 0 0 1-7 7h-8.5l-5.6 4.3a.8.8 0 0 1-1.3-.7l.6-4A7 7 0 0 1 3 16.5V12a7 7 0 0 1 7-7z";
+  var spark = '<svg class="demo-fab__spark" viewBox="0 0 32 32" aria-hidden="true"><defs>' +
+    '<linearGradient id="demo-fab-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb3ff"/><stop offset="1" stop-color="#0156d7"/></linearGradient>' +
+    '<linearGradient id="demo-fab-shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>' +
+    '<clipPath id="demo-fab-clip"><path d="' + bubblePath + '"/></clipPath></defs>' +
+    '<path d="' + bubblePath + '" fill="url(#demo-fab-grad)"/>' +
+    '<g clip-path="url(#demo-fab-clip)"><rect class="demo-fab__shine" x="-14" y="-4" width="12" height="40" fill="url(#demo-fab-shine)" transform="skewX(-20)">' +
+    '<animate attributeName="x" values="-14;40;40" keyTimes="0;.4;1" dur="3.2s" repeatCount="indefinite"/></rect></g></svg>';
   var chevron = '<svg class="demo-fab__close" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5l8 8 8-8"/></svg>';
   var bubble = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3.5V17H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>';
   var x = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
