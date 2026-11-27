@@ -14,11 +14,12 @@
     close: me.getAttribute("data-close") || "Close"
   };
 
+  // hover icon: a speech bubble with a "play demo" triangle, and a small shuriken spark (xNinja)
   var chat = '<svg class="demo-fab__chat" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M21 14.5h3.5a3 3 0 0 1 3 3v3.5a3 3 0 0 1-2.5 3v2.8l-3.6-2.8h-4.2a3 3 0 0 1-2.4-1.2" stroke="#a9c6f7" stroke-width="2.2"/>' +
-    '<path d="M6.5 8h11a3.5 3.5 0 0 1 3.5 3.5v5a3.5 3.5 0 0 1-3.5 3.5H12l-4.5 3.6V20A3.5 3.5 0 0 1 3 16.5v-5A3.5 3.5 0 0 1 6.5 8z" stroke="#fff" stroke-width="2.4"/>' +
-    '<path d="M25.5 2.5q.45 3.55 4 4-3.55.45-4 4-.45-3.55-4-4 3.55-.45 4-4z" fill="#fff"/>' +
-    '<path d="M5 25.5q.25 1.75 2 2-1.75.25-2 2-.25-1.75-2-2 1.75-.25 2-2z" fill="#fff"/></svg>';
+    '<path d="M15 5.5a10.5 10.5 0 1 0 0 21c1.2 0 2.3-.2 3.4-.5l5.1 2.5-1.1-4.9A10.5 10.5 0 0 0 25.5 16" stroke="#fff" stroke-width="2.4"/>' +
+    '<path d="M12.6 11.8v8.4a.8.8 0 0 0 1.2.7l6.6-4.2a.8.8 0 0 0 0-1.4l-6.6-4.2a.8.8 0 0 0-1.2.7z" fill="#fff"/>' +
+    '<path class="demo-fab__star" d="M25.5 1.8l1.5 3.4 3.4 1.5-3.4 1.5-1.5 3.4-1.5-3.4-3.4-1.5 3.4-1.5z" fill="#bcd5ff"/>' +
+    '<circle cx="25.5" cy="6.7" r=".9" fill="#0156d7"/></svg>';
   var spark = '<svg class="demo-fab__spark" viewBox="0 0 32 32" aria-hidden="true">' +
     '<defs><linearGradient id="demo-fab-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fbcff"/><stop offset="1" stop-color="#1765dc"/></linearGradient></defs>' +
     '<g fill="url(#demo-fab-grad)">' +
