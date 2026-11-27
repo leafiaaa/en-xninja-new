@@ -65,10 +65,14 @@
   document.body.appendChild(callout);
   document.body.appendChild(fab);
 
+  // the bubble shows twice per visit: when the launcher first appears, and again at the bottom of the page
   var calloutState = "new";   // new → showing → done
   var calloutTimer = 0;
-  function showCallout() {
-    if (calloutState !== "new") return;
+  var bottomShown = false;
+  function showCallout(force) {
+    if (calloutState !== "new" && !force) return;
+    if (isOpen) return;
+    clearTimeout(calloutTimer);
     calloutState = "showing";
     callout.classList.add("is-shown");
     calloutTimer = setTimeout(hideCallout, cfg.calloutMs);
@@ -134,6 +138,9 @@
     var shown = isOpen || window.scrollY > limit;
     fab.classList.toggle("is-shown", shown);
     if (shown) showCallout();
+    // reached the bottom (footer in view): show the bubble once more
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160;
+    if (atBottom && shown && !bottomShown) { bottomShown = true; showCallout(true); }
     callout.classList.toggle("is-away", !shown);   // tuck the bubble away with the launcher
   }
   window.addEventListener("scroll", function () {
