@@ -76,3 +76,13 @@
   .journey__stat-num { font-size: 104px; }
   .journey__stat-label { font-size: 24px; }
 }
+
+/* ---------- Bahasa Indonesia: spacing tuned in Figma (/id/about-us) ---------- */
+html:lang(id) .vision__card { padding-inline: 36px; }
+html:lang(id) .goal { min-height: 286px; }
+html:lang(id) .goal__title { margin-top: 8px; }
+html:lang(id) .goal:nth-child(2) .goal__text { padding-inline: 14px; }
+@media (min-width: 601px) {
+  html:lang(id) .story { padding-top: 26px; }
+  html:lang(id) .story__label { margin-bottom: 8px; }
+}
