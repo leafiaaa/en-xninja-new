@@ -6,26 +6,25 @@
 
 .demo-fab {
   position: fixed; right: 28px; bottom: 28px; z-index: 150;
-  width: 64px; height: 64px; padding: 0; border: 2px solid transparent; border-radius: 22px;
+  width: 68px; height: 68px; padding: 0; border: 4px solid var(--blue); border-radius: 50%;
   display: grid; place-items: center; cursor: pointer;
-  background: var(--blue); color: #fff;
-  box-shadow: 0 10px 28px rgba(1, 86, 215, .32);
+  background: #fff; color: #fff;
+  box-shadow: 0 8px 24px rgba(1, 86, 215, .18);
   opacity: 0; visibility: hidden; transform: translateY(16px) scale(.9);
   transition: opacity .3s ease, transform .35s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .35s,
-              background-color .2s ease, border-color .2s ease, color .2s ease, border-radius .25s ease;
+              background-color .2s ease, border-radius .25s ease, box-shadow .2s ease;
 }
 .demo-fab.is-shown { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
 .demo-fab:focus-visible { outline: 3px solid rgba(1, 86, 215, .35); outline-offset: 3px; }
-.demo-fab svg { grid-area: 1 / 1; width: 34px; height: 34px; transition: opacity .2s ease, transform .3s cubic-bezier(.16, 1, .3, 1); }
-.demo-fab__spark, .demo-fab__close { opacity: 0; transform: scale(.6) rotate(-30deg); }
+.demo-fab svg { grid-area: 1 / 1; width: 36px; height: 36px; transition: opacity .2s ease, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.demo-fab__chat, .demo-fab__close { opacity: 0; transform: scale(.6) rotate(-30deg); }
 
-/* hover: white circle, blue ring, blue sparkles */
-.demo-fab:hover:not(.is-open) { background: #fff; color: var(--blue); border-color: var(--blue); border-radius: 50%; }
-.demo-fab:hover:not(.is-open) .demo-fab__chat { opacity: 0; transform: scale(.6); }
-.demo-fab:hover:not(.is-open) .demo-fab__spark { opacity: 1; transform: none; }
-
-/* open: chevron down */
-.demo-fab.is-open .demo-fab__chat { opacity: 0; transform: scale(.6) rotate(30deg); }
+/* hover / open: blue rounded square (chat bubbles on hover, chevron when open) */
+.demo-fab:hover, .demo-fab.is-open {
+  background: var(--blue); border-radius: 22px; box-shadow: 0 10px 30px rgba(1, 86, 215, .38);
+}
+.demo-fab:hover .demo-fab__spark, .demo-fab.is-open .demo-fab__spark { opacity: 0; transform: scale(.6) rotate(30deg); }
+.demo-fab:hover:not(.is-open) .demo-fab__chat { opacity: 1; transform: none; }
 .demo-fab.is-open .demo-fab__close { opacity: 1; transform: none; }
 
 /* small tooltip label to the left of the launcher */
@@ -81,7 +80,8 @@
 
 /* phones: panel becomes a near-full-screen sheet */
 @media (max-width: 640px) {
-  .demo-fab { right: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 19px; }
+  .demo-fab { right: 16px; bottom: 16px; width: 58px; height: 58px; }
+  .demo-fab:hover, .demo-fab.is-open { border-radius: 19px; }
   .demo-fab svg { width: 30px; height: 30px; }
   .demo-fab__tip { display: none; }
   .demo-panel {

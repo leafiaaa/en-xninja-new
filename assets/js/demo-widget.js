@@ -14,15 +14,17 @@
     close: me.getAttribute("data-close") || "Close"
   };
 
-  var chat = '<svg class="demo-fab__chat" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M6.5 8.5h11.5a3.5 3.5 0 0 1 3.5 3.5v5a3.5 3.5 0 0 1-3.5 3.5H12l-4.5 3.5v-3.6A3.5 3.5 0 0 1 3 17v-5a3.5 3.5 0 0 1 3.5-3.5z"/>' +
-    '<path d="M24.5 15.5a3 3 0 0 1 1.5 2.6v3.4a3 3 0 0 1-2.4 2.9V27l-3.6-2.6h-3.5" opacity=".6"/>' +
-    '<path d="M26 3.5q.4 3.6 4 4-3.6.4-4 4-.4-3.6-4-4 3.6-.4 4-4z" fill="currentColor" stroke="none"/>' +
-    '<path d="M3.5 25q.25 2 2.25 2.25-2 .25-2.25 2.25-.25-2-2.25-2.25 2-.25 2.25-2.25z" fill="currentColor" stroke="none" opacity=".75"/></svg>';
-  var spark = '<svg class="demo-fab__spark" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">' +
-    '<path d="M13 4q1 9.5 10.5 10.5Q14 15.5 13 25q-1-9.5-10.5-10.5Q12 13.5 13 4z"/>' +
-    '<path d="M24.5 3q.5 4 4.5 4.5-4 .5-4.5 4.5-.5-4-4.5-4.5 4-.5 4.5-4.5z"/>' +
-    '<path d="M24 20q.4 3.1 3.5 3.5-3.1.4-3.5 3.5-.4-3.1-3.5-3.5 3.1-.4 3.5-3.5z"/></svg>';
+  var chat = '<svg class="demo-fab__chat" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M21 14.5h3.5a3 3 0 0 1 3 3v3.5a3 3 0 0 1-2.5 3v2.8l-3.6-2.8h-4.2a3 3 0 0 1-2.4-1.2" stroke="#a9c6f7" stroke-width="2.2"/>' +
+    '<path d="M6.5 8h11a3.5 3.5 0 0 1 3.5 3.5v5a3.5 3.5 0 0 1-3.5 3.5H12l-4.5 3.6V20A3.5 3.5 0 0 1 3 16.5v-5A3.5 3.5 0 0 1 6.5 8z" stroke="#fff" stroke-width="2.4"/>' +
+    '<path d="M25.5 2.5q.45 3.55 4 4-3.55.45-4 4-.45-3.55-4-4 3.55-.45 4-4z" fill="#fff"/>' +
+    '<path d="M5 25.5q.25 1.75 2 2-1.75.25-2 2-.25-1.75-2-2 1.75-.25 2-2z" fill="#fff"/></svg>';
+  var spark = '<svg class="demo-fab__spark" viewBox="0 0 32 32" aria-hidden="true">' +
+    '<defs><linearGradient id="demo-fab-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fbcff"/><stop offset="1" stop-color="#1765dc"/></linearGradient></defs>' +
+    '<g fill="url(#demo-fab-grad)">' +
+    '<path d="M11.5 7q1 8.5 9.5 9.5-8.5 1-9.5 9.5-1-8.5-9.5-9.5 8.5-1 9.5-9.5z"/>' +
+    '<path d="M22.5 3q.55 4.45 5 5-4.45.55-5 5-.55-4.45-5-5 4.45-.55 5-5z"/>' +
+    '<path d="M24 19q.4 3.1 3.5 3.5-3.1.4-3.5 3.5-.4-3.1-3.5-3.5 3.1-.4 3.5-3.5z"/></g></svg>';
   var chevron = '<svg class="demo-fab__close" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5l8 8 8-8"/></svg>';
   var bubble = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3.5V17H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>';
   var x = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
