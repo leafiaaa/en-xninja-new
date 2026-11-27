@@ -361,4 +361,28 @@
     }, { rootMargin: "-20% 0px -60% 0px" });
     Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
   }
+
+  /* ---------- Homepage article cards: whole card turns blue when tapped (touch screens) ----------
+     Short delay so a finger that is only scrolling past does not flash the card;
+     the colour stays on after the tap while the article loads, and is cleared on Back. */
+  var posts = $$(".post");
+  if (posts.length) {
+    var pressTimer = null;
+    var clearPressed = function () {
+      clearTimeout(pressTimer);
+      posts.forEach(function (p) { p.classList.remove("is-pressed"); });
+    };
+    posts.forEach(function (post) {
+      post.addEventListener("touchstart", function () {
+        clearPressed();
+        pressTimer = setTimeout(function () { post.classList.add("is-pressed"); }, 60);
+      }, { passive: true });
+      post.addEventListener("touchmove", clearPressed, { passive: true });
+      post.addEventListener("touchcancel", clearPressed, { passive: true });
+      post.addEventListener("click", function () {
+        if (window.matchMedia("(hover: none)").matches) post.classList.add("is-pressed");
+      });
+    });
+    window.addEventListener("pageshow", clearPressed);
+  }
 })();

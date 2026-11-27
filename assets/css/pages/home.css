@@ -255,6 +255,24 @@ html[lang|="zh"] .skills__scroller { height: 550px; }
 .post__link { font-weight: 600; font-size: 16px; color: var(--blue); white-space: nowrap; }
 .post__link::after { content: ""; position: absolute; inset: 0; }
 
+/* Touch screens: tapping anywhere on an article card turns the whole card brand blue
+   (.is-pressed is set by main.js; :active is the fallback). A blue layer fades in
+   behind the content, so the gradient can animate. */
+.post { isolation: isolate; -webkit-tap-highlight-color: transparent; }
+.post__link { -webkit-tap-highlight-color: transparent; }
+.post::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grad-blue-card); opacity: 0; transition: opacity .18s ease;
+}
+.post :is(.post__meta, .post__title, .post__link, .pill, .post__dot) { transition: color .18s ease, background-color .18s ease; }
+@media (hover: none) {
+  .post:active, .post.is-pressed { border-top-color: #0d4db3; transform: scale(.985); box-shadow: -3px 12px 14px 0 #b9d8ff; }
+  .post:is(:active, .is-pressed)::before { opacity: 1; }
+  .post:is(:active, .is-pressed) :is(.post__meta, .post__title, .post__link) { color: #fff; }
+  .post:is(:active, .is-pressed) .pill { background: #fff; color: var(--blue); }
+  .post:is(:active, .is-pressed) .post__dot { background: #fff; }
+}
+
 /* ---------- About ---------- */
 .about { --about-shift: 0px; position: relative; overflow: hidden; height: 623px; background: linear-gradient(to bottom, #f8f8f8 23.08%, #e9f1fc 80.77%, #f8f8f8); }
 .about__copy { position: absolute; z-index: 1; left: calc(50% - 640px + 89px); top: calc(98px + var(--about-shift)); width: 607px; display: flex; flex-direction: column; align-items: flex-start; }
