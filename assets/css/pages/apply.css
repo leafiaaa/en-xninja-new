@@ -107,3 +107,14 @@ select.input:invalid { color: #8c959f; }
   .step.is-entering { animation: none; }
   .dots span { transition: none; }
 }
+
+/* ---------- Embedded in the homepage "Book a Demo" panel (apply/?embed=1) ---------- */
+.is-embed .skip-link, .is-embed .site-header, .is-embed .footer, .is-embed .apply__intro { display: none; }
+.is-embed body { background: #f8f9fb; }
+.is-embed .apply { padding: 20px 16px 24px; background: #f8f9fb; min-height: 100vh; }
+.is-embed .apply__inner { display: block; }
+.is-embed .apply-card { width: 100%; padding: 24px 20px; border-radius: 12px; box-shadow: none; }
+.is-embed .row, .is-embed .options { grid-template-columns: 1fr; }
+.is-embed .row { gap: 20px; }
+.is-embed .step { gap: 20px; }
+.is-embed .step__title { font-size: 19px; }

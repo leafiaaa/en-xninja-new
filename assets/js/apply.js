@@ -132,4 +132,12 @@
       .then(function (res) { if (res && res.ok) done(data); else fail(); })
       .catch(fail);
   }
+
+  // embedded in the homepage panel: Esc and "Back to home" close the panel instead of navigating
+  if (document.documentElement.classList.contains("is-embed") && window.parent !== window) {
+    var closePanel = function () { window.parent.postMessage("xn-demo-close", location.origin); };
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
+    var back = form.parentNode.querySelector(".apply-done .btn");
+    if (back) back.addEventListener("click", function (e) { e.preventDefault(); closePanel(); });
+  }
 })();
