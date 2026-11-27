@@ -14,6 +14,7 @@ Plain HTML, CSS and JavaScript with no build step and no dependencies, ready for
 | `/articles/approval-workflow-automation/` | `articles/approval-workflow-automation/index.html` | `/en/articles/approval-workflow-automation` |
 | `/articles/maximize-eForm-with-xNinja/` | `articles/maximize-eForm-with-xNinja/index.html` | `/en/articles/maximize-eForm-with-xNinja` |
 | `/articles/maximize-eForm-with-xNinja/how-manufacturers-can-digitize-forms-and-approval-workflows/` | `…/index.html` | same path in Figma |
+| `/articles/restrict-ai-answers-by-user-permissions/` | `articles/restrict-ai-answers-by-user-permissions/index.html` | `/en/articles/restrict-ai-answers-by-user-permissions` |
 | `/apply/` | `apply/index.html` | `/en/apply` (3-step Book a demo form; `assets/js/apply.js`) |
 | any missing page | `404.html` | — |
 

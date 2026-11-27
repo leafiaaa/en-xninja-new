@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>วิธีจำกัดคำตอบของ AI ตามสิทธิ์ของผู้ใช้ – xNinja</title>
+  <meta name="description" content="คู่มือ AI สำหรับการจัดการความรู้: ทำให้ AI ใช้สิทธิ์เดียวกับเอกสาร ตอบจากข้อมูลที่ผู้ใช้มีสิทธิ์เข้าถึงเท่านั้น พร้อมวิธีตั้งกฎการเข้าถึง ตัวอย่าง และข้อผิดพลาดที่พบบ่อย">
+  <!-- seo:start -->
+  <link rel="canonical" href="https://leafiaaa.github.io/en-xninja-new/th/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="en" href="https://leafiaaa.github.io/en-xninja-new/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="zh-Hant-TW" href="https://leafiaaa.github.io/en-xninja-new/tw/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="th" href="https://leafiaaa.github.io/en-xninja-new/th/articles/restrict-ai-answers-by-user-permissions/">
+  <link rel="alternate" hreflang="x-default" href="https://leafiaaa.github.io/en-xninja-new/articles/restrict-ai-answers-by-user-permissions/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="xNinja AI Workhub">
+  <meta property="og:title" content="วิธีจำกัดคำตอบของ AI ตามสิทธิ์ของผู้ใช้ – xNinja">
+  <meta property="og:description" content="คู่มือ AI สำหรับการจัดการความรู้: ทำให้ AI ใช้สิทธิ์เดียวกับเอกสาร ตอบจากข้อมูลที่ผู้ใช้มีสิทธิ์เข้าถึงเท่านั้น พร้อมวิธีตั้งกฎการเข้าถึง ตัวอย่าง และข้อผิดพลาดที่พบบ่อย">
+  <meta property="og:url" content="https://leafiaaa.github.io/en-xninja-new/th/articles/restrict-ai-answers-by-user-permissions/">
+  <meta property="og:image" content="https://leafiaaa.github.io/en-xninja-new/assets/img/common/og-image-th.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="th_TH">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "วิธีจำกัดคำตอบของ AI ตามสิทธิ์ของผู้ใช้",
+   "description": "คู่มือ AI สำหรับการจัดการความรู้: ทำให้ AI ใช้สิทธิ์เดียวกับเอกสาร ตอบจากข้อมูลที่ผู้ใช้มีสิทธิ์เข้าถึงเท่านั้น พร้อมวิธีตั้งกฎการเข้าถึง ตัวอย่าง และข้อผิดพลาดที่พบบ่อย",
+   "image": "https://leafiaaa.github.io/en-xninja-new/assets/img/common/og-image-th.jpg",
+   "inLanguage": "th",
+   "mainEntityOfPage": "https://leafiaaa.github.io/en-xninja-new/th/articles/restrict-ai-answers-by-user-permissions/",
+   "author": {
+    "@type": "Organization",
+    "name": "xNinja AI Workhub"
+   },
+   "publisher": {
+    "@id": "https://leafiaaa.github.io/en-xninja-new/#org"
+   },
+   "datePublished": "2026-11-27"
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "th",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "AI ใช้สิทธิ์โฟลเดอร์ที่เรามีอยู่แล้วได้หรือไม่",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ได้ หาก AI ค้นหาในนามของผู้ใช้ที่เข้าสู่ระบบ AI ควรตรวจสอบสิทธิ์ของผู้ใช้ทุกครั้ง และใช้เฉพาะเอกสารที่ผู้ใช้เปิดได้"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "แค่บอก AI ไม่ให้เปิดเผยข้อมูลอ่อนไหวเพียงพอหรือไม่",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ไม่เพียงพอ คำสั่งอาจถูกละเลยหรือหลบเลี่ยงได้ การป้องกันที่แท้จริงคือการจำกัดสิ่งที่ AI ค้นหาได้สำหรับผู้ใช้แต่ละคน"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "จะเกิดอะไรขึ้นเมื่อมีคนถามถึงข้อมูลที่ตนไม่มีสิทธิ์เข้าถึง",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI ควรแจ้งว่าไม่พบคำตอบและแนะนำผู้ที่ควรติดต่อ โดยไม่ยืนยันว่ามีเอกสารที่ถูกจำกัดอยู่"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ควรตรวจสอบสิทธิ์การเข้าถึงของ AI บ่อยแค่ไหน",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ควรทบทวนโฟลเดอร์ที่อ่อนไหวอย่างน้อยทุกไตรมาส และอัปเดตสิทธิ์ทันทีเมื่อมีคนเปลี่ยนตำแหน่งหรือลาออก"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ต้องติดป้ายเอกสารทุกฉบับก่อนใช้ AI หรือไม่",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ไม่จำเป็น เริ่มจากการกำหนดสิทธิ์ระดับโฟลเดอร์และปกป้องโฟลเดอร์ที่อ่อนไหวที่สุดก่อน แล้วค่อยเพิ่มรายละเอียดภายหลัง"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- seo:end -->
+  <link rel="icon" href="../../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/common/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../../assets/img/common/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/common/apple-touch-icon.png">
+  <link rel="preload" href="../../../assets/fonts/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../assets/css/base.css?v=20261124m">
+  <link rel="stylesheet" href="../../../assets/css/layout.css?v=20261124m">
+  <link rel="stylesheet" href="../../../assets/css/components.css?v=20261124m">
+  <link rel="stylesheet" href="../../../assets/css/pages/article.css?v=20261124m">
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="เมนูหลัก">
+      <a class="nav__logo" href="../../" aria-label="xNinja AI Workhub – หน้าแรก">
+        <img src="../../../assets/img/common/xninja-logo.svg" alt="xNinja | AI Workhub" width="308" height="35">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">เมนู</span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="../../about-us/">เกี่ยวกับเรา</a></li>
+          <li class="nav__item dropdown">
+            <button class="nav__link dropdown__btn" type="button" aria-expanded="false" aria-controls="skills-menu">
+              Skills <img src="../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+            </button>
+            <div class="dropdown__menu mega" id="skills-menu" hidden>
+              <p class="mega__head">Master Skills</p>
+              <ul class="mega__list">
+                <li><a class="mega__item" href="../../skills/xninja-business-process-management/">
+                  <span class="dropdown__icon dropdown__icon--bpm"><img src="../../../assets/img/home/bpm-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Business Process Management</span><span class="mega__desc">ออกแบบแบบฟอร์มอิเล็กทรอนิกส์และทำให้ขั้นตอนอนุมัติเป็นอัตโนมัติ</span></span>
+                </a></li>
+                <li><a class="mega__item" href="../../skills/xninja-knowledge-management/">
+                  <span class="dropdown__icon dropdown__icon--km"><img src="../../../assets/img/home/km-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">Knowledge Management</span><span class="mega__desc">ค้นหา สรุป และแบ่งปันองค์ความรู้ขององค์กร</span></span>
+                </a></li>
+                <li><span class="mega__item is-disabled" aria-disabled="true">
+                  <span class="dropdown__icon dropdown__icon--iso"><img src="../../../assets/img/home/iso-icon.svg" alt=""></span>
+                  <span class="mega__text"><span class="mega__title">ISO Management <span class="mega__soon">เร็ว ๆ นี้</span></span><span class="mega__desc">ให้องค์กรของคุณพร้อมรับการตรวจประเมินอยู่เสมอ</span></span>
+                </span></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="btn btn--nav" href="../../apply/">นัดหมายสาธิต</a></li>
+        </ul>
+        <div class="lang dropdown">
+          <button class="dropdown__btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+            TH <img src="../../../assets/img/common/chevron-down.svg" alt="" width="20" height="20">
+          </button>
+          <div class="dropdown__menu" id="lang-menu" hidden>
+            <a href="../../../articles/restrict-ai-answers-by-user-permissions/" lang="en" hreflang="en">English</a>
+            <a href="../../../tw/articles/restrict-ai-answers-by-user-permissions/" lang="zh-Hant-TW" hreflang="zh-Hant-TW">繁體中文</a>
+            <a href="./" lang="th" hreflang="th" aria-current="true">ไทย</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <img class="article__banner" src="../../../assets/img/articles/restrict-ai-banner.webp" alt="จำกัดคำตอบของ AI ตามสิทธิ์ของผู้ใช้ – คำตอบที่ถูกต้องสำหรับคนที่ใช่" width="2100" height="792">
+      <header class="article__header">
+        <h1 class="article__title">วิธีจำกัดคำตอบของ AI ตามสิทธิ์ของผู้ใช้</h1>
+        <p class="article__meta"><span class="article__chip">บทความเชิงลึก</span><span aria-hidden="true">•</span><time datetime="2026-11-27">27 พฤศจิกายน 2026</time><span aria-hidden="true">•</span><span>อ่าน 7 นาที</span></p>
+      </header>
+      <div class="article__body">
+        <div class="article__main">
+        <section class="prose" id="introduction">
+          <p>AI ช่วยให้ค้นหาความรู้ในองค์กรได้ง่ายขึ้น แต่ก็อาจทำให้ข้อมูลที่พนักงานบางคนไม่ควรเห็นถูกเปิดเผยออกมาได้ หากผู้ช่วย AI ค้นหานโยบาย HR สัญญา และรายงานการเงินได้ทั้งหมด คำถามง่าย ๆ เพียงข้อเดียวก็อาจทำให้ข้อมูลสำคัญไปถึงคนที่ไม่ควรรู้ <strong>ยิ่งเชื่อมต่อความรู้เข้ากับ AI มากเท่าไร การควบคุมสิทธิ์การเข้าถึงก็ยิ่งสำคัญมากขึ้นเท่านั้น</strong></p>
+          <p>ทางออกคือทำให้ AI ใช้สิทธิ์เดียวกับระบบจัดการความรู้ของคุณ ก่อนสร้างคำตอบ AI ควรตรวจสอบว่าผู้ใช้มีสิทธิ์เข้าถึงข้อมูลใดบ้าง และใช้เฉพาะข้อมูลนั้น บทความนี้อธิบาย<strong>วิธีการทำงานของ AI ที่ตอบตามสิทธิ์</strong> <strong>กฎการเข้าถึงที่ควรตั้งค่า</strong> และ<strong>วิธีดูแลให้สิทธิ์ถูกต้อง</strong>เมื่อทีมและเอกสารเปลี่ยนแปลง</p>
+          <div class="callout">
+            <p class="callout__title">คำตอบโดยสรุป</p>
+            <p class="callout__row"><strong>คำตอบของ AI ควรใช้สิทธิ์เดียวกับเอกสารของคุณ:</strong></p>
+            <ul class="check-list">
+            <li><strong>ค้นหาเฉพาะข้อมูลที่ได้รับอนุญาต</strong> AI ใช้เฉพาะสิ่งที่ผู้ถามเปิดดูได้</li>
+            <li><strong>ตรวจสอบสิทธิ์ก่อน</strong> ใช้สิทธิ์ก่อนที่จะเขียนคำตอบ</li>
+            <li><strong>แสดงแหล่งที่มา</strong> ทุกคำตอบระบุเอกสารที่ใช้อ้างอิง</li>
+            <li><strong>ไม่เปิดเผยไฟล์ที่ถูกจำกัด</strong> AI จะไม่บอกว่าไฟล์เหล่านั้นมีอยู่</li>
+          </ul>
+          </div>
+        </section>
+
+        <section class="prose" id="why-permissions" aria-labelledby="why-permissions-h">
+          <h2 id="why-permissions-h">ทำไม AI ต้องใช้สิทธิ์เดียวกับเอกสารของคุณ</h2>
+          <p>บริษัทส่วนใหญ่ควบคุมอยู่แล้วว่าใครเปิดโฟลเดอร์ใดได้บ้าง ไฟล์ HR ข้อมูลเงินเดือน สัญญา และรายงานของคณะกรรมการ มักจำกัดให้เห็นได้เพียงไม่กี่คน ผู้ช่วย AI เปลี่ยนวิธีเข้าถึงข้อมูลเหล่านี้ แทนที่จะเปิดไฟล์ พนักงานเพียงถามคำถาม แล้ว AI จะดึงคำตอบจากทุกสิ่งที่ค้นหาได้</p>
+          <p>หาก AI ค้นหาได้ทุกอย่าง ก็จะกลายเป็นทางลัดที่ข้ามกฎการเข้าถึงที่มีอยู่ คำถามอย่าง <strong>“ผู้จัดการฝ่ายขายคนล่าสุดที่เราจ้างได้เงินเดือนเท่าไร”</strong> อาจได้คำตอบเป็นข้อมูลเงินเดือนจากไฟล์ HR ที่พนักงานคนนั้นไม่มีสิทธิ์เปิด แม้แต่บทสรุปสั้น ๆ ก็อาจเปิดเผยมากเกินไป เพราะรายละเอียดที่อ่อนไหวอยู่ในคำตอบ ไม่ใช่ในไฟล์</p>
+        </section>
+
+        <section class="prose" id="how-it-works" aria-labelledby="how-it-works-h">
+          <h2 id="how-it-works-h">AI ที่ตอบตามสิทธิ์ทำงานอย่างไร</h2>
+          <p>ผู้ช่วย AI ที่คำนึงถึงสิทธิ์จะ<strong>ตรวจสอบสิทธิ์ก่อนตอบ ไม่ใช่หลังตอบ</strong> โดยทั่วไปมีขั้นตอนดังนี้</p>
+          <ul class="check-list">
+            <li><strong>ถาม</strong> พนักงานเข้าสู่ระบบและถามคำถาม</li>
+            <li><strong>ระบุตัวตน</strong> ระบบตรวจสอบตำแหน่ง แผนก และโปรเจกต์ของผู้ถาม</li>
+            <li><strong>ค้นหา</strong> AI ค้นหาเฉพาะในเอกสารและโฟลเดอร์ที่ผู้ถามเปิดได้</li>
+            <li><strong>ตอบ</strong> เขียนคำตอบจากแหล่งข้อมูลเหล่านั้น พร้อมแสดงเอกสารที่ใช้</li>
+            <li><strong>ไม่เปิดเผย</strong> หากคำตอบอยู่ในข้อมูลที่ถูกจำกัดเท่านั้น AI จะแจ้งว่าไม่พบข้อมูล โดยไม่บอกว่ามีเอกสารที่ถูกจำกัดอยู่</li>
+          </ul>
+          <figure><img src="../../../assets/img/articles/permission-check-flow.webp" alt="ขั้นตอนการตอบตามสิทธิ์: พนักงานถามคำถาม xNinja ตรวจสอบว่าใครเป็นผู้ถาม ค้นหาเฉพาะโฟลเดอร์ที่ผู้ถามเปิดได้ และตอบพร้อมแหล่งที่มา โดยข้ามโฟลเดอร์ที่ถูกจำกัดและไม่กล่าวถึง" width="1774" height="887" loading="lazy"></figure>
+        </section>
+
+        <section class="prose" id="access-rules" aria-labelledby="access-rules-h">
+          <h2 id="access-rules-h">ควรตั้งกฎการเข้าถึงอะไรบ้าง</h2>
+          <p>เริ่มจากโครงสร้างที่คุณมีอยู่แล้ว แล้วเพิ่มรายละเอียดเฉพาะจุดที่จำเป็น องค์กรส่วนใหญ่ใช้กฎสี่แบบร่วมกัน:</p>
+          <ul class="check-list">
+            <li><strong>ตำแหน่ง:</strong> ผู้จัดการ พนักงาน และผู้ดูแลระบบเห็นรายละเอียดในระดับที่ต่างกัน</li>
+            <li><strong>แผนก:</strong> HR การเงิน ฝ่ายขาย และฝ่ายผลิต ดูแลโฟลเดอร์ของตนเอง</li>
+            <li><strong>โปรเจกต์หรือสาขา:</strong> ทีมที่ดูแลลูกค้า ผลิตภัณฑ์ หรือโรงงานใดโรงงานหนึ่ง เข้าถึงเอกสารที่เกี่ยวข้องได้</li>
+            <li><strong>ระดับความลับ:</strong> กำหนดเอกสารเป็นสาธารณะ ภายใน ลับ หรือลับเฉพาะ และกำหนดว่าใครใช้แต่ละระดับได้</li>
+          </ul>
+          <figure><img src="../../../assets/img/articles/permission-matrix.webp" alt="ตัวอย่างตารางสิทธิ์: พนักงานทั้งหมด ฝ่ายขาย HR การเงิน และผู้บริหาร ใช้ข้อมูลระดับสาธารณะ ภายใน ลับ และลับเฉพาะได้ในขอบเขตที่ต่างกัน" width="1774" height="887" loading="lazy"></figure>
+          <p>ใช้กฎให้น้อยที่สุด การกำหนดสิทธิ์ระดับโฟลเดอร์จัดการได้ง่ายกว่าการกำหนดทีละไฟล์ และช่วยให้รู้ชัดว่าเอกสารใหม่ควรจัดเก็บไว้ที่ใด</p>
+        </section>
+
+        <section class="prose" id="example" aria-labelledby="example-h">
+          <h2 id="example-h">ตัวอย่าง: คำถามเดียวกัน คำตอบต่างกัน</h2>
+          <p>สมมติว่าพนักงานสองคนถามผู้ช่วย AI ด้วยคำถามเดียวกันว่า <strong>“นโยบายค่าล่วงเวลาสำหรับวิศวกรอาวุโสเป็นอย่างไร”</strong></p>
+          <p>ผู้จัดการ HR เข้าถึงได้ทั้งคู่มือพนักงานและแนวทางค่าตอบแทน คำตอบจึงมีทั้งนโยบายทั่วไปและอัตราค่าจ้างของแต่ละระดับ ส่วนหัวหน้างานฝ่ายผลิตเข้าถึงได้เฉพาะคู่มือพนักงาน คำตอบจึงอธิบายนโยบายทั่วไป และแนะนำให้ติดต่อ HR เพื่อสอบถามอัตราค่าจ้าง</p>
+          <figure><img src="../../../assets/img/articles/same-question-different-answers.webp" alt="คำถามเดียวกัน คำตอบต่างกัน: คำตอบของผู้จัดการ HR มีอัตราค่าจ้างตามระดับ ส่วนคำตอบของหัวหน้างานฝ่ายผลิตมีเฉพาะนโยบายจากคู่มือพนักงาน" width="1774" height="887" loading="lazy"></figure>
+          <p>ทั้งสองคำตอบถูกต้อง ไม่มีใครเห็นข้อมูลที่ตนเปิดดูไม่ได้ และไม่ต้องดูแลระบบ AI แยกสำหรับ HR</p>
+        </section>
+
+        <section class="prose" id="keep-accurate" aria-labelledby="keep-accurate-h">
+          <h2 id="keep-accurate-h">วิธีดูแลให้สิทธิ์ถูกต้องอยู่เสมอ</h2>
+          <p>กฎการเข้าถึงจะได้ผลก็ต่อเมื่อเป็นปัจจุบันอยู่เสมอ พนักงานเปลี่ยนตำแหน่ง โปรเจกต์จบลง และมีเอกสารใหม่เพิ่มเข้ามาทุกวัน</p>
+          <ul class="check-list">
+            <li><strong>ซิงค์กับรายชื่อพนักงาน:</strong> การเปลี่ยนตำแหน่งและแผนกจะมีผลโดยอัตโนมัติ</li>
+            <li><strong>ยกเลิกสิทธิ์ในวันสุดท้ายของการทำงาน:</strong> รวมถึงสิทธิ์ใช้ผู้ช่วย AI</li>
+            <li><strong>ใช้การสืบทอดสิทธิ์จากโฟลเดอร์:</strong> เอกสารใหม่ได้รับสิทธิ์ตามโฟลเดอร์ ไม่ต้องตั้งทีละไฟล์</li>
+            <li><strong>ตรวจสอบทุกไตรมาส:</strong> ทบทวนโฟลเดอร์ที่อ่อนไหวร่วมกับเจ้าของแต่ละแผนก</li>
+            <li><strong>เก็บบันทึก:</strong> บันทึกคำถามและแหล่งข้อมูลที่ใช้ เพื่อตรวจสอบได้ว่า AI แชร์อะไรไปบ้างหากมีข้อกังวล</li>
+          </ul>
+        </section>
+
+        <section class="prose" id="mistakes" aria-labelledby="mistakes-h">
+          <h2 id="mistakes-h">ข้อผิดพลาดที่พบบ่อย</h2>
+          <p><strong>เชื่อมต่อ AI ด้วยบัญชีผู้ดูแลระบบ</strong> AI จะเห็นทุกอย่าง และผู้ใช้ทุกคนก็เท่ากับได้สิทธิ์นั้นไปด้วย</p>
+          <p><strong>พึ่งพาเพียงคำสั่ง</strong> การบอก AI ว่า “ห้ามเปิดเผยข้อมูลเงินเดือน” ไม่ใช่การควบคุมสิทธิ์ หากข้อมูลยังค้นหาได้ ก็ยังอาจปรากฏในคำตอบ</p>
+          <p><strong>คัดลอกไฟล์ไปไว้ในโฟลเดอร์กลางให้ AI ใช้</strong> วิธีนี้ทำให้สิทธิ์เดิมหายไป และเหลือไฟล์ซ้ำที่ล้าสมัย</p>
+          <p><strong>ลืมเวอร์ชันเก่าและไฟล์แนบ</strong> ฉบับร่างก่อนหน้าและไฟล์แนบในอีเมลมักมีข้อมูลอ่อนไหวเหมือนกับฉบับจริง</p>
+        </section>
+
+        <section class="prose" id="how-xninja-helps" aria-labelledby="how-xninja-helps-h">
+          <h2 id="how-xninja-helps-h">xNinja ช่วยควบคุมคำตอบของ AI ได้อย่างไร</h2>
+          <p>xNinja.Knowledge Management ช่วยสร้าง รวบรวม และจัดการองค์ความรู้ขององค์กร พร้อมระบบควบคุมสิทธิ์การเข้าถึงในตัว:</p>
+          <ul class="check-list">
+            <li><strong>กำหนดสิทธิ์ตามประเภทขององค์ความรู้:</strong> ตั้งระดับการเข้าถึงให้แต่ละประเภท เพื่อปกป้ององค์ความรู้สำคัญขององค์กร</li>
+            <li><strong>ตอบจากแหล่งข้อมูลที่ได้รับอนุญาต:</strong> AI สร้างคำตอบจากแหล่งความรู้ที่แต่ละคนมีสิทธิ์เข้าถึง</li>
+            <li><strong>ค้นหา สรุป และแนะนำด้วย AI:</strong> พนักงานหาข้อมูลที่ต้องการได้เร็วขึ้น</li>
+            <li><strong>รวมความรู้ภายในไว้ที่เดียว:</strong> จัดเก็บ SOP คู่มือ แนวทาง และคำถามที่พบบ่อยไว้ด้วยกัน</li>
+          </ul>
+          <p>ดูข้อมูลเพิ่มเติมเกี่ยวกับ <a href="../../skills/xninja-knowledge-management/">xNinja.Knowledge Management</a></p>
+        </section>
+
+        <section class="prose" id="start" aria-labelledby="start-h">
+          <h2 id="start-h">เริ่มจากโฟลเดอร์ที่อ่อนไหวที่สุด</h2>
+          <p>ไม่จำเป็นต้องติดป้ายเอกสารทุกฉบับตั้งแต่วันแรก เริ่มจากโฟลเดอร์ที่เก็บข้อมูลเงินเดือน สัญญา และประวัติพนักงาน ยืนยันว่าใครควรเห็นข้อมูลเหล่านั้น แล้วจึงเชื่อมต่อ AI เมื่อกฎเหล่านี้พร้อมแล้ว</p>
+          <p><a href="../../apply/">นัดหมายสาธิต</a> เพื่อดูว่า <strong>xNinja</strong> ตอบคำถามตามสิทธิ์ของพนักงานแต่ละคนอย่างไร</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="สารบัญ">
+          <p class="toc__title">สารบัญ</p>
+          <ol>
+            <li><a href="#why-permissions">ทำไม AI ต้องใช้สิทธิ์เดียวกัน</a></li>
+            <li><a href="#how-it-works">AI ที่ตอบตามสิทธิ์ทำงานอย่างไร</a></li>
+            <li><a href="#access-rules">กฎการเข้าถึงที่ควรตั้งค่า</a></li>
+            <li><a href="#example">คำถามเดียวกัน คำตอบต่างกัน</a></li>
+            <li><a href="#keep-accurate">ดูแลให้สิทธิ์ถูกต้อง</a></li>
+            <li><a href="#mistakes">ข้อผิดพลาดที่พบบ่อย</a></li>
+            <li><a href="#how-xninja-helps">xNinja ช่วยได้อย่างไร</a></li>
+            <li><a href="#start">เริ่มจากโฟลเดอร์ที่อ่อนไหวที่สุด</a></li>
+          </ol>
+        </nav>
+      </div>
+    </article>
+
+    <section class="article-faq" aria-label="คำถามที่พบบ่อย">
+<div class="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="faq__title">คำถามที่พบบ่อย</h2>
+  <div class="faq__list">
+    <div class="faq__item is-open">
+      <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="art_rai-faq-a1" id="art_rai-faq-q1">AI ใช้สิทธิ์โฟลเดอร์ที่เรามีอยู่แล้วได้หรือไม่<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a1" role="region" aria-labelledby="art_rai-faq-q1"><p>ได้ หาก AI ค้นหาในนามของผู้ใช้ที่เข้าสู่ระบบ AI ควรตรวจสอบสิทธิ์ของผู้ใช้ทุกครั้ง และใช้เฉพาะเอกสารที่ผู้ใช้เปิดได้</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a2" id="art_rai-faq-q2">แค่บอก AI ไม่ให้เปิดเผยข้อมูลอ่อนไหวเพียงพอหรือไม่<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a2" role="region" aria-labelledby="art_rai-faq-q2" hidden><p>ไม่เพียงพอ คำสั่งอาจถูกละเลยหรือหลบเลี่ยงได้ การป้องกันที่แท้จริงคือการจำกัดสิ่งที่ AI ค้นหาได้สำหรับผู้ใช้แต่ละคน</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a3" id="art_rai-faq-q3">จะเกิดอะไรขึ้นเมื่อมีคนถามถึงข้อมูลที่ตนไม่มีสิทธิ์เข้าถึง<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a3" role="region" aria-labelledby="art_rai-faq-q3" hidden><p>AI ควรแจ้งว่าไม่พบคำตอบและแนะนำผู้ที่ควรติดต่อ โดยไม่ยืนยันว่ามีเอกสารที่ถูกจำกัดอยู่</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a4" id="art_rai-faq-q4">ควรตรวจสอบสิทธิ์การเข้าถึงของ AI บ่อยแค่ไหน<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a4" role="region" aria-labelledby="art_rai-faq-q4" hidden><p>ควรทบทวนโฟลเดอร์ที่อ่อนไหวอย่างน้อยทุกไตรมาส และอัปเดตสิทธิ์ทันทีเมื่อมีคนเปลี่ยนตำแหน่งหรือลาออก</p></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="art_rai-faq-a5" id="art_rai-faq-q5">ต้องติดป้ายเอกสารทุกฉบับก่อนใช้ AI หรือไม่<span class="faq__icon" aria-hidden="true"></span></button></h3>
+      <div class="faq__a" id="art_rai-faq-a5" role="region" aria-labelledby="art_rai-faq-q5" hidden><p>ไม่จำเป็น เริ่มจากการกำหนดสิทธิ์ระดับโฟลเดอร์และปกป้องโฟลเดอร์ที่อ่อนไหวที่สุดก่อน แล้วค่อยเพิ่มรายละเอียดภายหลัง</p></div>
+    </div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="footer__logo" href="../../"><img src="../../../assets/img/common/xninja-logo.svg" alt="xNinja | AI Workhub" width="308" height="35" loading="lazy"></a>
+      <nav class="footer__col" aria-label="Skills">
+        <p class="footer__head">Skills</p>
+        <a href="../../skills/xninja-business-process-management/">Business Process Management</a>
+        <a href="../../skills/xninja-knowledge-management/">Knowledge Management</a>
+      </nav>
+      <nav class="footer__col footer__col--company" aria-label="บริษัท">
+        <p class="footer__head">บริษัท</p>
+        <a href="../../about-us/">เกี่ยวกับเรา</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 xNinja by Hundred Plus Co., Ltd. สงวนลิขสิทธิ์ · Taiwan</p>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <p>5F., No.150, Sec. 1, Zhongxiao E. Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js?v=20261127a" defer></script>
+</body>
+</html>
